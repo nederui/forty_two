@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 20:28:21 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/07 23:39:48 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/08/10 13:03:13 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	rush04(char x, char y);
 
 int	main(void)
 {
-	rush04(x, y);
+	rush04(13, 9);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maining.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 18:15:07 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/07 21:10:32 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/08/10 15:34:58 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void    rushing();
 
-int main()
+int main(void)
 {
-    rushing(5, 5);
+    rushing(9, 5);
     return(0);
 }

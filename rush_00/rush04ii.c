@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   rush04ii.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 18:48:21 by carloda-          #+#    #+#             */
-/*   Updated: 2022/08/07 17:26:53 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/08/10 13:01:30 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 void ft_putcharii(char c)
         {
-            write(1, &c, 1)
+            write(1, &c, 1);
         }
 
 void rush04ii(char width, char lenght)
@@ -27,7 +27,7 @@ void rush04ii(char width, char lenght)
         } else{
             while(x > 0)
         {
-            void ft_putcharii();
+            ft_putcharii();
             if(x == width)
     {
         write(1, "A", 1);
