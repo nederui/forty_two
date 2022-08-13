@@ -1,39 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/09 21:11:31 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/10 20:42:34 by nfilipe-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void	ft_print_comb2(void)
+void	printnumb(int numb)
 {
-	char	a = 48;
-	char	b = a +1;
-	char	c = 48;
-//	char	d = c +1;
+	write(1, &numb, 1);
+}
 
-	while (c < 58)
+void	ft_print_comb2(int aa, int bb)
+{
+	aa = 0;
+	bb = aa +1;
+	while (aa < 99)
 	{
-		write(1, &a, 1);
-		write(1, &b, 1);
-		write(1, &c, 1);
-		if (a != 55)
+		printnumb ((aa / 10) + '0');
+		printnumb ((aa % 10) + '0');
+		printnumb (' ');
+		printnumb ((bb / 10) + '0');
+		printnumb ((bb % 10) + '0');
+		if (aa != 98)
 		{
 			write(1, ", ", 2);
 		}
-		c++;
-		if (c == 58)
+		bb++;
+		if (bb == 100)
 		{
-			c = b;
-			b++;
-			if (b == 57)
+			bb = aa;
+			aa++;
+			while (bb <= aa)
 			{
-				b = a;
-				a++;
-				while (b <= a)
-				{
-					b++;
-				}
+				bb++;
 			}
-			while (c <= b)
-			{
-				c++;
-			}	
 		}
 	}
 }

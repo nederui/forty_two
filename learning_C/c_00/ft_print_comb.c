@@ -6,13 +6,13 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 17:31:26 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/09 17:31:27 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/08/10 20:37:46 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	printnum(char a, char b, char c)
+void	printnumb(int a, int b, int c)
 {
 	write(1, &a, 1);
 	write(1, &b, 1);
@@ -23,11 +23,11 @@ void	printnum(char a, char b, char c)
 	}
 }
 
-void	incremental(char a, char b, char c)
+void	incremental(int a, int b, int c)
 {
 	while (c < 58)
 	{
-		printnum(a, b, c);
+		printnumb(a, b, c);
 		c++;
 		if (c == 58)
 		{

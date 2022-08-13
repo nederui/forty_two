@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 21:14:14 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/10 20:53:13 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/10 20:15:58 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/11 00:34:22 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	ft_putnbr(int nb);
-
-int	main(void)
+void ft_putnbr(nb)
 {
-	ft_putnbr(42);
-	return (0);
+    // negative numbers {-}
+    // zero (?)
+    // positive numbers {}
 }
