@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 21:14:14 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/11 18:56:58 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/12 16:03:34 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/12 16:31:16 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb2(int nb);
-
-int	main(void)
+void    ft_ultimate_ft(int *********nbr)
 {
-	ft_print_comb2(42);
-	return (0);
+    *********nbr = 42;
 }
