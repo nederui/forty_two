@@ -6,13 +6,13 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 16:03:34 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/12 16:31:16 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/08/13 20:51:48 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void    ft_ultimate_ft(int *********nbr)
+void	ft_ultimate_ft(int *********nbr)
 {
-    *********nbr = 42;
+	*********nbr = 42;
 }

@@ -6,16 +6,16 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:14:14 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/11 18:56:58 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/08/13 17:58:40 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb2(int nb);
+void	ft_putnbr(int nb);
 
 int	main(void)
 {
-	ft_print_comb2(42);
+	ft_putnbr(-2147483648);
 	return (0);
 }
