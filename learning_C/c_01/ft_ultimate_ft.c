@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com>    +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 16:03:34 by nfilipe-          #+#    #+#             */
 /*   Updated: 2022/08/13 20:51:48 by nfilipe-         ###   ########.fr       */

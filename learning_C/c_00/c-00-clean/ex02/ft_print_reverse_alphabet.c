@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com>    +#+  +:+       +#+       */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 16:03:34 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/13 20:20:35 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/14 03:31:03 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/14 03:31:04 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_print_reverse_alphabet(void)
 {
-	*nbr = 42;
+	char	l;
+
+	l = 122;
+	while (l > 96)
+	{
+		write(1, &l, 1);
+		l--;
+	}
 }

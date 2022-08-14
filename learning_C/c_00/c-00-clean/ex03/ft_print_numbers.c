@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com>    +#+  +:+       +#+       */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 16:03:34 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/13 20:20:35 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/14 03:30:57 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/14 03:32:31 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_print_numbers(void)
 {
-	*nbr = 42;
+	char	n;
+
+	n = 48;
+	while (n < 58)
+	{
+		write(1, &n, 1);
+		n++;
+	}
 }

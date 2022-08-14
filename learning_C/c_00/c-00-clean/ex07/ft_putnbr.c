@@ -43,13 +43,3 @@ void	ft_putnbr(int nb)
 		}
 	}
 }
-// recursive function - stacks
-// nb = -nb
-// -2147483648
-// /10 %10
-// 
-// negative numbers {-}
-	// zero (?)
-	// positive numbers {}
-	// 	-2,147,483,648 to +2,147,483,647
-	

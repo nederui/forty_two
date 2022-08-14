@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C01_mains.c                                        :+:      :+:    :+:   */
+/*   C00_mains.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,25 +12,19 @@
 
 #include <stdio.h>
 
-/*
+
 ////////////////////////////////////////////////////////////
 ex00////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-void	ft_ft(int *nbr);
+void	ft_putchar(char c)
 
 int	main(void)
 {
-	int	*nbr;
-	int	a;
-
-	a = 12;
-	nbr = &a;
-	ft_ft(nbr);
-	printf("%d\n", a);
+	ft_putchar('c');
 	return (0);
-}
+	}
 
 
 ////////////////////////////////////////////////////////////
@@ -38,32 +32,11 @@ ex01////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-void	ft_ultimate_ft(int *********nbr);
+void	ft_print_alphabet(void);
 
 int	main(void)
 {
-	int a;
-	int	*ptr;
-	int **ptr1;
-	int ***ptr2;
-	int ****ptr3;
-	int *****ptr4;
-	int ******ptr5;
-	int *******ptr6;
-	int ********ptr7;
-	int *********ptr8;
-
-	ptr8 = &ptr7;
-	ptr7 = &ptr6;
-	ptr6 = &ptr5;
-	ptr5 = &ptr4;
-	ptr4 = &ptr3;
-	ptr3 = &ptr2;
-	ptr2 = &ptr1;
-	ptr1 = &ptr;
-	ptr = &a;
-	ft_ultimate_ft(ptr8);
-	printf("%d\n", a);
+	ft_print_alphabet();
 	return (0);
 }
 
@@ -73,18 +46,11 @@ ex02////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-void	ft_swap(int	*a, int	*b);
+void	ft_print_reverse_alphabet(void);
 
-int	main(void)
+int	main()
 {
-	int	x;
-	int	y;
-
-	x = 3;
-	y = 7;
-	ft_swap(&x, &y);
-	printf("%d\n", x);
-	printf("%d\n", y);
+	ft_print_reverse_alphabet();
 	return (0);
 }
 
@@ -93,36 +59,26 @@ int	main(void)
 ex03////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
-*/
-void	ft_div_mod(int a, int b, int *div, int *mod);
+
+void	ft_print_numbers(void);
 
 int	main(void)
 {
-
-	ft_div_mod(43, 28, int *div, int *mod);
-	//printf("%d\n", &div);
-	//printf("%d\n", &mod);
+	ft_print_numbers();
 	return (0);
 }
 
-/*
+
 ////////////////////////////////////////////////////////////
 ex04////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-void	ft_swap(int	*a, int	*b);
+void	ft_is_negative(int n);
 
 int	main(void)
 {
-	int	x;
-	int	y;
-
-	x = 3;
-	y = 7;
-	ft_swap(&x, &y);
-	printf("%d\n", x);
-	printf("%d\n", y);
+	ft_is_negative(-585656);
 	return (0);
 }
 
@@ -132,20 +88,11 @@ ex05////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-void	ft_div_mod(int a, int b, int *div, int *mod);
+void	ft_print_comb(void);
 
-int	main()
+int	main(void)
 {
-
-	return (0);
-}
-
-
-void	ft_putstr(char *str);
-
-int	main()
-{
-	ft_putstr("asdasdasd as43453454wt4b 6uC");
+	ft_print_comb();
 	return (0);
 }
 
@@ -155,12 +102,11 @@ ex06////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-int	ft_strlen(char *str);
+void	ft_print_comb2(void);
 
 int	main(void)
 {
-	printf("%d", ft_strlen("caio j"));
-
+	ft_print_comb2();
 	return (0);
 }
 
@@ -170,11 +116,25 @@ ex07////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-void	 ft_rev_int_tab(int *tab, int size);
+void	ft_putnbr(int nb);
 
-int	main()
+int	main(void)
 {
-	ft_rev_int_tab(int *tab, int size);
+	ft_putnbr(-99999);
 	return (0);
 }
-*/
+
+
+////////////////////////////////////////////////////////////
+ex08////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+
+void	ft_print_combn(int n);
+
+int	main(void)
+{
+	ft_print_combn(int n);
+	return (0);
+}
+

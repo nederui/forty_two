@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com>    +#+  +:+       +#+       */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 16:03:34 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/13 20:20:35 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/14 03:31:10 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/14 03:31:11 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_putchar(char c)
 {
-	*nbr = 42;
+	write(1, &c, 1);
 }
