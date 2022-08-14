@@ -93,36 +93,48 @@ int	main(void)
 ex03////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
-*/
+
 void	ft_div_mod(int a, int b, int *div, int *mod);
 
 int	main(void)
 {
+	int	a;
+	int	b;
+	int	*div;
+	int	*mod;
 
-	ft_div_mod(43, 28, int *div, int *mod);
-	//printf("%d\n", &div);
-	//printf("%d\n", &mod);
+	a = 21;
+	b = 5;
+	div = &a;
+	mod = &b;
+	ft_div_mod(a, b, div, mod);
+	printf("%d\n", *div);
+	printf("%d\n", *mod);
 	return (0);
 }
 
-/*
+
 ////////////////////////////////////////////////////////////
 ex04////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-void	ft_swap(int	*a, int	*b);
+void	ft_ultimate_div_mod(int *a, int *b);
 
 int	main(void)
 {
+	int	*a;
+	int	*b;
 	int	x;
 	int	y;
 
-	x = 3;
-	y = 7;
-	ft_swap(&x, &y);
-	printf("%d\n", x);
-	printf("%d\n", y);
+	a = &x;
+	b = &y;
+	x = 21;
+	y = 5;
+	ft_ultimate_div_mod(&x, &y);
+	printf("%d\n", *a);
+	printf("%d\n", *b);
 	return (0);
 }
 
@@ -132,18 +144,9 @@ ex05////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-void	ft_div_mod(int a, int b, int *div, int *mod);
-
-int	main()
-{
-
-	return (0);
-}
-
-
 void	ft_putstr(char *str);
 
-int	main()
+int	main(void)
 {
 	ft_putstr("asdasdasd as43453454wt4b 6uC");
 	return (0);
@@ -153,7 +156,7 @@ int	main()
 ////////////////////////////////////////////////////////////
 ex06////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
-
+/*
 
 int	ft_strlen(char *str);
 
@@ -169,12 +172,16 @@ int	main(void)
 ex07////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
+*/
+void	ft_rev_int_tab(int *tab, int size);
 
-void	 ft_rev_int_tab(int *tab, int size);
-
-int	main()
+int	main(void)
 {
+	int	*tab;
+	int	size;
+
+	size = 5;
+
 	ft_rev_int_tab(int *tab, int size);
 	return (0);
 }
-*/

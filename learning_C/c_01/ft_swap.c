@@ -14,9 +14,9 @@
 
 void	ft_swap(int *a, int *b)
 {
-	int	treasure_chest;
+	int	pouch;
 
-	treasure_chest = *a;
+	pouch = *a;
 	*a = *b;
-	*b = treasure_chest;
+	*b = pouch;
 }
