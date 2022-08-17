@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 17:39:08 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/14 17:39:11 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/17 05:30:07 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/17 05:30:09 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_rev_int_tab(int *tab, int size)
+char	*ft_strlowcase(char *str)
 {
-    int pouch;
+	int	i;
 
-    while (size != 5)
-    {
-        pouch = *tab;
-        tab ++;
-    }
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] > 64 && str[i] < 91)
+		{
+			str[i] = (str[i] + 32);
+		}
+		i++;
+	}
+	return (str);
 }
-
-// Create a function which reverses a given array of integer (first goes last, etc)
-// The arguments are a pointer to int and the number of ints in the array.

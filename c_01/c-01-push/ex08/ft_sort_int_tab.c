@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 18:22:57 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/14 18:22:58 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/15 17:34:40 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/15 17:34:41 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+void	ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
+	int	pouch;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (i < size - 1)
 	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+		if (tab[i] > tab[i + 1])
+		{
+			pouch = tab[i];
+			tab[i] = tab[i + 1];
+			tab[i + 1] = pouch;
+			i = 0;
+		}
+		else
+			i++;
+	}	
 }

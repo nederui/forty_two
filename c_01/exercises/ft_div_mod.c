@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com>    +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 18:22:57 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/14 18:22:58 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/13 23:24:11 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/13 23:25:30 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
+	if (b > 0)
 	{
-		dest[i] = src[i];
-		i++;
+		*div = (a / b);
+		*mod = (a % b);
 	}
-	dest[i] = '\0';
-	return (dest);
 }
+
+// b > 0 is a must condition because, according to Math, 
+// one cannot divide a number by zero.

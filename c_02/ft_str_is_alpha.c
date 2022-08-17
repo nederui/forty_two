@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 18:22:57 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/14 18:22:58 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/16 21:43:26 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/16 21:43:29 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_alpha(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	if (str[i] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		while (str[i] != '\0')
+		{
+			if (str[i] < 65 || (str[i] > 90 && str[i] < 97) || str[i] > 122)
+				return (0);
+			i++;
+		}
+		return (1);
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (1);
 }

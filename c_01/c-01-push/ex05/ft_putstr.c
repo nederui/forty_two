@@ -1,56 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 17:31:26 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/10 20:37:46 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/14 00:22:58 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/14 00:23:00 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	printnumb(int a, int b, int c)
+void	ft_putchar(char a)
 {
 	write(1, &a, 1);
-	write(1, &b, 1);
-	write(1, &c, 1);
-	if (a != 55)
-	{
-		write(1, ", ", 2);
-	}
 }
 
-void	incremental(int a, int b, int c)
+void	ft_putstr(char *str)
 {
-	while (c < 58)
+	while (*str != '\0')
 	{
-		printnumb(a, b, c);
-		c++;
-		if (c == 58)
-		{
-			c = b;
-			b++;
-			if (b == 57)
-			{
-				b = a;
-				a++;
-				while (b <= a)
-				{
-					b++;
-				}
-			}
-			while (c <= b)
-			{
-				c++;
-			}	
-		}
+		ft_putchar(*str);
+		str++;
 	}
-}
-
-void	ft_print_comb(void)
-{
-	incremental(48, 49, 50);
 }

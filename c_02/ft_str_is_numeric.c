@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 18:22:57 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/14 18:22:58 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/17 02:47:00 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/17 02:47:02 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_numeric(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	if (str[i] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		while (str[i] != '\0')
+		{
+			if (str[i] < 48 || str[i] > 57)
+			{
+				return (0);
+			}
+			else
+				i++;
+		}
+		return (1);
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (1);
 }

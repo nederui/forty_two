@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-void	printnumb(int a, int b, int c)
+void	printer(int a, int b, int c)
 {
 	write(1, &a, 1);
 	write(1, &b, 1);
@@ -23,34 +23,28 @@ void	printnumb(int a, int b, int c)
 	}
 }
 
-void	incremental(int a, int b, int c)
+void	ft_print_comb(int a, int b, int c)
 {
+	a = 48;
+	b = 49;
+	c = 50;
 	while (c < 58)
 	{
-		printnumb(a, b, c);
+		printer(a, b, c);
 		c++;
 		if (c == 58)
 		{
-			c = b;
+			c = 0;
 			b++;
 			if (b == 57)
 			{
-				b = a;
+				b = 0;
 				a++;
 				while (b <= a)
-				{
 					b++;
-				}
 			}
 			while (c <= b)
-			{
 				c++;
-			}	
 		}
 	}
-}
-
-void	ft_print_comb(void)
-{
-	incremental(48, 49, 50);
 }
