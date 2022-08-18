@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 05:36:16 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/17 05:36:17 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/17 23:28:45 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/17 23:28:46 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcapitalize(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] > 47 && str[i] < 91) || str{i} > 96 && str[i] < 123)
-		{
-			
-		}
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 		i++;
-	}
-	return (str);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-
-Create a function that capitalizes the first letter of each word 
-and transforms all other letters to lowercase.
-
-•A word is a string of alphanumeric characters.
-

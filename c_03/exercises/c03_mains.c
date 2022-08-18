@@ -1,23 +1,24 @@
 
-#include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 ////////////////////////////////////////////////////////////
 //ex00//////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
-int		ft_strcmp(char *s1, char *s2);
+// int		ft_strcmp(char *s1, char *s2);
 
-int		main()
-{
-	char s1[] = "Giberish";
-	char s2[] = "Comparisson Test";
-	char s3[] = "Test";
+// int		main()
+// {
+// 	char s1[] = "0000";
+// 	char s2[] = "00001234";
+// 	char s3[] = "Test";
 
-	printf("s12: %d, s21: %d, s13: %d, s31: %d, s23: %d, s32: %d", ft_strcmp(s1, s2), ft_strcmp(s2, s1), ft_strcmp(s1, s3), ft_strcmp(s3, s1), ft_strcmp(s2, s3), ft_strcmp(s3, s2));
-	printf("\n\ns12: %d, s21: %d, s13: %d, s31: %d, s23: %d, s32: %d", strcmp(s1, s2), strcmp(s2, s1), strcmp(s1, s3), strcmp(s3, s1), strcmp(s2, s3), strcmp(s3, s2));
-}
+// 	printf("s12: %d, s21: %d, s13: %d, s31: %d, s23: %d, s32: %d", ft_strcmp(s1, s2), ft_strcmp(s2, s1), ft_strcmp(s1, s3), ft_strcmp(s3, s1), ft_strcmp(s2, s3), ft_strcmp(s3, s2));
+// 	printf("\n\ns12: %d, s21: %d, s13: %d, s31: %d, s23: %d, s32: %d", strcmp(s1, s2), strcmp(s2, s1), strcmp(s1, s3), strcmp(s3, s1), strcmp(s2, s3), strcmp(s3, s2));
+// }
 
 
 ////////////////////////////////////////////////////////////
@@ -171,4 +172,44 @@ int		main()
 // 	tamanho2 = strlcat(str1, str2, 0);
 // 	printf("String final: %s, Tamanho: %d", str0, tamanho1);
 // 	printf("\nString final: %s, Tamanho: %d", str1, tamanho2);
+// }
+
+
+
+
+
+/////////////////////////////////////////////////////////
+
+// int	ft_strcmp(char *s1, char *s2);
+
+// int	main(void)
+// {
+// 	char *s1;
+// 	char *s2;
+// 	char *s3;
+// 	char *s4;
+// 	char s5[] = {'a', 'b', 'c', -10, -20, '\0'};
+// 	char *s6;
+// 	char *s7;
+
+// 	s1 = calloc(10, sizeof(char));
+// 	s2 = calloc(8, sizeof(char));
+// 	s3 = calloc(10, sizeof(char));
+// 	s4 = calloc(10, sizeof(char));
+// 	s6 = calloc(10, sizeof(char));
+// 	s7 = calloc(1, sizeof(char));
+// 	s1 = "abcdefghi";
+// 	s2 = "abcdefg";
+// 	s3 = "abcdEfghi";
+// 	s4 = "ab0defghi";
+// 	s6 = "abcdefghi"; // s6 is the same of s1
+// 	s7 = "";
+// 	printf("s1: %s, s2: %s, s3: %s, s4: %s, s5: %s, s6: %s, s7: %s\n", s1, s2, s3, s4, s5, s6, s7);
+// 	printf("ft_strcmp(s1, s2)\t= %d\noriginal strcmp(s1, s2)\t= %d\n------------------------------\n", ft_strcmp(s1, s2), strcmp(s1, s2));
+// 	printf("ft_strcmp(s1, s3)\t= %d\noriginal strcmp(s1, s3)\t= %d\n------------------------------\n", ft_strcmp(s1, s3), strcmp(s1, s3));
+// 	printf("ft_strcmp(s1, s4)\t= %d\noriginal strcmp(s1, s4)\t= %d\n------------------------------\n", ft_strcmp(s1, s4), strcmp(s1, s4));
+// 	printf("ft_strcmp(s1, s5)\t= %d\noriginal strcmp(s1, s5)\t= %d\n------------------------------\n", ft_strcmp(s1, s5), strcmp(s1, s5));
+// 	printf("ft_strcmp(s1, s6)\t= %d\noriginal strcmp(s1, s6)\t= %d\n------------------------------\n", ft_strcmp(s1, s6), strcmp(s1, s6));
+// 	printf("ft_strcmp(s1, s7)\t= %d\noriginal strcmp(s1, s7)\t= %d\n------------------------------\n", ft_strcmp(s1, s7), strcmp(s1, s7));
+// 	return(0);
 // }

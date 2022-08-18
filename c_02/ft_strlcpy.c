@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 00:56:18 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/14 00:56:19 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/16 21:13:35 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/16 21:13:43 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	lenght;
 
 	i = 0;
-	while (str[i] != '\0')
+	lenght = 0;
+	while (size > 0 && src[i] != '\0' && i < (size - 1))
 	{
+		dest[i] = src[i];
 		i++;
 	}
-	return (i);
+	dest[i] = '\0';
+	while (dest[i])
+		i++;
+	while (src[lenght])
+		lenght++;
+	return (lenght);
 }

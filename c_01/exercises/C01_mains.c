@@ -170,7 +170,7 @@
 
 // int	main(void)
 // {
-// 	printf("%d", ft_strlen("kaio jotta, cara"));
+// 	printf("%d", ft_strlen("kaio"));
 
 // 	return (0);
 // }

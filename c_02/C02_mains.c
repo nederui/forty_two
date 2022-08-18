@@ -261,9 +261,9 @@ char	*ft_strcapitalize(char *str);
 
 int		main(void)
 {
-	char str1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	char str1[] = "^uIv#= =9Hf~2y@F3A)FTzBgF";
 	
-	char str2[] = " sALuT, ComMenT tu VAS ? 42Mots QUarante-deUX; cinQuantE+ET+un";
+	char str2[] = " tsR1|vn_WE}   7X6{Vm2vQf(rG}qdnT`1,qH+n";
 
 	char empty[] = "";
 
@@ -277,7 +277,7 @@ int		main(void)
 
 
 ////////////////////////////////////////////////////////////
-//ex09//////////////////////////////////////////////////////
+//ex10//////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
 
@@ -286,10 +286,10 @@ int		main(void)
 // int		main(void)
 // {
 // 	char src[] = "Source";
-// 	char dest[] = "";
+// 	char dest[] = "Destination";
 // 	unsigned int n;
 
-// 	n = 4;
+// 	n = 2;
 
 // 	printf("BEFORE\n\tsrc: %s\n\tdes: %s\n\tsize: %d\n", src, dest, n);
 
