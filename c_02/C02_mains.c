@@ -289,7 +289,7 @@ int		main(void)
 // 	char dest[] = "Destination";
 // 	unsigned int n;
 
-// 	n = 2;
+// 	n = 0;
 
 // 	printf("BEFORE\n\tsrc: %s\n\tdes: %s\n\tsize: %d\n", src, dest, n);
 

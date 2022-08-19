@@ -32,9 +32,11 @@
 // 	char s1[] = "Giberish";
 // 	char s2[] = "Comparisson Test";
 // 	char s3[] = "Test";
+// 	unsigned int n;
+// 	n = 0;
 
-// 	printf("s12: %d, s21: %d, s13: %d, s31: %d, s23: %d, s32: %d", ft_strncmp(s1, s2, 5), ft_strncmp(s2, s1, 5), ft_strncmp(s1, s3, 5), ft_strncmp(s3, s1, 5), ft_strncmp(s2, s3, 5), ft_strncmp(s3, s2, 5));
-// 	printf("\n\ns12: %d, s21: %d, s13: %d, s31: %d, s23: %d, s32: %d", strncmp(s1, s2, 5), strncmp(s2, s1, 5), strncmp(s1, s3, 5), strncmp(s3, s1, 5), strncmp(s2, s3, 5), strncmp(s3, s2, 5));
+// 	printf("s12: %d, s21: %d, s13: %d, s31: %d, s23: %d, s32: %d", ft_strncmp(s1, s2, n), ft_strncmp(s2, s1, n), ft_strncmp(s1, s3, n), ft_strncmp(s3, s1, n), ft_strncmp(s2, s3, n), ft_strncmp(s3, s2, n));
+// 	printf("\n\ns12: %d, s21: %d, s13: %d, s31: %d, s23: %d, s32: %d", strncmp(s1, s2, n), strncmp(s2, s1, n), strncmp(s1, s3, n), strncmp(s3, s1, n), strncmp(s2, s3, n), strncmp(s3, s2, n));
 // }
 
 
@@ -63,20 +65,20 @@
 ////////////////////////////////////////////////////////////
 
 
-// char *ft_strncat(char *dest, char *src, unsigned int nb);
+char *ft_strncat(char *dest, char *src, unsigned int nb);
 
-// int		main(void)
-// {
-// 	char dest[20] = "123";
-// 	char src[] = "4567890";
-// 	unsigned int nb = 8;
+int		main(void)
+{
+	char dest[20] = "123";
+	char src[] = "4567890";
+	unsigned int nb = 1;
 
-// 	printf("-----\ndest = %s\nsrc = %s\nnb = %d\n", dest, src, nb);
-// 	ft_strncat(dest, src, nb);
-// 	printf("result = %s\n-----\n", dest);
+	printf("-----\ndest = %s\nsrc = %s\nnb = %d\n", dest, src, nb);
+	ft_strncat(dest, src, nb);
+	printf("result = %s\n-----\n", dest);
 
-// 	return (0);
-// }
+	return (0);
+}
 
 
 ////////////////////////////////////////////////////////////

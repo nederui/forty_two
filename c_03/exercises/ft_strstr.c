@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 21:43:26 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/16 21:43:29 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/18 23:48:23 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/18 23:48:25 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] < 65 || str[i] > 122) || (str[i] > 90 && str[i] < 97))
-			return (0);
-		i++;
-	}
-	return (1);
+	
 }

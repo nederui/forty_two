@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 21:43:26 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/16 21:43:29 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/19 02:33:16 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/19 02:33:17 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+#include <unistd.h>
+
+int	main(int argc, char **argv)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (argc == 1 && argv[0][i] != '\0')
 	{
-		if ((str[i] < 65 || str[i] > 122) || (str[i] > 90 && str[i] < 97))
-			return (0);
+		write(1, &argv[0][i], 1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
+
+// return ?
+// return i?

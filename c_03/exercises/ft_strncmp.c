@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 21:43:26 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/16 21:43:29 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/18 18:53:38 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/18 18:53:40 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (n > 0)
 	{
-		if ((str[i] < 65 || str[i] > 122) || (str[i] > 90 && str[i] < 97))
-			return (0);
-		i++;
+		while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i] && i < n)
+			i++;
+		return ((unsigned)s1[i] - (unsigned)s2[i]);
 	}
-	return (1);
+	return (0);
 }
