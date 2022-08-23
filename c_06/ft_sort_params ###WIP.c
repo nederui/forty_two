@@ -14,37 +14,57 @@
 
 ft_putchar();
 
-int	main(int argc, char **argv)
+int	ft_strcmp(s1[i], s2[i])
 {
-	ft_strcmp();
+	while ((s1[i] == s2[i]) && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return ((int)(unsigned char)s1[i] - (int)(unsigned char)s2[i]);
 }
 
+void ft_swap(*a, *b)
+{
+	int	pouch;
+
+	pouch = *a;
+	*a = *b;
+	*b = pouch;
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+	int	n;
+	// int	arguments;
+	n = 1;
+	if (argc > 1)
+	{
+		while (n < argc)
+		{
+			if ((ft_strcmp(argv[n][i], argv[n + 1][i])) > 0)
+			{
+				ft_swap();
+			}
+			ft_str()
+			n++;
+		}
+	}
+	return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ft_sort_int_tab();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 int	main(int argc, char **argv)
 {
