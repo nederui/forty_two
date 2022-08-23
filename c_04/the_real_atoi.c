@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   the_real_atoi.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 23:28:45 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/17 23:28:46 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/22 22:34:58 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/22 22:34:59 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-int	ft_strcmp(char *s1, char *s2)
+int	the_real_atoi(const char	*str)
 {
 	int	i;
+	int	sign;
+	int	integer;
 
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+	integer = 0;
+	sign = 1;
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
 		i++;
-	return ((int)(unsigned char)s1[i] - (int)(unsigned char)s2[i]);
+	if (str[i] == 43 || str[i] == 45)
+	{
+		if (str[i] == 45)
+			sign = -sign;
+		i++;
+	}
+	while (str[i] > 47 && str[i] < 58)
+	{
+		integer = integer * 10 + (str[i] - 48);
+		i++;
+	}
+	return (integer * sign);
+}
+
+int	main(void)
+{
+	const char	strn[] = "  ---+--+1234ab567";
+	printf("%i", the_real_atoi(strn));
+	return (0);
 }

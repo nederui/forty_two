@@ -12,5 +12,28 @@
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	
+	int	i_needle;
+	int	i_haystack;
+
+	i_needle = 0;
+	i_haystack = 0;
+	if (to_find[0] == '\0')
+		return (str);
+	while (str[i_haystack] != '\0')
+	{
+		if (str[i_haystack] == to_find[i_needle])
+		{
+			while (to_find[i_needle] != '\0'
+				& str[i_haystack] == to_find[i_needle])
+			{
+				i_haystack++;
+				i_needle++;
+			}
+		}
+		if (to_find[i_needle] == '\0')
+			return (&str[i_haystack - i_needle]);
+		i_haystack++;
+		i_needle = 0;
+	}
+	return (0);
 }

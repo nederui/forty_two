@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 18:53:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/18 18:53:40 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/17 05:13:21 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/17 05:13:23 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strupcase(char *str)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	if (n <= 0)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i] && i < (n - 1))
+	while (str[i] != '\0')
+	{
+		if (str[i] > 96 && str[i] < 123)
+		{
+			str[i] = (str[i] - 32);
+		}
 		i++;
-	return ((int)(unsigned char)s1[i] - (int)(unsigned char)s2[i]);
+	}
+	return (str);
 }

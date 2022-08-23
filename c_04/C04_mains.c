@@ -6,19 +6,19 @@
 ////////////////////////////////////////////////////////////
 
 
-int		ft_strlen(char *str);
+// int		ft_strlen(char *str);
 
-int		main (void)
-{
-	char str[] = "Halloo";
-	char *p_str;
+// int		main (void)
+// {
+// 	char str[] = "Halloo";
+// 	char *p_str;
 
-	p_str = str;
+// 	p_str = str;
 
-	int count = ft_strlen(p_str);
+// 	int count = ft_strlen(p_str);
 	
-	printf("%d\n", count );
-}
+// 	printf("%d\n", count );
+// }
 
 
 ////////////////////////////////////////////////////////////
@@ -81,29 +81,29 @@ int		main (void)
 ////////////////////////////////////////////////////////////
 
 
-// void	ft_putnbr_base(int nbr, char *base);
+void	ft_putnbr_base(int nbr, char *base);
 
-// int main(void)
-// {
-// 	char base[] = "point.";
-// 	unsigned long c;
+int main(void)
+{
+	char base[] = "10";
+	unsigned long c;
 
-// 	c = 0;
-// 	while (c < (sizeof(base) - 1))
-// 	{
-// 		ft_putnbr_base(c, base);
-// 		c++;
-// 	}
-// 	c = 0;
-// 	while (c < (sizeof(base) - 1))
-// 	{
-// 		ft_putnbr_base(c, base);
-// 		c++;
-// 	}
-// 	printf("\n");
-// 	ft_putnbr_base(-1, base);
-// 	printf("\n");
-// }
+	c = 0;
+	while (c < (sizeof(base) - 1))
+	{
+		ft_putnbr_base(c, base);
+		c++;
+	}
+	c = 0;
+	while (c < (sizeof(base) - 1))
+	{
+		ft_putnbr_base(c, base);
+		c++;
+	}
+	printf("\n");
+	ft_putnbr_base(-1, base);
+	printf("\n");
+}
 
 
 ////////////////////////////////////////////////////////////
