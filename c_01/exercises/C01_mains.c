@@ -20,19 +20,19 @@
 ////////////////////////////////////////////////////////////
 
 
-// void	ft_ft(int *nbr);
+void	ft_ft(int *nbr);
 
-// int	main(void)
-// {
-// 	int	*nbr;
-// 	int	a;
+int	main(void)
+{
+	int	*nbr;
+	int	a;
 
-// 	a = 12;
-// 	nbr = &a;
-// 	ft_ft(nbr);
-// 	printf("%d\n", a);
-// 	return (0);
-// }
+	a = 12;
+	nbr = &a;
+	ft_ft(nbr);
+	printf("%d\n", a);
+	return (0);
+}
 
 
 ////////////////////////////////////////////////////////////
@@ -148,11 +148,11 @@
 
 // void	ft_putstr(char *str);
 
-// int	main(void)
-// {
-// 	ft_putstr("ola avaliador");
-// 	return (0);
-// }
+// // int	main(void)
+// // {
+// // 	ft_putstr("ola avaliador");
+// // 	return (0);
+// // }
 
 
 // int	main(void)

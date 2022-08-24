@@ -11,7 +11,7 @@
 // int		main(void)
 // {
 // 	char source[] = "Source string.";
-// 	char destin[] = "Destination string.";
+// 	char destin[] = "";
 // 	char *dest;
 
 // 	printf("BEFORE\n\tsrc: %s\n\tdes: %s\n", source, destin);
@@ -32,17 +32,16 @@
 
 // int		main(void)
 // {
-// 	char src[] = "Source string.";
+// 	char src[] = "";
 // 	char dest[] = "string.";
 // 	unsigned int n;
 
 // 	n = 2;
 
 // 	printf("BEFORE\n\tsrc: %s\n\tdes: %s\n", src, dest);
-
-//     ft_strncpy(dest, src, n);
-
+//     ftstrncpy(dest, src, n);
 // 	printf("AFTER\n\tsrc: %s\n\tdes: %s\n", src, dest);
+
 // 	return (0);
 // }
 
@@ -257,23 +256,23 @@
 ////////////////////////////////////////////////////////////
 
 
-char	*ft_strcapitalize(char *str);
+// char	*ft_strcapitalize(char *str);
 
-int		main(void)
-{
-	char str1[] = "^uIv#= =9Hf~2y@F3A)FTzBgF";
+// int		main(void)
+// {
+// 	char str1[] = "^uIv#= =9Hf~2y@F3A)FTzBgF";
 	
-	char str2[] = " tsR1|vn_WE}   7X6{Vm2vQf(rG}qdnT`1,qH+n";
+// 	char str2[] = " tsR1|vn_WE}   7X6{Vm2vQf(rG}qdnT`1,qH+n";
 
-	char empty[] = "";
+// 	char empty[] = "";
 
-	printf("\n-----\nBEF = %s", str1);
-	printf("\nAFT = %s\n", ft_strcapitalize(str1));
-	printf("\nBEF = %s", str2);
-	printf("\nAFt = %s\n", ft_strcapitalize(str2));
-	printf("\nEmpty = %s\n-----\n", ft_strcapitalize(empty));
+// 	printf("\n-----\nBEF = %s", str1);
+// 	printf("\nAFT = %s\n", ft_strcapitalize(str1));
+// 	printf("\nBEF = %s", str2);
+// 	printf("\nAFt = %s\n", ft_strcapitalize(str2));
+// 	printf("\nEmpty = %s\n-----\n", ft_strcapitalize(empty));
 
-}
+// }
 
 
 ////////////////////////////////////////////////////////////
