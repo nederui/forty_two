@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   the_real_atoi.c                                    :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 22:34:58 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/22 22:34:59 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/18 21:28:06 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/18 21:28:07 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	the_real_atoi(const char	*str)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	sign;
-	int	integer;
+	unsigned int	i_src;
+	unsigned int	i_dest;
 
-	i = 0;
-	integer = 0;
-	sign = 1;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
-		i++;
-	if (str[i] == 43 || str[i] == 45)
+	i_src = 0;
+	i_dest = 0;
+	if (nb > 0)
 	{
-		if (str[i] == 45)
-			sign = -sign;
-		i++;
+		while (dest[i_dest] != '\0')
+			i_dest++;
+		while (src[i_src] != '\0' && i_src < nb)
+		{
+			dest[i_dest + i_src] = src[i_src];
+			i_src++;
+		}
+		dest[i_dest + i_src] = '\0';
+		return (dest);
 	}
-	while (str[i] > 47 && str[i] < 58)
-	{
-		integer = integer * 10 + (str[i] - 48);
-		i++;
-	}
-	return (integer * sign);
+	return (dest);
 }

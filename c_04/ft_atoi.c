@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -36,17 +33,4 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (integer * sign);
-}
-
-// int	main(void)
-// {
-// 	const char	strn[] = "  ---+--+1234ab567";
-// 	printf("%i", atoi(strn));
-// 	return (0);
-// }
-
-int		main(void)
-{
-	printf("%d\n", ft_atoi("      	---+--+2147--+-ab567"));
-
 }

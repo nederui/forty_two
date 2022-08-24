@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   the_real_atoi.c                                    :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 22:34:58 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/22 22:34:59 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/18 18:53:38 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/18 18:53:40 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	the_real_atoi(const char	*str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
-	int	sign;
-	int	integer;
+	unsigned int	i;
 
 	i = 0;
-	integer = 0;
-	sign = 1;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
+	if (n <= 0)
+		return (0);
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i] && i < (n - 1))
 		i++;
-	if (str[i] == 43 || str[i] == 45)
-	{
-		if (str[i] == 45)
-			sign = -sign;
-		i++;
-	}
-	while (str[i] > 47 && str[i] < 58)
-	{
-		integer = integer * 10 + (str[i] - 48);
-		i++;
-	}
-	return (integer * sign);
+	return ((int)(unsigned char)s1[i] - (int)(unsigned char)s2[i]);
 }

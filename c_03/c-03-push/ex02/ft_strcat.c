@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   the_real_atoi.c                                    :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 22:34:58 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/22 22:34:59 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/18 20:00:22 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/18 20:00:23 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	the_real_atoi(const char	*str)
+char	*ft_strcat(char *dest, char *src)
 {
-	int	i;
-	int	sign;
-	int	integer;
+	int	i_src;
+	int	i_dest;
 
-	i = 0;
-	integer = 0;
-	sign = 1;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
-		i++;
-	if (str[i] == 43 || str[i] == 45)
+	i_src = 0;
+	i_dest = 0;
+	while (dest[i_dest] != '\0')
+		i_dest++;
+	while (src[i_src] != '\0')
 	{
-		if (str[i] == 45)
-			sign = -sign;
-		i++;
+		dest[i_dest + i_src] = src[i_src];
+		i_src++;
 	}
-	while (str[i] > 47 && str[i] < 58)
-	{
-		integer = integer * 10 + (str[i] - 48);
-		i++;
-	}
-	return (integer * sign);
+	dest[i_dest + i_src] = '\0';
+	return (dest);
 }
