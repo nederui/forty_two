@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 02:33:16 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/19 02:33:17 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/25 01:15:26 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/25 01:15:27 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-int	main(int argc, char **argv)
+int	ft_fibonacci(int index)
 {
-	int	i;
+	if (index == 0)
+		return (0);
+	if (index < 0)
+		return (-1);
+	if (index == 1)
+		return (1);
+	else
+		return (ft_fibonacci(index - 2) + ft_fibonacci(index - 1));
+}
 
-	i = 0;
-	while (argc >= 0 && argv[0][i])
-	{
-		write(1, &argv[0][i], 1);
-		i++;
-	}
-	write(1, "\n", 1);
+int	main(void)
+{
+	printf("%d", ft_fibonacci(39));
 	return (0);
 }

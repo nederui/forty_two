@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 02:33:16 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/19 02:33:17 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/08/22 01:18:49 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/08/22 01:18:50 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	main(int argc, char **argv)
+int	ft_atoi(const char *str)
 {
 	int	i;
+	int	sign;
+	int	integer;
 
 	i = 0;
-	while (argc >= 0 && argv[0][i])
+	integer = 0;
+	sign = 1;
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
+		i++;
+	while (str[i] == 43 || str[i] == 45)
 	{
-		write(1, &argv[0][i], 1);
+		if (str[i] == 45)
+			sign = -sign;
 		i++;
 	}
-	write(1, "\n", 1);
-	return (0);
+	while (str[i] > 47 && str[i] < 58)
+	{
+		integer = integer * 10 + (str[i] - 48);
+		i++;
+	}
+	return (integer * sign);
 }
