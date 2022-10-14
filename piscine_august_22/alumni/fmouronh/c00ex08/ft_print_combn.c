@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void ft_putnbr(int nb)
+void ft_putnbr_fd(int nb)
 {
 	int snb = nb;
 	int nbr = snb;
@@ -71,7 +71,7 @@ void ft_print_combn(int n)
 	i = 0;
 	while(i < n)
 	{
-		ft_putnbr(comb[i]);
+		ft_putnbr_fd(comb[i]);
 		i++;
 	}
 
@@ -111,7 +111,7 @@ void ft_print_combn(int n)
 		i = 0;
 		while(i < n)
 		{
-			ft_putnbr(comb[i]);
+			ft_putnbr_fd(comb[i]);
 			i++;
 		}
 

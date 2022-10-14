@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void	ft_putnbr(int nb)
+void	ft_putnbr_fd(int nb)
 {
 	int	snb;
 	int	nbr;
@@ -70,7 +70,7 @@ void	ft_print_combn(int n)
 	i = 0;
 	while (i < n)
 	{
-		ft_putnbr(comb[i]);
+		ft_putnbr_fd(comb[i]);
 		i++;
 	}
 	done = 0;
@@ -102,7 +102,7 @@ void	ft_print_combn(int n)
 		i = 0;
 		while (i < n)
 		{
-			ft_putnbr(comb[i]);
+			ft_putnbr_fd(comb[i]);
 			i++;
 		}
 		if (comb[n -1] == 9)

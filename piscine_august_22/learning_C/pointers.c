@@ -6,16 +6,16 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:14:14 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/08/10 21:58:22 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:34:29 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr(int nb);
+void	ft_putnbr_fd(int nb);
 
 int	main(void)
 {
-	ft_putnbr();
+	ft_putnbr_fd();
 	return (0);
 }
