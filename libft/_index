@@ -1,4 +1,4 @@
-TOTAL: 34 (done 27)
+TOTAL: 34 (done 28)
 
 • isalpha				• 
 • isdigit				• 
@@ -12,9 +12,9 @@ TOTAL: 34 (done 27)
 • memset				• 
 • bzero					• Writes n zeroed bytes to the string s. If n is zero, bzero() does nothing.
 • memcpy				• 
-• memmove		?		• 
+• memmove				• ##SHOULD BE WORKING - main() still in the file
 • strlcpy				• 
-• strlcat		?		• 
+• strlcat				• 
 • toupper				• 
 • tolower				• 
 • strchr				• 
@@ -27,8 +27,8 @@ TOTAL: 34 (done 27)
 
 /* ************************************************************************** */
 
-• calloc		X		• 
-• strdup		?		• 
+• calloc				• 
+• strdup				• ##SHOULD BE WORKING - main() still in the file
 
 • ft_substr		X		• Allocates (with malloc(3)) and returns a substring from the string 's'.
 						The substring begins at index 'start' and is of maximum size 'len'.
