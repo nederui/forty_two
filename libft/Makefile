@@ -1,56 +1,49 @@
-NAME="libft.a"
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/30 14:36:20 by nfilipe-          #+#    #+#              #
+#    Updated: 2022/10/30 17:38:16 by nfilipe-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-$(NAME)
-
-clean
-
-fclean
-
-re
-
-all
-
-cc -Wall -Wextra -Werror
-
--O2
-
-
-SOURCES	=	radix.c\
-			moves/rotate.c\
-			moves/r_rotate.c\
-			moves/swap.c\
-			moves/push.c\
-			attributter.c\
-			special_cases.c\
-			gen_ver.c\
-			my_atoi.c\
-			push_swap.c 
-	
+SOURCES	=	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c	ft_isprint.c \
+			ft_memchr.c	ft_memcmp.c	ft_memcpy.c ft_memmove.c ft_memset.c \
+			ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c \
+			ft_strnstr.c ft_strrchr.c \
+			ft_bzero.c ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c \
+			ft_strdup.c ft_calloc.c ft_strtrim.c ft_substr.c ft_strjoin.c \
+			ft_split.c ft_strmapi.c ft_striteri.c \
+			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 			
 
-NAME 	=	push_swap
+BONUS	=
+			
+NAME 	=	libft.a
 OBJECTS	=	$(SOURCES:.c=.o)
-GCCW	=	@gcc -Wall -Wextra -Werror -Ifiles/ft_utils/ -I./ -g -fsanitize=address
+BONUS.O	=
+GCCW	=	gcc	-Wall -Wextra -Werror -I.
 
-
-%.o:		%.c
-			$(GCCW) -c $^ -o $@
+.c.o:
+	$(GCCW) -c $< -o $(<:.c=.o)
 
 all:		$(NAME)
 
-$(NAME): 	$(SOURCES)
-			$(GCCW) $^ -o $@ 
-			@clear && echo "\033[1;32m  ___  __   _  _  ____  __  __    ____  ____ \n / __)/  \ ( \/ )(  _ \(  )(  )  (  __)(    \ \n( (__(  O )/ \/ \ ) __/ )( / (_/\ ) _)  ) D (\n \___)\__/ \_)(_/(__)  (__)\____/(____)(____/"
-clean:		
-			@clear && echo "\033[1;33m  ___  __    ____   __   __ _  ____  ____ \n / __)(  )  (  __) / _\ (  ( \(  __)(    \ \n( (__ / (_/\ ) _) /    \/    / ) _)  ) D (\n \___)\____/(____)\_/\_/\_)__)(____)(____/"
-			@rm -f $(OBJECTS)
+$(NAME):	$(OBJECTS)
+			ar rcs $(NAME) $(OBJECTS)
 
-fclean:		
-			@clear && echo "\033[1;31m ____  ___  __    ____   __   __ _  ____  ____ \n(  __)/ __)(  )  (  __) / _\ (  ( \(  __)(    \ \n ) _)( (__ / (_/\ ) _) /    \/    / ) _)  ) D (\n(__)  \___)\____/(____)\_/\_/\_)__)(____)(____/"
-			@rm -f $(OBJECTS)
-			@rm -f $(NAME)
+bonus:		$(NAME) $(BONUS.O)
+			ar -rcs $(NAME) $(BONUS.O)
+
+clean:		
+			rm -f $(OBJECTS) $(BONUS.O)
+
+fclean:		clean
+			rm -f $(NAME)
 
 re:			fclean $(NAME)
-			@clear && echo "\033[1;31m ____  ___  __    ____   __   __ _  ____  ____ \n(  __)/ __)(  )  (  __) / _\ (  ( \(  __)(    \ \n ) _)( (__ / (_/\ ) _) /    \/    / ) _)  ) D (\n(__)  \___)\____/(____)\_/\_/\_)__)(____)(____/\n\n\n\033[1;32m  ___  __   _  _  ____  __  __    ____  ____ \n / __)/  \ ( \/ )(  _ \(  )(  )  (  __)(    \ \n( (__(  O )/ \/ \ ) __/ )( / (_/\ ) _)  ) D (\n \___)\__/ \_)(_/(__)  (__)\____/(____)(____/"
 
 .PHONY:	all clean fclean re

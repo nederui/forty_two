@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/30 14:16:29 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/10/30 21:19:12 by nfilipe-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdio.h>
 #include "libft.h"
@@ -17,37 +29,37 @@ char	*ft_strdup(const char *s1)
 
 
 
-int	main(void)
-{
-	char	*str;
-	char	*str_copy;
+// int	main(void)
+// {
+// 	char	*str;
+// 	char	*str_copy;
 
-	str = "Test string.";
-	str_copy = ft_strdup(str);
-	if (strcmp(str, str_copy) != 0)
-		printf("KO, string is not the same.\n");
-	else
-		printf("OK.\n");
-	free(str_copy);
-	str = "";
-	str_copy = ft_strdup(str);
-	if (strcmp(str, str_copy) != 0)
-		printf("KO, string is not the same.\n");
-	else
-		printf("OK.\n");
-	free(str_copy);
-	str = "gado";
-	str_copy = ft_strdup(str);
-	if (strcmp(str, str_copy) != 0)
-		printf("KO, string is not the same.\n");
-	else
-		printf("OK.\n\n\n");
-	printf("%d\n", str_copy[ft_strlen(str_copy)]);
-	printf("%s\n", str_copy);
-	free(str_copy);
-	printf("%s\n", str_copy);
-	return (0);
-}
+// 	str = "Test string.";
+// 	str_copy = ft_strdup(str);
+// 	if (strcmp(str, str_copy) != 0)
+// 		printf("KO, string is not the same.\n");
+// 	else
+// 		printf("OK.\n");
+// 	free(str_copy);
+// 	str = "";
+// 	str_copy = ft_strdup(str);
+// 	if (strcmp(str, str_copy) != 0)
+// 		printf("KO, string is not the same.\n");
+// 	else
+// 		printf("OK.\n");
+// 	free(str_copy);
+// 	str = "gado";
+// 	str_copy = ft_strdup(str);
+// 	if (strcmp(str, str_copy) != 0)
+// 		printf("KO, string is not the same.\n");
+// 	else
+// 		printf("OK.\n\n\n");
+// 	printf("%d\n", str_copy[ft_strlen(str_copy)]);
+// 	printf("%s\n", str_copy);
+// 	free(str_copy);
+// 	printf("%s\n", str_copy);
+// 	return (0);
+// }
 
 
 
