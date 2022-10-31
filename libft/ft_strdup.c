@@ -6,12 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:16:29 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/30 21:19:12 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/10/31 01:50:02 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)
@@ -26,8 +25,6 @@ char	*ft_strdup(const char *s1)
 	array[len_s1] = '\0';
 	return (array);
 }
-
-
 
 // int	main(void)
 // {
@@ -60,7 +57,6 @@ char	*ft_strdup(const char *s1)
 // 	printf("%s\n", str_copy);
 // 	return (0);
 // }
-
 
 
 // char *

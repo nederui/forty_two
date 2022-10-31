@@ -6,12 +6,10 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:12:55 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/30 20:59:50 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/10/31 01:55:39 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
@@ -41,19 +39,19 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 • to be safe.
 */
 
-int	main(void)
-{
-	int	source[] = {1,2,3,4,5};
-	int	destination[] = {1,2,3,4,5};
+// int	main(void)
+// {
+// 	int	source[] = {1,2,3,4,5};
+// 	int	destination[] = {1,2,3,4,5};
 
-	ft_memmove(source, source+2, sizeof(int) * 2);
-	memmove(destination, destination+2, sizeof(int) * 2);
+// 	ft_memmove(source, source+2, sizeof(int) * 2);
+// 	memmove(destination, destination+2, sizeof(int) * 2);
 
-	for (int i = 0; i < 5; i++)
-		printf("ft_memmove[%d]: %d\n", i, source[i]); 
-	for (int i = 0; i < 5; i++)
-		printf("memmove[%d]: %d\n", i, destination[i]);
-		// printf("ft_memcpy: %s\n", ft_memcpy(source+2, source, sizeof(char) * 8)); 
-		// printf("memcpy: %s\n", memcpy(source+2, source, sizeof(char) * 8));
-	return 0;
-}
+// 	for (int i = 0; i < 5; i++)
+// 		printf("ft_memmove[%d]: %d\n", i, source[i]); 
+// 	for (int i = 0; i < 5; i++)
+// 		printf("memmove[%d]: %d\n", i, destination[i]);
+// printf("ft_memcpy: %s\n", ft_memcpy(source+2, source, sizeof(char) * 8)); 
+// printf("memcpy: %s\n", memcpy(source+2, source, sizeof(char) * 8));
+// 	return 0;
+// }

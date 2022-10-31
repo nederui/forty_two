@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:13:14 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/30 14:13:26 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/10/31 01:57:17 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 /*
 • the original memset() writes 'n' bytes of value 'c' (converted to an

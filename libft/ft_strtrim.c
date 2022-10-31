@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:20:19 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/30 14:20:29 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/10/31 01:49:03 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[i] == set[len_set])
 		i--;
 		len_set--;
-	return(ft_substr(s1, 0, i + 1));
+	return (ft_substr(s1, 0, i + 1));
 }
 
-
-
-Allocates (with malloc(3)) and returns a copy of
-'s1' with the characters specified in 'set' removed
-from the beginning and the end of the string.
+// Allocates (with malloc(3)) and returns a copy of
+// 's1' with the characters specified in 'set' removed
+// from the beginning and the end of the string.
