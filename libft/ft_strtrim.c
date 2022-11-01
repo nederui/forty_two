@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 14:20:19 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/31 01:49:03 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/10/30 14:20:37 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/10/31 14:09:49 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,14 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
-	size_t	len_set;
 
 	if (!s1 || !set)
 		return (0);
-	while (s1 == set)
+	while (*s1 && ft_strchr(set, *s1))
 		s1++;
-	i = ft_strlen(s1) - 1;
-	len_set = ft_strlen(set) - 1;
-	while (s1[i] == set[len_set])
+	i = ft_strlen(s1);
+	while (i && ft_strchr(set, s1[i]))
 		i--;
-		len_set--;
 	return (ft_substr(s1, 0, i + 1));
 }
 

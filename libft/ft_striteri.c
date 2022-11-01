@@ -6,9 +6,13 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:17:22 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/30 14:59:02 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/10/31 16:14:57 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+#include <stdlib.h>
+#include <string.h>
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {

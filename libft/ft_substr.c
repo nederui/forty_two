@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:21:59 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/31 01:45:05 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/10/31 03:26:42 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substr;
 	size_t	len_s;
 
-	len_s = ft_strlen(s[start]);
+	len_s = ft_strlen(s + start);
 	if (len_s > len)
 		len_s = len;
 	substr = (char *) malloc(len_s + 1);
 	if (substr)
-		ft_memcpy(substr, s[start], len);
+		ft_memcpy(substr, s + start, len);
 	substr[len_s] = '\0';
 	return (substr);
 }

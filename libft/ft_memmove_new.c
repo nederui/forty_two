@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memmove_new.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:12:55 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/01 02:51:01 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/01 03:48:56 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,14 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
+	char	*tmp;
 
-	if (dst > src)
-	{
-		if (!src)
-			return (0);
-		i = len;
-		while (i-- > 0)
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		return (dst);
-	}
-	else
-		ft_memcpy(dst, src, len);
+	tmp = (char *)malloc(sizeof(char) * len);
+	if (tmp == NULL)
+		return (NULL);
+	ft_memcpy(tmp, src, len);
+	ft_memcpy(dst, tmp, len);
+	free(tmp);
 	return (dst);
 }
 

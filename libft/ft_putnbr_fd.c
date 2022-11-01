@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:15:33 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/30 19:13:17 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/01 03:00:47 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n < 0)
+	if (n == -2147483648)
+			ft_putstr_fd("-2147483648", fd);
+	else if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		if (n == -2147483648)
-		{
-			ft_putchar_fd('2', fd);
-			n = -147483648;
-		}
-		n = -n;
-		ft_putnbr_fd(n, fd);
+		ft_putnbr_fd(-n, fd);
 	}
 	else if (n > 9)
 	{

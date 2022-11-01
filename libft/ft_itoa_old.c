@@ -6,34 +6,79 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:41:24 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/01 03:05:36 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:22:58 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-char		*ft_itoa(int n)
-{
-	char	*str;
+// static char	*ft_strrev(char *string)
+// {
+// 	size_t	i;
+// 	size_t	len_string;
+// 	char	pouch;
 
-	if (!(str = (char *)malloc(sizeof(char) * 2)))
-		return (NULL);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+// 	i = 0;
+// 	if (string[i] == '-')
+// 		i++;
+// 	len_string = ft_strlen(string) - 1;
+// 	while (i < len_string)
+// 	{
+// 		pouch = string[len_string];
+// 		string[len_string] = string[i];
+// 		string[i] = pouch;
+// 		i++;
+// 		len_string--;
+// 	}
+// 	return (string);
+// }
+
+static int	nbr_of_digits(int n)
+{
+	int	digits;
+
+	digits = 0;
 	if (n < 0)
 	{
-		str[0] = '-';
-		str[1] = '\0';
-		str = ft_strjoin(str, ft_itoa(-n));
-	}else if (n > 9)
-		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
-	else if (n < 10 && n >= 0)
-	{
-		str[0] = n + '0';
-		str[1] = '\0';
+		n = -n;
+		digits++;
 	}
-	return (str);
+	while (n > 0)
+	{
+		n = n / 10;
+		digits++;
+	}
+	return (digits);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*string;
+	int		i;
+	int		digits;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	digits = nbr_of_digits(n);
+	i = digits;
+	string = (char *) malloc(digits + 1);
+	if (!string)
+		return (NULL);
+	if (n < 0)
+	{
+		n = -n;
+		string[0] = '-';
+	}
+	while (n > 0)
+	{
+		string[--i] = n % 10 + 48;
+		n = n / 10;
+	}
+	string[digits] = '\0';
+	return (string);
 }
 
 // Parameters		n: the integer to convert.
