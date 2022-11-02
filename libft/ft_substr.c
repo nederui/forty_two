@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:21:59 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/31 03:26:42 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/01 20:11:07 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
-	size_t	len_s;
 
-	len_s = ft_strlen(s + start);
-	if (len_s > len)
-		len_s = len;
-	substr = (char *) malloc(len_s + 1);
+	if (start >= ft_strlen(s))
+	{
+		substr = malloc(sizeof(char));
+		if (!substr)
+			return (0);
+		substr[0] = '\0';
+		return (substr);
+	}
+	substr = (char *) malloc(len + 1);
 	if (substr)
 		ft_memcpy(substr, s + start, len);
-	substr[len_s] = '\0';
+	substr[len] = '\0';
 	return (substr);
 }
 
@@ -40,3 +44,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 //                 The substring begins at index ’start’ and is of
 //                 maximum size ’len’.
+
+// int		main(void)
+// {
+// 	char	str[] = "lorem ipsum dolor sit amet";
+
+// 	char	*sub = ft_substr(str, 22, 8);
+
+// 	for (int i = 0; i < 8; i++)
+// 		printf("sub[%d]: %s\n", i, &sub[i]); 	
+// 	// printf("%s", ft_substr(str, 22, 8));
+// }

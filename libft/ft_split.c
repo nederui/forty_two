@@ -6,12 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:40:51 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/01 16:39:02 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/01 23:23:26 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
 
 static char	*ft_strncpy(char *dest, char *src, size_t n)
 {
@@ -31,7 +30,7 @@ static char	*ft_strncpy(char *dest, char *src, size_t n)
 	return (dest);
 }
 
-static int			ft_cntwrd(char const *s, char c)
+static int	ft_cntwrd(char const *s, char c)
 {
 	unsigned int	i;
 	int				cntr;
@@ -50,7 +49,7 @@ static int			ft_cntwrd(char const *s, char c)
 	return (cntr);
 }
 
-static char			*ft_strndup(const char *s, size_t n)
+static char	*ft_strndup(const char *s, size_t n)
 {	
 	char			*str;
 
@@ -62,7 +61,7 @@ static char			*ft_strndup(const char *s, size_t n)
 	return (str);
 }
 
-char				**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int				i;
 	int				j;
@@ -86,6 +85,7 @@ char				**ft_split(char const *s, char c)
 			tab[k] = ft_strndup(s + j, i - j);
 			k++;
 		}
+		
 	}
 	tab[k] = NULL;
 	return (tab);

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:40:51 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/01 03:51:14 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/01 23:04:51 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 char **split(char *string, char *separators, int *count)
 {
-	int	i;
-	int	j;
-	int	len;
-	int	old_i;
+	int		i;
+	int		j;
+	int		len;
+	int		old_i;
 	char	buffer[16384];
-	int	string_index;
+	int		string_index;
 
 	len = strlen(string);
 	i = 0;
@@ -30,14 +30,14 @@ char **split(char *string, char *separators, int *count)
 		while (i < len)
 		{
 			if (strchr(separators, string[i]) == NULL)
-				break;
+				break ;
 			i++;
 		}
 		old_i = i;
 		while (i < len)
 		{
 			if (strchr(separators, string[i]) != NULL)
-				break;
+				break ;
 			i++;
 		}
 		if (i > old_i)
@@ -50,14 +50,14 @@ char **split(char *string, char *separators, int *count)
 		while (i < len)
 		{
 			if (strchr(separators, string[i]) == NULL)
-				break;
+				break ;
 			i++;
 		}
 		j = 0;
 		while (i < len)
 		{
 			if (strchr(separators, string[i]) != NULL)
-				break;
+				break ;
 			buffer[j] = string[i];
 			i++;
 			j++;
@@ -65,7 +65,6 @@ char **split(char *string, char *separators, int *count)
 		if (j > 0)
 		{	
 			buffer[j] = '\0';
-			
 			int	to_allocate = sizeof(char) * (strlen(buffer) + 1);
 
 			strings[string_index] = malloc(to_allocate);
@@ -78,7 +77,7 @@ char **split(char *string, char *separators, int *count)
 	if (strings)
 		return (strings);
 	else
-		return(0);
+		return (0);
 }
 
 int main(void)

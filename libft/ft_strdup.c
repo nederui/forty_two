@@ -6,11 +6,10 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:16:29 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/31 01:50:02 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/01 20:01:58 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)
@@ -26,47 +25,17 @@ char	*ft_strdup(const char *s1)
 	return (array);
 }
 
-// int	main(void)
-// {
-// 	char	*str;
-// 	char	*str_copy;
-
-// 	str = "Test string.";
-// 	str_copy = ft_strdup(str);
-// 	if (strcmp(str, str_copy) != 0)
-// 		printf("KO, string is not the same.\n");
-// 	else
-// 		printf("OK.\n");
-// 	free(str_copy);
-// 	str = "";
-// 	str_copy = ft_strdup(str);
-// 	if (strcmp(str, str_copy) != 0)
-// 		printf("KO, string is not the same.\n");
-// 	else
-// 		printf("OK.\n");
-// 	free(str_copy);
-// 	str = "gado";
-// 	str_copy = ft_strdup(str);
-// 	if (strcmp(str, str_copy) != 0)
-// 		printf("KO, string is not the same.\n");
-// 	else
-// 		printf("OK.\n\n\n");
-// 	printf("%d\n", str_copy[ft_strlen(str_copy)]);
-// 	printf("%s\n", str_copy);
-// 	free(str_copy);
-// 	printf("%s\n", str_copy);
-// 	return (0);
-// }
-
-
 // char *
 // strndup(const char *s1, size_t n);
 
 // DESCRIPTION
-// The strdup() function allocates sufficient memory for a copy of the string s1, does the copy, and returns a pointer to it.  The pointer may subsequently be used as an argument to
+// The strdup() function allocates sufficient memory for a copy of
+// the string s1, does the copy, and returns a pointer to it. 
+// The pointer may subsequently be used as an argument to
 // the function free(3).
 
-// If insufficient memory is available, NULL is returned and errno is set to ENOMEM.
+// If insufficient memory is available,
+// NULL is returned and errno is set to ENOMEM.
 
-// The strndup() function copies at most n characters from the string s1 always NUL terminating the copied string.
-
+// The strndup() function copies at most n characters from the string s1
+// always NUL terminating the copied string.

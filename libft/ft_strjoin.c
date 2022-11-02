@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:17:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/31 15:54:56 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:19:38 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*string;
+	char		*string;
 	size_t		i;
 	size_t		i_s2;
 
