@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 14:36:20 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/11/02 00:45:35 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/11/02 02:17:27 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ BONUS	=
 NAME 	=	libft.a
 OBJECTS	=	$(SOURCES:.c=.o)
 BONUS.O	=
-GCCW	=	clang	-Wall -Wextra -Werror -I.
+GCCW	=	gcc	-Wall -Wextra -Werror -I.
 
 .c.o:
 	$(GCCW) -c $< -o $(<:.c=.o)

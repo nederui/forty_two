@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:12:55 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/01 02:51:01 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/02 02:06:14 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (dst > src)
 	{
-		if (!src)
-			return (0);
 		i = len;
 		while (i-- > 0)
 			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];

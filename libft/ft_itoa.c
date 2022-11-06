@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:41:24 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/02 00:02:56 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/02 02:24:45 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_itoa(int n)
 	if (string)
 	{	
 		if (n == -2147483648)
-			return ("-2147483648");
+			return (ft_strdup("-2147483648"));
 		else if (n < 0)
 		{
 			string[0] = '-';
@@ -49,9 +49,8 @@ char	*ft_itoa(int n)
 // 				representing0 the integer received as an argument.
 // 				Negative numbers must be handled.
 
-int	main(void)
-{
-	printf("%s\n", ft_itoa(-1));
-	free(ft_itoa(-1));
-	return (0);
-}
+// int	main(void)
+// {
+// 	printf("%s\n", ft_itoa(-2147483648LL));
+// 	return (0);
+// }

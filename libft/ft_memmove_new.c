@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:12:55 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/01 03:48:56 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/02 02:01:37 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*tmp;
+	char	*buffer;
 
-	tmp = (char *)malloc(sizeof(char) * len);
-	if (tmp == NULL)
+	buffer = (char *)malloc(len);
+	if (buffer == NULL)
 		return (NULL);
-	ft_memcpy(tmp, src, len);
-	ft_memcpy(dst, tmp, len);
-	free(tmp);
+	ft_memcpy(buffer, src, len);
+	ft_memcpy(dst, buffer, len);
+	free(buffer);
 	return (dst);
 }
 
