@@ -6,101 +6,205 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:40:51 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/01 16:26:10 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/02 02:46:40 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-size_t	nbr_of_splits(char const *s, char c)
+static char	*ft_strncpy(char *dest, char *src, size_t n)
 {
 	size_t	i;
-	size_t	i_2;
-	size_t	len;
-	size_t	splits;
-	
+
 	i = 0;
-	splits = 0;
-	len = ft_strlen(s);
-	while (i < len)
+	while (src[i] != '\0' && i < n)
 	{
-		while (i < len)
-		{
-			if (ft_strchr(&s[i], c) == NULL)
-				break;
-			i++;
-		}
-		i_2 = i;		
-		while (i < len)
-		{
-			if (ft_strchr(&s[i], c) != NULL)
-				break;
-			i++;
-		}
-		if (i > i_2)
-			splits++;;
+		dest[i] = src[i];
+		i++;
 	}
-	return (splits);
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
 
-
-char **ft_split(char const *s, char c)
+static int	ft_cntwrd(char const *s, char c)
 {
-	size_t	i;
-	size_t	i_2;
-	size_t	i_3;
-	size_t	len;
-	size_t	splits;
-	char **splitted;
-	char	buffer[16384];
-	size_t	to_allocate;
-	
+	unsigned int	i;
+	int				cntr;
+
 	i = 0;
-	i_2 = 0;
-	i_3 = 0;
-	len = ft_strlen(s);
-	splits = nbr_of_splits(s, c);
-	splitted = malloc(sizeof(char *) * splits);
-	to_allocate = sizeof(char) * (ft_strlen(buffer) + 1);
-	while (i < len)
+	cntr = 0;
+	while (s[i])
 	{
-		while (i < len)
-		{
-			if (ft_strchr(&s[i], c) == NULL)
-				break;
+		while (s[i] == c)
 			i++;
-		}
-		while (i < len)
-		{
-			if (ft_strchr(&s[i], c) != NULL)
-				break;
-			buffer[i_2] = s[i];
+		if (s[i] != '\0')
+			cntr++;
+		while (s[i] && (s[i] != c))
 			i++;
-			i_2++;
-		}
-		if (i_2 > 0)
-		{
-			buffer[i_2] = '\0';
-			splitted[i_3] = malloc(to_allocate);
-			splitted[i_3] = ft_strdup(buffer);
-			i_3++;
-		}
 	}
-	return (splitted);
+	return (cntr);
 }
 
-int main(void)
+static char	*ft_strndup(const char *s, size_t n)
+{	
+	char			*str;
+
+	str = (char *)malloc(sizeof(char) * n + 1);
+	if (str == NULL)
+		return (NULL);
+	str = ft_strncpy(str, (char *)s, n);
+	str[n] = '\0';
+	return (str);
+}
+
+char	**ft_split(char const *s, char c)
 {
-	char s[] = "To, be, or, not, to be, that, is, the, question.";
-	char **split_strings = ft_split(s, ',');
+	int				i;
+	int				j;
+	int				k;
+	char			**tab;
 
-	for (int i = 0; i < 3; i++)
-		printf("%s\n", split_strings[i]);
-	for (int i = 0; i < 3; i++)
-		free(split_strings[i]);
-	
-	free(split_strings);
-	
-	return (0);
+	i = 0;
+	k = 0;
+	tab = (char **)malloc(sizeof(char *) * (ft_cntwrd(s, c)) + 1);
+	if (tab == NULL)
+		return (NULL);
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		j = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > j)
+		{
+			tab[k] = ft_strndup(s + j, i - j);
+			k++;
+		}
+		
+	}
+	tab[k] = NULL;
+	return (tab);
 }
+
+
+// int main(void)
+// {
+// 	char s[] = "To be, or not to be, that is the question.";
+// 	char **split_strings = ft_split(s, ' ');
+
+// 	for (int i = 0; i < 10; i++)
+// 		printf("%s\n", split_strings[i]);
+// 	for (int i = 0; i < 10; i++)
+// 		free(split_strings[i]);
+	
+// 	free(split_strings);
+	
+// 	return (0);
+// }
+
+
+// void	ft_print_result(char const *s)
+// {
+// 	int		len;
+
+// 	len = 0;
+// 	while (s[len])
+// 		len++;
+// 	write(1, s, len);
+// }
+
+// int		main(int argc, const char *argv[])
+// {
+// 	char	**tabstr;
+// 	int		i;
+// 	int		arg;
+
+// 	alarm(5);
+// 	if (argc == 1)
+// 		return (0);
+// 	i = 0;
+// 	if ((arg = atoi(argv[1])) == 1)
+// 	{
+// 		if (!(tabstr = ft_split("          ", ' ')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 2)
+// 	{
+// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 3)
+// 	{
+// 		if (!(tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 4)
+// 	{
+// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 5)
+// 	{
+// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 6)
+// 	{
+// 		if (!(tabstr = ft_split("", 'z')))
+// 			ft_print_result("NULL");
+// 		else
+// 			if (!tabstr[0])
+// 				ft_print_result("ok\n");
+// 	}
+// 	return (0);
+// }

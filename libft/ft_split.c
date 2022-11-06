@@ -5,206 +5,113 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 14:40:51 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/02 02:46:40 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/11/06 19:02:05 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/06 21:27:28 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strncpy(char *dest, char *src, size_t n)
+static size_t	nbr_of_splits(char const *s, char c)
+{
+	size_t	i;
+	size_t	splits;
+
+	i = 0;
+	splits = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
+		{
+			while (s[i] && s[i] != c)
+				i++;
+			splits++;
+		}
+	}
+	return (splits);
+}
+
+static char	*ft_spacejump(char *s, char c)
 {
 	size_t	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
-	{
-		dest[i] = src[i];
+	while (s[i] && s[i] == c)
 		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	s = s + i;
+	return (s);
 }
 
-static int	ft_cntwrd(char const *s, char c)
+static char	**ft_malloc_check(char **splitted)
 {
-	unsigned int	i;
-	int				cntr;
+	size_t	i;
 
 	i = 0;
-	cntr = 0;
-	while (s[i])
+	if (!splitted)
 	{
-		while (s[i] == c)
+		while (splitted[i] != NULL)
+		{
+			free(splitted[i]);
 			i++;
-		if (s[i] != '\0')
-			cntr++;
-		while (s[i] && (s[i] != c))
-			i++;
+		}
+		free(splitted);
 	}
-	return (cntr);
-}
-
-static char	*ft_strndup(const char *s, size_t n)
-{	
-	char			*str;
-
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
-		return (NULL);
-	str = ft_strncpy(str, (char *)s, n);
-	str[n] = '\0';
-	return (str);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int				i;
-	int				j;
-	int				k;
-	char			**tab;
+	size_t	i;
+	size_t	index_s;
+	size_t	splits;
+	char	**splitted;
 
 	i = 0;
-	k = 0;
-	tab = (char **)malloc(sizeof(char *) * (ft_cntwrd(s, c)) + 1);
-	if (tab == NULL)
+	splits = nbr_of_splits(s, c);
+	splitted = (char **) malloc (sizeof(char *) * (splits + 1));
+	if (!splitted)
 		return (NULL);
-	while (s[i])
+	while (i < splits)
 	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > j)
-		{
-			tab[k] = ft_strndup(s + j, i - j);
-			k++;
-		}
-		
+		index_s = 0;
+		s = ft_spacejump((char *)s, c);
+		while (((char *)s)[index_s] && ((char *)s)[index_s] != c)
+			index_s++;
+		splitted[i] = ft_substr(s, 0, index_s);
+		i++;
+		ft_malloc_check(splitted + i);
+		s = s + index_s;
 	}
-	tab[k] = NULL;
-	return (tab);
+	splitted[i] = NULL;
+	return (splitted);
 }
 
+// 
+// Parameters	s: The string to be split.
+// 				c: The delimiter character.
+// plitted = (char **) malloc(sizeof(char *) * splits + 1;
+// Return value	The array of new strings resulting from the split.
+// 				NULL if the allocation fails.
+// 
+// External ft:	malloc, free
+// 
+// Description	Allocates (with malloc(3)) and returns an array
+// 				of strings obtained by splitting ’s’ using the
+// 				character ’c’ as a delimiter. The array must end
+// 				with a NULL pointer.
+//
 
 // int main(void)
 // {
-// 	char s[] = "To be, or not to be, that is the question.";
+// 	char s[] = "  To be or not to   be that  is the question ";
 // 	char **split_strings = ft_split(s, ' ');
 
-// 	for (int i = 0; i < 10; i++)
+// 	for (int i = 0; i < 9; i++)
 // 		printf("%s\n", split_strings[i]);
-// 	for (int i = 0; i < 10; i++)
+// 	for (int i = 0; i < 9; i++)
 // 		free(split_strings[i]);
-	
 // 	free(split_strings);
-	
-// 	return (0);
-// }
-
-
-// void	ft_print_result(char const *s)
-// {
-// 	int		len;
-
-// 	len = 0;
-// 	while (s[len])
-// 		len++;
-// 	write(1, s, len);
-// }
-
-// int		main(int argc, const char *argv[])
-// {
-// 	char	**tabstr;
-// 	int		i;
-// 	int		arg;
-
-// 	alarm(5);
-// 	if (argc == 1)
-// 		return (0);
-// 	i = 0;
-// 	if ((arg = atoi(argv[1])) == 1)
-// 	{
-// 		if (!(tabstr = ft_split("          ", ' ')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 2)
-// 	{
-// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 3)
-// 	{
-// 		if (!(tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 4)
-// 	{
-// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 5)
-// 	{
-// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 6)
-// 	{
-// 		if (!(tabstr = ft_split("", 'z')))
-// 			ft_print_result("NULL");
-// 		else
-// 			if (!tabstr[0])
-// 				ft_print_result("ok\n");
-// 	}
 // 	return (0);
 // }

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:16:29 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/01 20:01:58 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/06 19:14:09 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char	*array;
+	char	*string;
 	size_t	len_s1;
 
 	len_s1 = ft_strlen((char *)s1);
-	array = (char *) malloc(len_s1 + 1);
-	if (array)
-		ft_memcpy(array, s1, len_s1);
-	array[len_s1] = '\0';
-	return (array);
+	string = (char *) malloc(len_s1 + 1);
+	if (string)
+		ft_memcpy(string, s1, len_s1);
+	string[len_s1] = '\0';
+	return (string);
 }
 
 // char *
