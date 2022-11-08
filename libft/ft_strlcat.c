@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:18:01 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/30 14:18:15 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/07 05:47:57 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 	size_t	len_dst;
 
+	if (!dstsize)
+		return (0);
 	i = 0;
 	len_dst = ft_strlen(dst);
 	if (dstsize <= len_dst)

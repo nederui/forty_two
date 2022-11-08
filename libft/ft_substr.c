@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:21:59 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/01 20:11:07 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/08 04:23:19 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
 
+	if (!s || len == 0)
+		return (NULL);
 	if (start >= ft_strlen(s))
 	{
 		substr = malloc(sizeof(char));
-		if (!substr)
-			return (0);
-		substr[0] = '\0';
+		if (substr)
+			substr[0] = '\0';
 		return (substr);
 	}
 	substr = (char *) malloc(len + 1);
 	if (substr)
+	{
 		ft_memcpy(substr, s + start, len);
-	substr[len] = '\0';
+		substr[len] = '\0';
+	}
 	return (substr);
 }
 

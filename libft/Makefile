@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 14:36:20 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/11/02 02:17:27 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/11/07 23:57:59 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,11 @@ SOURCES	=	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c	ft_isprint.c \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 			
 
-BONUS	=
+BONUS	=	ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c
 			
 NAME 	=	libft.a
 OBJECTS	=	$(SOURCES:.c=.o)
-BONUS.O	=
+BONUS.O	=	$(BONUS:.c=.o)
 GCCW	=	gcc	-Wall -Wextra -Werror -I.
 
 .c.o:
@@ -47,3 +47,8 @@ fclean:		clean
 re:			fclean $(NAME)
 
 .PHONY:	all clean fclean re
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SOURCES)
+	gcc -nostartfiles -shared -o libft.so $(OBJECTS)
+
