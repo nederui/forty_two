@@ -1,40 +1,83 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_HC.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:41:24 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/06 20:59:27 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/07 22:15:29 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+// static char	*ft_strrev(char *string)
+// {
+// 	size_t	i;
+// 	size_t	len_string;
+// 	char	pouch;
+
+// 	i = 0;
+// 	if (string[i] == '-')
+// 		i++;
+// 	len_string = ft_strlen(string) - 1;
+// 	while (i < len_string)
+// 	{
+// 		pouch = string[len_string];
+// 		string[len_string] = string[i];
+// 		string[i] = pouch;
+// 		i++;#include <stdio.h>
+// 		len_string--;
+// 	}
+// 	return (string);
+// }
+
+static int	nbr_of_digits(int n)
+{
+	int	digits;
+
+	digits = 0;
+	if (n < 0)
+	{
+		n = -n;
+		digits++;
+	}
+	while (n > 0)
+	{
+		n = n / 10;
+		digits++;
+	}
+	return (digits);
+}
 
 char	*ft_itoa(int n)
 {
 	char	*string;
+	int		i;
+	int		digits;
 
-	string = (char *) malloc(sizeof(char) * 2);
-	if (string)
-	{	
-		if (n == -2147483648)
-			return (ft_strdup("-2147483648"));
-		else if (n < 0)
-		{
-			string[0] = '-';
-			string[1] = '\0';
-			string = ft_strjoin(string, ft_itoa(-n));
-		}
-		else if (n > 9)
-			string = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
-		else if (n >= 0 && n < 10)
-		{
-			string[0] = n + 48;
-			string[1] = '\0';
-		}
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	digits = nbr_of_digits(n);
+	i = digits;
+	string = (char *) malloc(digits + 1);
+	if (!string)
+		return (NULL);
+	if (n < 0)
+	{
+		n = -n;
+		string[0] = '-';
 	}
+	while (n > 0)
+	{
+		string[--i] = n % 10 + 48;
+		n = n / 10;
+	}
+	string[digits] = '\0';
 	return (string);
 }
 
@@ -46,11 +89,11 @@ char	*ft_itoa(int n)
 // External functs. malloc
 
 // Description		Allocates (with malloc(3)) and returns a string
-// 				representing0 the integer received as an argument.
+// 				representing the integer received as an argument.
 // 				Negative numbers must be handled.
 
 // int	main(void)
 // {
-// 	printf("%s\n", ft_itoa(-2147483648LL));
+// 	printf("%s\n", ft_itoa(2147483647));
 // 	return (0);
 // }

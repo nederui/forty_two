@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 01:40:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/08 01:42:31 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:41:56 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	size;
 	t_list	*ptr;
 
 	ptr = *lst;
-
-	while (ptr)
-	{
-		/* code */
-	}
-	
+	while (ptr->next != NULL)
+		ptr = ptr->next;
+	ptr->next = new;
+	new->next = NULL;
 }

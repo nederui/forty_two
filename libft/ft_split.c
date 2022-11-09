@@ -6,18 +6,10 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:02:05 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/08 05:15:16 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/08 20:53:54 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//
-// Parameters	s: The string to be split.
-// 				c: The delimiter character.
-// 
-// Return value	The array of new strings resulting from the split.
-// 				NULL if the allocation fails.
-//
-// External ft:	malloc, free
 //
 // Description	Allocates (with malloc(3)) and returns an array
 // 				of strings obtained by splitting ’s’ using the
@@ -26,7 +18,6 @@
 //
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	nbr_of_splits(char const *s, char c)
 {
@@ -59,20 +50,6 @@ static char	*ft_space_jump(char *s, char c)
 	return (s + i);
 }
 
-// static char	**ft_free(char **splitted)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (splitted[i] != NULL)
-// 	{
-// 		free(splitted[i]);
-// 		i++;
-// 	}
-// 	free(splitted);
-// 	return (NULL);
-// }
-
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -94,8 +71,6 @@ char	**ft_split(char const *s, char c)
 			while (((char *)s)[lenght] && ((char *)s)[lenght] != c)
 				lenght++;
 			splitted[i] = ft_substr(s, 0, lenght);
-			// if (splitted[i] == NULL)
-			// 	return (ft_free(splitted));
 			i++;
 			s = s + lenght;
 		}

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:13:23 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/08 04:13:22 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/08 23:47:45 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,13 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 char	*ft_itoa(int n);
-void	ft_lastadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -61,8 +66,8 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t buffer);
+size_t	ft_strlcpy(char *dst, const char *src, size_t buffer);
 size_t	ft_strlen(const char *str);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
