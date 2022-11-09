@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:12:55 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/02 02:06:14 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/09 04:49:27 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
+	if (!dst && !src)
+		return (NULL);
 	if (dst > src)
 	{
 		i = len;

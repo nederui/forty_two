@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 21:35:11 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/08 20:56:58 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/09 05:58:49 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (size);
 }
-
-// int	ft_lstsize(t_list *lst)
-// {
-// 	int		size;
-
-// 	size = 0;
-// 	while (lst)
-// 	{
-// 		lst = lst->next;
-// 		size++;
-// 	}
-// 	return (size);
-// }
