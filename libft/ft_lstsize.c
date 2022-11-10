@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 21:35:11 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/09 05:58:49 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/10 04:36:10 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 int	ft_lstsize(t_list *lst)
 {
 	int		size;
-	t_list	*ptr;
 
-	ptr = lst;
 	size = 0;
-	while (ptr)
+	while (lst)
 	{
-		ptr = ptr->next;
+		lst = lst->next;
 		size++;
 	}
 	return (size);

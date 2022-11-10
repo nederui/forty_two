@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 01:40:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/09 05:38:04 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/10 04:34:05 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	ptr = *lst;
-	ptr = ft_lstlast(ptr);
+	ptr = ft_lstlast(*lst);
 	ptr->next = new;
 }

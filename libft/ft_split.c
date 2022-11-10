@@ -6,16 +6,9 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:02:05 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/08 20:53:54 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/10 05:44:46 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//
-// Description	Allocates (with malloc(3)) and returns an array
-// 				of strings obtained by splitting ’s’ using the
-// 				character ’c’ as a delimiter. The array must end
-// 				with a NULL pointer.
-//
 
 #include "libft.h"
 
@@ -78,19 +71,6 @@ char	**ft_split(char const *s, char c)
 	}
 	return (splitted);
 }
-
-// int main(void)
-// {
-// 	char *s= "      split       this for   me  !       ";
-// 	char **split_strings = ft_split(s, ' ');
-
-// 	for (int i = 0; i < 5; i++)
-// 		printf("%s\n", split_strings[i]);
-// 	for (int i = 0; i < 5; i++)
-// 		free(split_strings[i]);
-// 	free(split_strings);
-// 	return (0);
-// }
 
 // ft_split is 4-part program.
 
