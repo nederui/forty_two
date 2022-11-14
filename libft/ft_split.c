@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:02:05 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/10 05:44:46 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/14 19:11:48 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,20 @@ static char	*ft_space_jump(char *s, char c)
 	return (s + i);
 }
 
+static char	**ft_malloc_check(char **splitted)
+{
+	size_t	i;
+
+	i = 0;
+	while (splitted[i] != NULL)
+	{
+		free(splitted[i]);
+		i++;
+	}
+	free(splitted);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -64,6 +78,8 @@ char	**ft_split(char const *s, char c)
 			while (((char *)s)[lenght] && ((char *)s)[lenght] != c)
 				lenght++;
 			splitted[i] = ft_substr(s, 0, lenght);
+			if (!splitted[i])
+				ft_malloc_check(splitted);
 			i++;
 			s = s + lenght;
 		}
