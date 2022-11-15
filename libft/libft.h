@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:13:23 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/10 04:39:03 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:31:28 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 // # include <stdio.h>
-// #include "libft.h"
 
 /* ************************************************************************** */
-
-// #define _SIZE_T
-// typedef __SIZE_TYPE__ size_t;
-// typedef unsigned size_t;
 
 typedef struct s_list
 {
