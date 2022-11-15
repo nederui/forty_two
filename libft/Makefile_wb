@@ -1,0 +1,65 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/30 14:36:20 by nfilipe-          #+#    #+#              #
+#    Updated: 2022/11/15 01:23:51 by nfilipe-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SOURCES	=	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c	ft_isprint.c \
+			ft_memchr.c	ft_memcmp.c	ft_memcpy.c ft_memmove.c ft_memset.c \
+			ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c \
+			ft_strnstr.c ft_strrchr.c \
+			ft_bzero.c ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c \
+			ft_strdup.c ft_calloc.c ft_strtrim.c ft_substr.c ft_strjoin.c \
+			ft_split.c ft_strmapi.c ft_striteri.c \
+			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+			
+
+BONUS	=	ft_lstadd_back.c ft_lstclear.c ft_lstdelone.c ft_lstadd_front.c \
+			ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
+
+targets	:	prerequisites
+			recipe
+			
+CC	=	gcc -W 
+all	:	
+		$(CC) -o $(NAME) $(SOURCES)
+clean	:	
+			rm
+bonus	:	all libft.h
+		$(CC) -o $(NAME) $(BONUS)
+
+$(MAKE)
+
+$(MAKEINFO)
+
+.VARIABLES	#	Expands to a list of the names of all global variables \
+				defined so far. This includes variables which have empty \
+				values, as well as built-in variables. \
+				but does not include any variables which are only defined \
+				in a target-specific context.
+
+.EXTRA_PREREQS	#	Each word in this variable is a new prerequisite \
+					which is added to targets for which it is set. These \
+					prerequisites differ from normal prerequisites in that \
+					they do not appear in any of the automatic variables. \
+					This feature can also be useful if you want to add \
+					prerequisites to a makefile you cannot easily modify: \
+					you can create a new file (ex: extra.mk) then invoke \
+					make -f extra.mk -f Makefile \
+					Setting .EXTRA_PREREQS globally will cause those \
+					prerequisites to be added to all target.
+
+.PHONY	#	A phony target is one that is not really the name of a file; \
+			rather it is just a name for a recipe to be executed when you \
+			make an explicit request. There are two reasons to use \
+			a phony target: to avoid a conflict with a file of the same \
+			name, and to improve performance.
+
+.SILENT	:	
+.PHONY	:	all clean fclean re

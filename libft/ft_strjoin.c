@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 14:21:59 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/10 04:40:32 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/10/30 14:17:44 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/14 20:43:30 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t buffer)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*substr;
-	size_t	s_len;
+	char		*string;
+	size_t		i;
+	size_t		i_s2;
 
-	s_len = ft_strlen(s);
-	if (start > s_len)
-		return (ft_strdup(""));
-	if (buffer > s_len - start)
-		buffer = s_len - start;
-	substr = (char *) malloc(buffer + 1);
-	if (substr)
+	if (!s1 || !s2)
+		return (NULL);
+	string = (char *) malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (string)
 	{
-		ft_memmove(substr, s + start, buffer);
-		substr[buffer] = '\0';
+		i = 0;
+		i_s2 = i;
+		while (i < ft_strlen(s1))
+		{
+			string[i] = s1[i];
+			i++;
+		}
+		while (i_s2 < ft_strlen(s2))
+		{
+			string[i + i_s2] = s2[i_s2];
+			i_s2++;
+		}
+		string[i + i_s2] = '\0';
 	}
-	return (substr);
+	return (string);
 }

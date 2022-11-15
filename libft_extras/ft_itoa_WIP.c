@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_WIP.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:41:24 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/06 20:59:27 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/14 21:07:03 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <stdio.h>
 
-char	*ft_itoa(int n)
+static char	*ft_itoa(int n)
 {
 	char	*string;
 
@@ -20,7 +21,10 @@ char	*ft_itoa(int n)
 	if (string)
 	{	
 		if (n == -2147483648)
+		{
+			free(string);
 			return (ft_strdup("-2147483648"));
+		}
 		else if (n < 0)
 		{
 			string[0] = '-';
@@ -49,8 +53,24 @@ char	*ft_itoa(int n)
 // 				representing0 the integer received as an argument.
 // 				Negative numbers must be handled.
 
+// char	*ft_itoa(int n)
+// {
+// 	char	*string;
+	
+// 	if (n > -1)
+// 		return (ft_itoa_main(n));
+// 	else
+// 	{
+// 		string = ft_itoa_main(n);
+// 		string[0] = '-';
+// 		return (string);	
+// 	}
+// }
+
 // int	main(void)
 // {
-// 	printf("%s\n", ft_itoa(-2147483648LL));
+// 	char	*string = ft_itoa(-1234);
+// 	printf("%s\n", string);
+// 	free(string);
 // 	return (0);
 // }
