@@ -6,17 +6,15 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 14:36:20 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/11/15 17:48:14 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/11/15 19:31:33 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SHELL = /bin/sh
-   
+SHELL = /bin/sh 
 # avoids trouble with any 'SHELL'-named variable
 
 .SUFIXES:					   
 .SUFIXES:	.a .c .h .o
-
 # deletes the default suffixes
 # defines our suffix list
 
@@ -29,42 +27,39 @@ SRCS	=	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c	ft_isprint.c \
 			ft_split.c ft_strmapi.c ft_striteri.c \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 
-# our complete sources list
-
 BONUS	=	ft_lstadd_back.c ft_lstclear.c ft_lstdelone.c ft_lstadd_front.c \
 			ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
-			
-# our complete bonus list
+# the complete list of the source files to be used
 
+SRCS.O	=	ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o	ft_isprint.o \
+			ft_memchr.o	ft_memcmp.o	ft_memcpy.o ft_memmove.o ft_memset.o \
+			ft_strchr.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o \
+			ft_strnstr.o ft_strrchr.o \
+			ft_bzero.o ft_atoi.o ft_itoa.o ft_tolower.o ft_toupper.o \
+			ft_strdup.o ft_calloc.o ft_strtrim.o ft_substr.o ft_strjoin.o \
+			ft_split.o ft_strmapi.o ft_striteri.o \
+			ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o \
+
+BONUS.O	=	ft_lstadd_back.o ft_lstclear.o ft_lstdelone.o ft_lstadd_front.o \
+			ft_lstiter.o ft_lstlast.o ft_lstmap.o ft_lstnew.o ft_lstsize.o
+# the complete list of all the objects to be created
+ 
 NAME 	=	libft.a
-SRCS.O	=	$(SRCS:.c=.o)
-BONUS.O	=	$(BONUS:.c=.o)
-CC	=	cc 
-CFLAGS	=	-O2 -Wall -Wextra -Werror -I.
+# the name of the executable built by this Makefile
 
-# our compiler & flags
+CC		=	cc 
+CFLAGS	=	-O2 -Wall -Wextra -Werror -I.
+# compiler & flags to be used
 # '-O2' Apply almost all of the supported optimization techniques that do \
 not involve a tradeoff between program size and execution speed. \
 This option generally increases the time needed to compile.
 # (-I<dir>) adds the current directory to include search path for libft.h
 
-.c.o: libft.h ; $(CC) -c $(CFLAGS) -o $@ $<
-
-# tells how to make ‘.o’ files from ‘.c’ files and makes all ‘.o’ files \
-using this pattern rule also depend on libft.h
-
-# '-c' preprocess, compile, and assemble only (i.e., don’t link)
-# '-o' Direct output to the specified file.
-# '$@' the file name of the target of the rule
-# '$<' the name of the first prerequisite.	
-
 all:		$(NAME) ;
-
 # our default goal - it compiles the entire program (except bonus)
 
 $(NAME):	$(SRCS.O) ; @echo compiling \& linking sources + building $(NAME)
 			ar -crs $(NAME) $(SRCS.O) ; 
-
 # ar creates an index to the symbols defined in relocatable object modules \
 in the archive when you specify the modifier ‘s’. Once created, this index \
 is updated in the archive whenever ar makes a change to its contents \
@@ -77,6 +72,15 @@ placement in the archive
 not exist, when you request an update.
 # 's' adds an index to the archive, or update it if it already exists
 
+SRCS.O:		$(SRCS) libft.h
+			$(CC) $(CFLAGS) -c -o $(SRCS)			
+BONUS.O:	$(BONUS) libft
+			$(CC) $(CFLAGS) -c -o $(BONUS)
+# tells how to make ‘.o’ files from ‘.c’ files and makes all ‘.o’ files \
+using this pattern rule also depend on libft.h
+# '-c' preprocess, compile, and assemble only (i.e., don’t link)
+# '-o' Direct output to the specified file.
+
 bonus:		$(NAME) $(BONUS.O) ; @echo compiling and linking bonus
 			ar -crs $(NAME) $(BONUS.O)
 
@@ -85,7 +89,6 @@ clean:		; @echo removing all objects
 
 fclean:		clean ; @echo removing $(NAME)
 			rm -f $(NAME)
-
 # 'rm' removes files
 # '-f' forces removal (ignores nonexistent files and arguments)
 
@@ -95,12 +98,10 @@ info:
 		@echo Makefile for \'libft.a\' v0.9.15112022 by nfilipe-
 
 .PHONY:	all bonus clean fclean re info
-
 # A phony target is one that is not really the name of a file; rather it \
 is just a name for a recipe to be executed when you make an explicit \
 request.It mainly avoids a conflict with a file of the same name
 
 .SILENT:	
-
 # 'make' will not print the recipe used to remake those particular files \
 before executing them.

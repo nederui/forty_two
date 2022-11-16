@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:02:05 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/14 21:08:42 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:44:23 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	**ft_split(char const *s, char c)
 // the second, within the condition of (c) having been found,
 // increments(i) until it finds another delimenter; this determines
 // our first split (split++);
-/* code */
+
 // we run this function for the full extent of the string (s), and 
 // return the total number of splits;
 

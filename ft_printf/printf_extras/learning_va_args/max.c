@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   max.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 14:23:54 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/15 19:46:56 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/11/15 23:13:55 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/16 01:32:36 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdarg.h>
+#include <stdio.h>
 
-int	ft_toupper(int c)
+int	max(int num_args, ...)
 {
-	if (c > 96 && c < 123)
-		c -= 32;
-	return (c);
+	va_list	args;
+
+	va_start(args, num_args);
+
+	int	max = 0;
+	for (int i = 0; i < num_args; i++)
+	{
+		int	x = va_arg(args, int);
+		if (i == 0)
+			max = x;
+		else if (x > max)
+			max = x;
+	}
+	va_end(args);
+	return (max);
+}
+
+int	main(void)
+{
+	int	max_num = max(4, 12424240, 12, 14, 164545);
+	printf("max_num: %d\n", max_num);
+	
+	return (0);
 }

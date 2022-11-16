@@ -6,13 +6,9 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:29:46 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/07 05:30:20 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:44:00 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-Outputs the string ’s’ to the given file descriptor followed by a newline.
-*/
 
 #include "libft.h"
 

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:13:23 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/15 16:31:28 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/16 02:48:15 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-// # include <stdio.h>
+# include <stdarg.h>
 
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
+int		ft_printf(const char *format_string, ...);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);

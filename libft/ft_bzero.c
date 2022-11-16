@@ -6,13 +6,9 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:05:22 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/30 23:37:48 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:39:38 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-Writes n zeroed bytes to the string s. If n is zero, bzero() does nothing.
-*/
 
 #include "libft.h"
 
