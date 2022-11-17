@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 14:15:33 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/16 02:54:51 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/10/30 14:13:33 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/08 22:03:05 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/libft.h"
+#include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
-	}
-	else if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-	{
-		ft_putchar_fd (n + 48, fd);
-	}
+	write(fd, &c, 1);
 }

@@ -6,67 +6,78 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:01:46 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/16 03:28:43 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/17 19:03:48 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/libft.h"
+#include "../includes/ftprintf.h"
 
 int	ft_printf(const char *string, ...)
 {
-	va_list	arguments;
-	size_t	i;
-	size_t	string_len;
-	int		x;
-	int		y;
-	int		num_arg;
+	va_list				arguments;
+	size_t				i;
+	int					x;
+	int					chr;
+	unsigned int		y;
+	char				*z;
 
 	i = 0;
-	string_len = ft_strlen(string);
 	va_start(arguments, string);
-	while (i < string_len)
+	while (i < ft_strlen(string))
 	{
-		if (((char *)string)[i] == '%' && ((char *)string)[i + 1] == 'd')
+		if (((char *)string)[i] == '%')
 		{
-			x = va_arg(arguments, int);
-			ft_putnbr_fd(x, 1);
-			write(1, "\n", 1);
-			num_arg++;
+			i++;
+			if (((char *)string)[i] == 'i')
+			{
+				x = va_arg(arguments, int);
+				ft_putnbr_fd(x, 1);
+			}
+			else if (((char *)string)[i] == 'u')
+			{
+				y = va_arg(arguments, unsigned int);
+				ft_putstr_fd(ft_unitoa(y), 1);
+			}
+			else if (((char *)string)[i] == 'c')
+			{
+				chr = va_arg(arguments, int);
+				write(1, &chr, 1);
+			}
+			else if (((char *)string)[i] == 's')
+			{
+				z = va_arg(arguments, char *);
+				ft_putstr_fd(z, 1);
+			}
+			else if (((char *)string)[i] == '%')
+				write(1, "%", 1);
 		}
-		else if (((char *)string)[i] == '%' && ((char *)string)[i + 1] == 'c')
-		{
-			y = va_arg(arguments, int);
-			write(1, &y, 1);
-			write(1, "\n", 1);
-			num_arg++;
-		}
-		else if (((char *)string)[i] == '\n')
-			write(1, "\n", 1);
+		else
+			write(1, &((char *)string)[i], 1);
 		i++;
 	}
-	write(1, "\n", 1);
-	write(1, "string lenght:", 14);
-	ft_putnbr_fd((int)string_len, 1);
-	write(1, "\n", 1);
-	write(1, "number of arguments:", 20);
-	ft_putnbr_fd(num_arg, 1);
-	write(1, "\n", 1);
 	va_end(arguments);
-	return (0);
+	return (ft_strlen(string));
 }
-
-
-
-
-// #include <stdio.h>
-// int printf(const char *format-string, argument-list);
-
 
 int	main(void)
 {
-	int		a = 5, b = 9, c = 3, d = 2;
-	char	x = 'x', y = 'y', z = 'z';
-	ft_printf("%d%d\n%d%d\n%c%c%c", a, b, c, d, x, y, z);
+	int		a = 5;
+	char	x = 'x';
+	char	*s = "42_school";
+	unsigned int	u = 2222222222; 
+	// %u NEEDS TO BE UNSIGNED DECIMAL base 10
+	// %p The void * pointer argument has to be printed in hexadecimal format.
+	// %x Prints a number in hexadecimal (base 16) lowercase format.
+	// %X Prints a number in hexadecimal (base 16) uppercase format.
+	ft_printf("string: %s\n%%: %%\nunsigned decimal: %u\nint: %i\nchar: %c\n", s, u, a, x);
 
 	return (0);
 }
+
+// You have to implement the following conversions:
+// • %p The void * pointer argument has to be printed in hexadecimal format.
+// • %d Prints a decimal (base 10) number.
+// • %u Prints an unsigned decimal (base 10) number.
+// • %x Prints a number in hexadecimal (base 16) lowercase format.
+// • %X Prints a number in hexadecimal (base 16) uppercase format.
+// • %% Prints a percent sign.

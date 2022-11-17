@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 14:15:50 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/16 02:54:49 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/10/30 14:23:54 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/15 19:46:56 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/libft.h"
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_toupper(int c)
 {
-	int	i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i])
-		{
-			ft_putchar_fd(s[i], fd);
-			i++;
-		}
-	}
+	if (c > 96 && c < 123)
+		c -= 32;
+	return (c);
 }
