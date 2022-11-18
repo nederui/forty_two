@@ -6,90 +6,71 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:01:46 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/18 18:53:02 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/17 19:03:48 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ftprintf.h"
-#include <stdio.h>
 
-// ft_putaddr();
-
-int	ft_converter(double number, char *base, double size)
+int	ft_printf(const char *string, ...)
 {
-	int	bytes;
-
-	bytes = 0;
-	if (number < 0)
-	{
-		number = -number;
-		write(1, "-", 1);
-	}
-	if (number >= size)
-		bytes = bytes + converter ((number / size), base, size);
-	bytes = bytes + write (1, &base[(unsigned long)number % (unsigned long)size], 1);
-	return (bytes);
-}
-
-int	ft_format_identifier(char c, va_list *arguments)
-{
-	if (c == '%')
-		write(1, "%", 1);
-	if (c == 'c')
-		ft_putchar_fd (va_arg(*arguments, int), 1);
-	if (c == 'd' || c == 'i')
-		ft_putnbr_fd(va_arg(*arguments, int), 1);
-	// if (c == 'p')
-	// 	ft_putaddr(va_arg(*arguments, );
-	if (c == 's')
-		ft_putstr_fd (va_arg(*arguments, char *), 1);
-	if (c == 'u')
-		ft_converter(va_arg(*arguments, unsigned int), "0123456789", 10);
-	if (c == 'x' || c == 'X')
-	{
-		ft_converter(va_arg(*arguments, unsigned int), "0123456789abcdef", 16);
-		ft_converter(va_arg(*arguments, unsigned int), "0123456789ABCDEF", 16);
-	}
-	return (0);
-}
-
-int	ft_printf(const char *format_string, ...)
-{
-	va_list	arguments;
-	int		bytes;
-	int		i;
+	va_list				arguments;
+	size_t				i;
+	int					x;
+	int					chr;
+	unsigned int		y;
+	char				*z;
 
 	i = 0;
-	bytes = 0;
-	va_start(arguments, format_string);
-	while (format_string[i])
+	va_start(arguments, string);
+	while (i < ft_strlen(string))
 	{
-		if (format_string[i] == '%')
+		if (((char *)string)[i] == '%')
 		{
 			i++;
-			bytes = bytes + ft_format_identifier(format_string[i], &arguments);
+			if (((char *)string)[i] == 'i')
+			{
+				x = va_arg(arguments, int);
+				ft_putnbr_fd(x, 1);
+			}
+			else if (((char *)string)[i] == 'u')
+			{
+				y = va_arg(arguments, unsigned int);
+				ft_putstr_fd(ft_unitoa(y), 1);
+			}
+			else if (((char *)string)[i] == 'c')
+			{
+				chr = va_arg(arguments, int);
+				write(1, &chr, 1);
+			}
+			else if (((char *)string)[i] == 's')
+			{
+				z = va_arg(arguments, char *);
+				ft_putstr_fd(z, 1);
+			}
+			else if (((char *)string)[i] == '%')
+				write(1, "%", 1);
 		}
 		else
-			bytes = bytes + write(1, &format_string[i], 1);
+			write(1, &((char *)string)[i], 1);
 		i++;
 	}
 	va_end(arguments);
-	return (bytes);
+	return (ft_strlen(string));
 }
 
 int	main(void)
 {
-	int		a = 55;
+	int		a = 5;
 	char	x = 'x';
 	char	*s = "42_school";
 	unsigned int	u = 2222222222; 
 	// %u NEEDS TO BE UNSIGNED DECIMAL base 10
 	// %p The void * pointer argument has to be printed in hexadecimal format.
 	// %x Prints a number in hexadecimal (base 16) lowercase format.
-	// // %X Prints a number in hexadecimal (base 16) uppercase format.
+	// %X Prints a number in hexadecimal (base 16) uppercase format.
 	ft_printf("string: %s\n%%: %%\nunsigned decimal: %u\nint: %i\nchar: %c\n", s, u, a, x);
-	
-	ft_printf("\nreturn values:\nprintf: %d\nft_printf: %d", printf("\n (%d)", a), ft_printf("\n (%d)", a));
+
 	return (0);
 }
 
