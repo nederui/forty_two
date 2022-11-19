@@ -1,0 +1,43 @@
+# CC=gcc
+# CFILES=$(shell find src -type f -name "*.c")
+# HEADERS_DIR=includes/
+# CFLAGS=-Wall -Wextra -Werror -I $(HEADERS_DIR)
+# CPPFLAGS=-O2
+# DEBUG_FLAGS=-Wall -Wextra -Werror
+# NAME=rush-02
+# OBJS=${CFILES:.c=.o}
+
+# rush-02: rush-02.o correctlenght.o
+# 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+# all: $(OBJS)
+# 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+# # it will delete .o files in src folder
+# clean:
+# 	rm -rf src/*.o
+	
+# #it will delete executable file
+# fclean:
+# 	rm -f $(NAME)
+
+
+
+
+rush02: rush02.h main.o string_manipulation.o find_key.o fake_print_functions.o correctlenght.o
+	gcc -o rush02 main.o string_manipulation.o find_key.o fake_print_functions.o correctlenght.o
+
+main.o: main.o rush02.h string_manipulation.o find_key.o fake_print_functions.o correctlenght.o
+	gcc -c main.c
+
+string_manipulation.o: string_manipulation.o rush02.h main.o find_key.o fake_print_functions.o correctlenght.o
+	gcc -c string_manipulation.c
+
+find_key.o: find_key.o rush02.h main.o string_manipulation.o fake_print_functions.o correctlenght.o
+	gcc -c find_key.c
+
+fake_print_functions.o: fake_print_functions.o rush02.h main.o string_manipulation.o find_key.o correctlenght.o
+	gcc -c fake_print_functions.c
+
+correctlenght.o: correctlenght.o rush02.h main.o string_manipulation.o find_key.o fake_print_functions.o
+	gcc -c correctlenght.c
