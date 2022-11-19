@@ -6,8 +6,7 @@ work done @ 42 Lisboa
 42cursus/extras/ contains learning exercises, testers, unsubmitted work & projects submitted by other 42 Lisboa alumni evaluated by me
 
 ## C_Piscine/ contains work done during the C Piscine - august 2022
-C_Piscine/extras/ includes learning exercises, exam practice, unsubmitted work & projects submitted by other 42 Lisboa alumni evaluated by 
-me
+C_Piscine/extras/ includes learning exercises, exam practice, unsubmitted work & projects submitted by other 42 Lisboa alumni evaluated by me
 
 ebooks/ contains a list of reference books
 
