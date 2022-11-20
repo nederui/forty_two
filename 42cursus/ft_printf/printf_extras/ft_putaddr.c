@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putaddr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 14:13:33 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/08 22:03:05 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/11/20 16:39:42 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/20 20:04:10 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ftprintf.h"
 
-void	ft_putchar_fd(char c, int fd)
+static void	ft_ptr_converter(unsigned long number, char *base)
 {
-	write(fd, &c, 1);
+	if (number >= 16)
+		ft_ptr_converter(number / 16, base);
+	write(1, &base[number % 16], 1);
+}
+
+void	ft_putaddr(char *ptr)
+{
+	if (ptr == 0)
+		write(1, "(nil)", 5);
+	else
+	{
+		write(1, "0x", 2);
+		ft_ptr_converter((unsigned long)ptr, "0123456789abcdef");
+	}
 }

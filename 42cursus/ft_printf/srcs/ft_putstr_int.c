@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 14:16:08 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/31 18:51:59 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/11/20 17:35:34 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/20 20:08:14 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ftprintf.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_putstr_int(char *ptr)
 {
 	int	i;
+	int	bytes;
 
 	i = 0;
-	while (s[i])
+	bytes = 0;
+	while (ptr[i])
 	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)s + i);
+		bytes = bytes + write(1, &ptr[i], 1);
 		i++;
 	}
-	if (s[i] == (unsigned char)c)
-		return ((char *)s + i);
-	return (0);
+	return (bytes);
 }
