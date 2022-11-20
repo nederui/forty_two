@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_int.c                                   :+:      :+:    :+:   */
+/*   ft_putstr_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/20 17:35:50 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/20 17:58:38 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/11/20 17:35:34 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/20 20:49:55 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ftprintf.h"
+#include "ftprintf.h"
 
-int	ft_putchar_int(char c)
+int	ft_putstr_int(char *ptr)
 {
-	return (write(1, &c, 1));
+	int	i;
+	int	bytes;
+
+	i = 0;
+	bytes = 0;
+	while (ptr[i])
+	{
+		bytes = bytes + write(1, &ptr[i], 1);
+		i++;
+	}
+	return (bytes);
 }

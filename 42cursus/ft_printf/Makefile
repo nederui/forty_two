@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 19:53:58 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/11/17 17:30:50 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/11/20 21:27:11 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,19 @@ SHELL = /bin/sh
 # deletes the default suffixes
 # defines our suffix list
 
-SRCS	=	
+SRCS	=	ft_format_identifier.c ft_number_converter.c ft_printf.c \
+			ft_putchar_int.c ft_putstr_int.c
 # the complete list of the source files to be used
 
-SRCS.O	=	
+SRCS.O	=	ft_format_identifier.o ft_number_converter.o ft_printf.o \
+			ft_putchar_int.o ft_putstr_int.o
 # the complete list of all the objects to be created
  
-NAME 	=	
+NAME 	=	libftprintf.a
 # the name of the executable built by this Makefile
 
 CC		=	cc 
-CFLAGS	=	-O2 -Wall -Wextra -Werror -I<dir>
+CFLAGS	=	-O2 -Wall -Wextra -Werror -I.
 # compiler & flags to be used
 # '-O2' Apply almost all of the supported optimization techniques that do \
 not involve a tradeoff between program size and execution speed. \
@@ -52,7 +54,7 @@ placement in the archive
 not exist, when you request an update.
 # 's' adds an index to the archive, or update it if it already exists
 
-SRCS.O:		$(SRCS) libft.h
+SRCS.O:		$(SRCS) ftprintf.h
 			$(CC) $(CFLAGS) -c -o $(SRCS)
 # tells how to make ‘.o’ files from ‘.c’ files and makes all ‘.o’ files \
 using this pattern rule also depend on libft.h
@@ -70,9 +72,16 @@ fclean:		clean ; @echo removing $(NAME)
 re:			fclean $(NAME)
 
 info:	
-		@echo Makefile for \'___\' v0.9.01122022 by nfilipe-
+		@echo Makefile for \'libftprintf.a\' v1.0.20112022 by nfilipe-
 
-.PHONY:	all clean fclean re info
+acknowledgements:	
+					@echo my deepest gratitude to my coleagues @ 42 Lisboa: \
+					amak, fmouronh, matde-je, oharoon, rteles-f
+					@echo for their insight, tips and enthusiasm
+					@echo \>\> special shout-out to oharoon, \
+					who pointed me in the right direction on this project
+
+.PHONY:	all clean fclean re info acknowledgements
 # A phony target is one that is not really the name of a file; rather it \
 is just a name for a recipe to be executed when you make an explicit \
 request.It mainly avoids a conflict with a file of the same name
