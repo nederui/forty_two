@@ -6,11 +6,9 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 16:39:42 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/20 20:04:10 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/20 22:30:31 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/ftprintf.h"
 
 static void	ft_ptr_converter(unsigned long number, char *base)
 {

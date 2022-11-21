@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 17:35:50 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/20 20:50:01 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/21 02:46:09 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchar_int(char c)
 {

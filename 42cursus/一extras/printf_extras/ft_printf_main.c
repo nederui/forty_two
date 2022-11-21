@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:01:46 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/21 02:39:16 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/21 02:38:30 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf/ft_printf.h"
+#include <stdio.h>
 
-int	ft_printf(const char *format_string, ...)
+int	main(void)
 {
-	va_list	arguments;
-	int		bytes;
-	int		i;
+	// int		a = 2130;
+	// char	x = 'A';
+	char	*s = NULL;
+	// unsigned int	u = 2222222222;
+	// int	k = 35515000;
 
-	i = 0;
-	bytes = 0;
-	va_start(arguments, format_string);
-	while (format_string[i])
-	{
-		if (format_string[i] == '%')
-		{
-			i++;
-			bytes = bytes + ft_format_identifier(format_string[i], &arguments);
-		}
-		else
-			bytes = bytes + write(1, &format_string[i], 1);
-		i++;
-	}
-	va_end(arguments);
-	return (bytes);
+	// ft_printf("%%\n%i\n%c\n%u\n%x\n%X\n%p\n%s", a, x, u, k, k, s, s);
+	// ft_printf("\n\n");
+	ft_printf("%p\n%s", s, s);
+	ft_printf("\n");
+	printf("%p\n%s", s, s);
+	return (0);
 }
 
 //

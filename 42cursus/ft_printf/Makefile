@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 19:53:58 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/11/20 21:27:11 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/11/21 02:48:55 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ SHELL = /bin/sh
 # deletes the default suffixes
 # defines our suffix list
 
-SRCS	=	ft_format_identifier.c ft_number_converter.c ft_printf.c \
-			ft_putchar_int.c ft_putstr_int.c
+SRCS	=	ft_format_identifier.c ft_number_converter.c ft_ptr_converter.c \
+			ft_printf.c ft_putchar_int.c ft_putstr_int.c
 # the complete list of the source files to be used
 
-SRCS.O	=	ft_format_identifier.o ft_number_converter.o ft_printf.o \
-			ft_putchar_int.o ft_putstr_int.o
+SRCS.O	=	ft_format_identifier.o ft_number_converter.o ft_ptr_converter.o \
+			ft_printf.o ft_putchar_int.o ft_putstr_int.o
 # the complete list of all the objects to be created
  
 NAME 	=	libftprintf.a
@@ -54,7 +54,7 @@ placement in the archive
 not exist, when you request an update.
 # 's' adds an index to the archive, or update it if it already exists
 
-SRCS.O:		$(SRCS) ftprintf.h
+SRCS.O:		$(SRCS) ft_printf.h
 			$(CC) $(CFLAGS) -c -o $(SRCS)
 # tells how to make ‘.o’ files from ‘.c’ files and makes all ‘.o’ files \
 using this pattern rule also depend on libft.h
@@ -72,7 +72,7 @@ fclean:		clean ; @echo removing $(NAME)
 re:			fclean $(NAME)
 
 info:	
-		@echo Makefile for \'libftprintf.a\' v1.0.20112022 by nfilipe-
+		@echo Makefile for \'libftprintf.a\' v1.0.21112022 by nfilipe-
 
 acknowledgements:	
 					@echo my deepest gratitude to my coleagues @ 42 Lisboa: \

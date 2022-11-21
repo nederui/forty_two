@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_number_converter.c                              :+:      :+:    :+:   */
+/*   ft_ptr_converter.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/20 20:44:29 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/21 01:51:39 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/11/21 01:34:23 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/21 02:34:02 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_number_converter(long number, char *base, long size)
+int	ft_ptr_converter(unsigned long number)
 {
-	int	bytes;
+	int		bytes;
 
 	bytes = 0;
-	if (number < 0)
-	{
-		number = -number;
-		bytes = bytes + write(1, "-", 1);
-	}
-	if (number >= size)
-		bytes = bytes + ft_number_converter(number / size, base, size);
-	bytes = bytes + write(1, &base[number % size], 1);
+	if (number >= 16UL)
+		bytes = bytes + ft_ptr_converter(number / 16UL);
+	bytes = bytes + write(1, &HEX_LOW[number % 16UL], 1);
 	return (bytes);
 }
