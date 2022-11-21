@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:01:46 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/21 02:39:16 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:12:29 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,9 @@ int	ft_printf(const char *format_string, ...)
 	return (bytes);
 }
 
+// 'va_start' initializes the ap (argument pointer) 'arguments' to the first
+// unnamed argument. it must be called once before 'arguments' is used
 //
-// %p in printf formats a pointer type. This is going to distinguish
-// a null-pointer and print (nil) because it is a special value in the 
-// context of a pointer.
+// 'va_end' does whatever cleanup is necessary. must be called before RETURN
 //
-// NULL is a macro defined as 0 or ((void *) 0), so if you set 
-// a pointer to NULL it's exactly the same as setting it to 0. 
-// This works for the purposed of declaring null pointers because 
-// the memory at address 0 will never be allocated to your program.
-//
+// the RETURN value (bytes) increments for each character outputted

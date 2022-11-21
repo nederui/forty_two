@@ -6,9 +6,12 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 20:44:29 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/21 01:51:39 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:20:24 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// the aim of this function is to be as universal as possible, handling most of
+// the conversions needed for each format to be written by ft_printf()
 
 #include "ft_printf.h"
 
@@ -27,3 +30,10 @@ int	ft_number_converter(long number, char *base, long size)
 	bytes = bytes + write(1, &base[number % size], 1);
 	return (bytes);
 }
+
+// we use the 'long' data type to include the number range of four different
+// formats, and we increment 'bytes' for each character outputted by write()
+//
+// '&base[number % size]' tells write() to print the character corresponding to
+// the position matching the current result of 'number % size' of the base,
+// passed as a parameter 'char *'
