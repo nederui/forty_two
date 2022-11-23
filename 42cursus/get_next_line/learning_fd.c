@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:57:00 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/22 17:40:38 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:04:20 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ int	main(void)
 		ft_printf("Error opening file.\n");
 	return (0);
 }
-read(1, *buffer, 5);

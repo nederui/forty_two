@@ -6,16 +6,17 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 22:47:04 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/22 22:47:05 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:17:00 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	function()
+void	function(void)
 {
-	char	var = 'A';
+	char	var;
 
+	var = 'A';
 	printf("var:%c\n", var);
 	var = 'B';
 }

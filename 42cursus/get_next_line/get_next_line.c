@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:57:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/22 23:50:47 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:02:44 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,31 @@
 
 char	*get_next_line(int fd)
 {
-	size_t		i;
+	size_t		n;
 	char		*line;
-	static char	*stash;
+	static char	*buffer;
+	static char	*pouch;
+	size_t		pouch_lenght;
 
-	i = 0;
-	stash = char *malloc(sizeof(buffer) + 1);
-	if (stash)
+	buffer = (char *) malloc(BUFFER_SIZE + 1);
+	if (!buffer)
+		return (NULL);
+	while (read(fd, *buffer, BUFFER_SIZE) > 0)
 	{
-		while (buffer)
+		ft_memmove(pouch, &buffer, BUFFER_SIZE);
+		line[BUFFER_SIZE] = '\0';
+		if (ft_strchr(buffer, '\n') > 0)
 		{
-			read(fd, *buffer, bytes);
-			ft_memmove(stash, buffer, bytes);
-			if (ft_strchr(stash, '\n'))
-			{
-				ft_memmove(line, stash, );
-				ft_memmove(stash, stash + i, );
-			}
+			n = ft_strchr(buffer, '\n');
+			ft_memmove(line, buffer, buffer - n);
+			ft_memmove(buffer, buffer + n, n);
+			line = (char *) malloc(ft_strlen(pouch) + 1);
+			if (line)
+				return (line);
 		}
+		buffer++;
 	}
-	return (line);
+	return (NULL);
 }
 
 /* 
