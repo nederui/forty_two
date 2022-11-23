@@ -1,13 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   learning_static_var.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 16:57:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/21 23:22:17 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/11/22 22:47:04 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/11/22 22:47:05 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*get_next_line(int fd);
+#include <stdio.h>
+
+void	function()
+{
+	char	var = 'A';
+
+	printf("var:%c\n", var);
+	var = 'B';
+}
+
+int	main(void)
+{
+	function();
+	function();
+	function();
+	return (0);
+}

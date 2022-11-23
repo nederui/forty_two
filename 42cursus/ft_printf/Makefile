@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 19:53:58 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/11/21 02:48:55 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/11/22 21:00:34 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS	=	ft_format_identifier.c ft_number_converter.c ft_ptr_converter.c \
 			ft_printf.c ft_putchar_int.c ft_putstr_int.c
 # the complete list of the source files to be used
 
-SRCS.O	=	ft_format_identifier.o ft_number_converter.o ft_ptr_converter.o \
+OBJECTS	=	ft_format_identifier.o ft_number_converter.o ft_ptr_converter.o \
 			ft_printf.o ft_putchar_int.o ft_putstr_int.o
 # the complete list of all the objects to be created
  
@@ -30,7 +30,7 @@ NAME 	=	libftprintf.a
 # the name of the executable built by this Makefile
 
 CC		=	cc 
-CFLAGS	=	-O2 -Wall -Wextra -Werror -I.
+CFLAGS	=	-O2 -Wall -Wextra -Werror -I. -g -fsanitize=address
 # compiler & flags to be used
 # '-O2' Apply almost all of the supported optimization techniques that do \
 not involve a tradeoff between program size and execution speed. \
@@ -40,7 +40,8 @@ This option generally increases the time needed to compile.
 all:		$(NAME) ;
 # our default goal - it compiles the entire program (except bonus)
 
-$(NAME):	$(SRCS.O) ; @echo compiling \& linking sources + building $(NAME)
+$(NAME):	$(SRCS.O)
+			@echo compiling \& linking sources + building $(NAME)
 			ar -crs $(NAME) $(SRCS.O) ; 
 # ar creates an index to the symbols defined in relocatable object modules \
 in the archive when you specify the modifier ‘s’. Once created, this index \
@@ -62,10 +63,10 @@ using this pattern rule also depend on libft.h
 # '-o' Direct output to the specified file.
 
 clean:		; @echo removing all objects
-			rm -f $(SRCS.O)
+			rm -rf $(SRCS.O)
 
 fclean:		clean ; @echo removing $(NAME)
-			rm -f $(NAME)
+			rm -rf $(NAME)
 # 'rm' removes files
 # '-f' forces removal (ignores nonexistent files and arguments)
 

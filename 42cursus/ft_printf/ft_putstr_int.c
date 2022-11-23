@@ -6,13 +6,15 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 17:35:34 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/21 20:13:50 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/22 21:01:42 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// this function is a modified version of the original ft_putstr(), to match
-// ft_printf()'s RETURN value -  the number of bytes written, as well as,
-// outputting "(null)" in the special case of printing a null-pointer string; 
+/* 
+this function is a modified version of the original ft_putstr(), to match
+ft_printf()'s RETURN value - the number of bytes written, as well as,
+outputting "(null)" in the special case of printing a null-pointer string; 
+*/
 
 #include "ft_printf.h"
 

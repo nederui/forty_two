@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:01:46 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/21 20:12:29 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/22 21:05:11 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ int	ft_printf(const char *format_string, ...)
 	return (bytes);
 }
 
-// 'va_start' initializes the ap (argument pointer) 'arguments' to the first
-// unnamed argument. it must be called once before 'arguments' is used
-//
-// 'va_end' does whatever cleanup is necessary. must be called before RETURN
-//
-// the RETURN value (bytes) increments for each character outputted
+/* 
+'va_start' initializes the ap (argument pointer) 'arguments' to the first
+unnamed argument. it must be called once before 'arguments' is used
+
+'va_end' does whatever cleanup is necessary. must be called before RETURN
+
+the RETURN value (bytes) increments for each character outputted
+*/
