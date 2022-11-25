@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:01:46 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/21 02:38:30 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/22 23:24:26 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/ft_printf.h"
+#include "../../ft_printf/ft_printf.h"
 #include <stdio.h>
 
 int	main(void)
@@ -23,9 +23,9 @@ int	main(void)
 
 	// ft_printf("%%\n%i\n%c\n%u\n%x\n%X\n%p\n%s", a, x, u, k, k, s, s);
 	// ft_printf("\n\n");
-	ft_printf("%p\n%s", s, s);
+	ft_printf("%p\n%sasd", s);
 	ft_printf("\n");
-	printf("%p\n%s", s, s);
+	printf("%p\n%sasd", s);
 	return (0);
 }
 

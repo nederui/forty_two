@@ -6,31 +6,32 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 17:35:34 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/21 20:13:50 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:38:14 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// this function is a modified version of the original ft_putstr(), to match
-// ft_printf()'s RETURN value -  the number of bytes written, as well as,
-// outputting "(null)" in the special case of printing a null-pointer string; 
-
 #include "ft_printf.h"
+#include <unistd.h>
 
-int	ft_putstr_int(char *s)
+/* 
+this function is a modified version of the original ft_putstr(), to match
+ft_printf()'s RETURN value - the number of total_bytes written, as well as,
+outputting "(null)" in the special case of printing a null-pointer string; 
+*/
+
+int	ft_putstr(char *s)
 {
 	int	i;
-	int	bytes;
+	int	total_bytes;
 
 	i = 0;
-	bytes = 0;
+	total_bytes = 0;
 	if (s == 0)
 		return (write(1, "(null)", 6));
 	while (s[i])
 	{
-		bytes = bytes + write(1, &s[i], 1);
-		i++;
+		total_bytes += write(1, &s[i], 1);
+		++i;
 	}
-	return (bytes);
+	return (total_bytes);
 }
-
-// the RETURN value (bytes) increments for each character outputted by write()
