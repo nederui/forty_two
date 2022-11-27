@@ -6,40 +6,45 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:57:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/23 11:02:44 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/25 19:21:16 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <get_next_line.h>
+#include "get_next_line.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include "../libft/libft.h"
 
 char	*get_next_line(int fd)
 {
-	size_t		n;
+	static char	*n;
 	char		*line;
 	static char	*buffer;
-	static char	*pouch;
-	size_t		pouch_lenght;
+	size_t		diff;
+	void		*buffer_file;
 
 	buffer = (char *) malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	while (read(fd, *buffer, BUFFER_SIZE) > 0)
+	buffer[BUFFER_SIZE] = '\0';
+	if (ft_strchr(buffer, '\n') > 0)
 	{
-		ft_memmove(pouch, &buffer, BUFFER_SIZE);
+		n = ft_strchr(buffer, '\n');
+		diff = ft_strlen(buffer) - ft_strlen(n),
+		line = (char *) malloc(diff + 1);
+		if (!line)
+			return (NULL);
+		ft_memmove(line, buffer, diff);
+		line[diff] = '\n';
+		ft_memmove(buffer, n + 1, diff);
+		return (line);
+	}
+	
+	while (read(fd, buffer_file, BUFFER_SIZE) > 0)
+	{
+		ft_memmove(buffer, &buffer_file, BUFFER_SIZE);
 		line[BUFFER_SIZE] = '\0';
-		if (ft_strchr(buffer, '\n') > 0)
-		{
-			n = ft_strchr(buffer, '\n');
-			ft_memmove(line, buffer, buffer - n);
-			ft_memmove(buffer, buffer + n, n);
-			line = (char *) malloc(ft_strlen(pouch) + 1);
-			if (line)
-				return (line);
-		}
-		buffer++;
+		buffer_file++;
 	}
 	return (NULL);
 }
