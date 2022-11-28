@@ -6,12 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 20:47:12 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/23 13:38:39 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:58:27 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdint.h>
 #include <unistd.h>
 
 /* 

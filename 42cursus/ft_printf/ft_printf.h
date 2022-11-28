@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:45:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/23 13:38:23 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:49:15 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /* ************************************************************************** */
 
 # include <stdarg.h>
+# include <stdint.h>
 
 /* ************************************************************************** */
 
@@ -27,7 +28,7 @@
 
 int	ft_format_identifier(char c, va_list *args);
 int	ft_number_converter(long number, char *base, long size);
-int	ft_ptr_converter(unsigned long number);
+int	ft_ptr_converter(uintptr_t number);
 int	ft_printf(const char *format_string, ...);
 int	ft_putchar(char c);
 int	ft_putstr(char *s);
