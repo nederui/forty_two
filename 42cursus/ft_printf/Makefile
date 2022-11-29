@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 19:53:58 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/11/23 13:12:26 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/11/29 01:33:12 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ re:			fclean $(NAME)
 info:	
 			@echo Makefile for \'libftprintf.a\' v1.1.23112022 by nfilipe-
 
-thanks:	
+acknowledgments:	
 			@echo my deepest gratitude to my coleagues @ 42 Lisboa: amak, \
 			drobert-, fmouronh, matde-je, oharoon, rteles-f for their \
 			insight, tips and enthusiasm
@@ -111,7 +111,7 @@ thanks:
 # A phony target is one that is not really the name of a file; rather it \
 is just a name for a recipe to be executed when you make an explicit \
 request.It mainly avoids a conflict with a file of the same name
-.PHONY:		all clean fclean re info thanks
+.PHONY:		all clean fclean re info acknowledgments
 
 # 'make' will not print the recipe used to remake those particular files \
 before executing them.

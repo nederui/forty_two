@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 02:50:53 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/28 05:03:56 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:21:19 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdio.h>
 
 // appends the content of buffer to pouch's tail
+
 void	ft_add_to_pouch(char *pouch, char *buffer, int char_read)
 {
 	int	i;
@@ -64,18 +65,17 @@ void	ft_read_and_save(int fd, char *pouch, int char_read)
 	}
 }
 
-
 // extracts all characters from pouch and stores them in 'line'
 // stopping after the first '\n' it encounters
-void	ft_extract_line(char *pouch, char *line)
-{
+// void	ft_extract_line(char *pouch, char *line)
+// {
 // 	int	i;
 // 	int	i_2;
 
 // 	if (!pouch)
 // 		return ;
 // 	ft_line_generator(line, pouch);
-}
+// }
 
 // clears the characters in 'pouch' that have already been returned
 // void	ft_clear_pouch()

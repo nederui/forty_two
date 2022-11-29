@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 03:33:49 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/28 04:37:37 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:55:16 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ int	ft_newline_finder(char *pouch)
 	if (pouch == NULL)
 		return (0);
 	i = 0;
-	if (ft_strchr(pouch, '\n') != 0)
-		return (1);
-	else
-		return (0);
+	while (pouch[i])
+	{
+		if (pouch[i] == '\n')
+			return (1);
+		++i;
+	}
+	return (0);
 }
 
 // calculates the number of characters in the current line (including '\n', 

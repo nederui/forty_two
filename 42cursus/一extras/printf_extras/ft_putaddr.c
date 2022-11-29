@@ -6,11 +6,14 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 16:39:42 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/20 22:30:31 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/29 04:03:54 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static void	ft_ptr_converter(unsigned long number, char *base)
+#include <stdint.h>
+#include <unistd.h>
+
+static void	ft_ptr_converter(uintptr_t number, char *base)
 {
 	if (number >= 16)
 		ft_ptr_converter(number / 16, base);
@@ -19,11 +22,14 @@ static void	ft_ptr_converter(unsigned long number, char *base)
 
 void	ft_putaddr(char *ptr)
 {
+	char	*base_string;
+
 	if (ptr == 0)
 		write(1, "(nil)", 5);
 	else
 	{
+		base_string = "0123456789abcdef";
 		write(1, "0x", 2);
-		ft_ptr_converter((unsigned long)ptr, "0123456789abcdef");
+		ft_ptr_converter((uintptr_t)ptr, base_string);
 	}
 }

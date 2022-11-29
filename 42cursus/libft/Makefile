@@ -6,11 +6,11 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 14:36:20 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/11/17 16:57:20 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/11/29 01:35:08 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SHELL = /bin/sh 
+SHELL =		/bin/sh 
 # avoids trouble with any 'SHELL'-named variable
 
 .SUFIXES:					   
@@ -95,9 +95,14 @@ fclean:		clean ; @echo removing $(NAME)
 re:			fclean $(NAME)
 
 info:	
-		@echo Makefile for \'libft.a\' v0.9.15112022 by nfilipe-
+			@echo Makefile for \'libft.a\' v0.9.15112022 by nfilipe-
 
-.PHONY:	all bonus clean fclean re info
+acknowledgments:	
+			@echo my deepest gratitude to my coleagues @ 42 Lisboa: amak, \
+			fmouronh, matde-je, oharoon, plopes-c, rteles-f, scosta-j \
+			for their insight, tips and enthusiasm
+			
+.PHONY:		all bonus clean fclean re info acknowledgments
 # A phony target is one that is not really the name of a file; rather it \
 is just a name for a recipe to be executed when you make an explicit \
 request.It mainly avoids a conflict with a file of the same name

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:57:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/29 04:17:10 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/11/28 00:00:04 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,37 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	read_and_save(char *line);
-
 char	*get_next_line(int fd)
 {
-	static char	*line;
-	int			i;
+	static char	buffer[BUFFER_SIZE];
+	static char	pouch[BUFFER_SIZE];
+	int			lenght;
+	char		*line;
 
-	if (read(fd, 0, 0) < 0 || BUFFER_SIZE < 1)
+	while (ft_strchr(pouch, '\n') == 0)
 	{
-		i = 0;
-		while (line && line[i])
-		{
-			line[i] = 0;
-			++i;
-		}
-		return (NULL);
+		read(fd, buffer, BUFFER_SIZE);
+		ft_strlcat(pouch, buffer, 50);
 	}
-	ft_read_and_save(line);
-	return (line);
+	if (ft_strchr(pouch, '\n') != 0)
+	{
+		lenght = (ft_strchr(pouch, '\n') - pouch);
+		line = ft_substr(pouch, 0, lenght + 1);
+		// ft_memmove(pouch, pouch + lenght + 1, BUFFER_SIZE);
+		return (line);
+	}
+	return (NULL);
 }
 
 int	main(void)
 {
 	int		fd;
-	char	*s;
 
-	s = get_next_line(fd);
 	fd = open("./file.txt", O_RDONLY);
-	printf("line: %s", s);
-	printf("line: %s", s);
-	printf("line: %s", s);
+	printf("line: %s", get_next_line(fd));
+	printf("line: %s", get_next_line(fd));
+	printf("line: %s", get_next_line(fd));
 	close(fd);
-	free(s);
 	return (0);
 }
 
