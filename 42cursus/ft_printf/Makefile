@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 19:53:58 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/11/29 01:33:12 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/11/29 07:44:26 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ $(NAME):	$(OBJECTS)
 using this pattern rule also depend on libft.h
 # '-c' preprocess, compile, and assemble only (i.e., don’t link)
 # '-o' Direct output to the specified file.
-OBJECTS:	$(SRCS) $(INCLUDES)
+OBJECTS:	$(SRCS) $(INCLUDE)
 			$(CC) $(DEBUG) $(CFLAGS) -c -o $(SRCS)
 
 clean:
