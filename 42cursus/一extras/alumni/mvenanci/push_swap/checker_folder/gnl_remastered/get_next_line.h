@@ -3,31 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: mvenanci@student.42lisboa.com <mvenanci    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 16:57:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/30 01:38:22 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/11/02 08:20:15 by mvenanci@st       #+#    #+#             */
+/*   Updated: 2022/11/28 18:21:03 by mvenanci@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-/* ************************************************************************** */
-
-// # include <unistd.h>
-
-/* ************************************************************************** */
+# include <unistd.h>
+# include <stdlib.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 100
 # endif
 
-/* ************************************************************************** */
-
+char	*strjoin(char *line, char *buffer);
 char	*get_next_line(int fd);
-int		ft_findnewline(char *string);
-char	*ft_strjoin(char *s1, char *s2);
-int		ft_strlen(const char *string);
 
 #endif
