@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 23:22:55 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/04 23:18:38 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/12/05 00:32:06 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/12/05 16:54:47 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdlib.h>
 
-char	*ft_freebuffer(char *buffer)
+#include "get_next_line_bonus.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+char	*ft_freebuffer(char *buffer, int fd)
 {
 	int	i;
 	
+    if (fd > FOPEN_MAX || fd < 0 || BUFFER_SIZE < 1)
+        return (NULL);
 	i = 0;
 	while (buffer[i])
 	{
 		buffer[i] = 0;	
-		i++;
+		++i;
 	}
 	return (NULL);
 }
