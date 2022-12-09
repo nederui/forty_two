@@ -6,13 +6,12 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 00:28:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/05 01:43:14 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:41:10 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <unistd.h>
-#include <fcntl.h>
 
 /*
 buffer[BUFFER_SIZE + 1]: uninitialized data (every index = 0);
@@ -48,22 +47,3 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
-
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*s;
-
-// 	fd = open("./file.txt", O_RDONLY);
-// 	s = get_next_line(fd);
-// 	printf("line: %s", s);
-// 	s = get_next_line(fd);
-// 	printf("line: %s", s);
-// 	s = get_next_line(fd);
-// 	printf("line: %s", s);
-// 	s = get_next_line(fd);
-// 	printf("line: %s", s);
-// 	close(fd);
-// 	free(s);
-// 	return (0);
-// }

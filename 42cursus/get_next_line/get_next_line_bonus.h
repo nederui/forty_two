@@ -6,12 +6,12 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 00:34:35 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/05 17:09:07 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:15:31 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 /* ************************************************************************** */
 

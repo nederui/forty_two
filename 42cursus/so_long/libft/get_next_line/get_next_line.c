@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 00:31:28 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/07 13:42:15 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:12:01 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 #include <unistd.h>
+#include <stdio.h>
 
 /*
 buffer[FOPEN_MAX][BUFFER_SIZE + 1]: uninitialized data (every index = 0);
