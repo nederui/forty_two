@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 16:39:42 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/29 04:03:54 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:33:43 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_ptr_converter(uintptr_t number, char *base)
 	write(1, &base[number % 16], 1);
 }
 
-void	ft_putaddr(char *ptr)
+void	ft_putaddr(void *ptr)
 {
 	char	*base_string;
 

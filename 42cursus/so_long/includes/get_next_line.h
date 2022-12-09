@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 00:34:35 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/05 17:09:07 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/11/21 16:57:52 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/12/09 18:31:38 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@
 /* ************************************************************************** */
 
 char	*get_next_line(int fd);
-int		ft_findnewline(char *string);
-char	*ft_freebuffer(char *buffer, int fd);
+char	*ft_freebuffer(char *buffer);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 int		ft_strlen_gnl(const char *string);
 

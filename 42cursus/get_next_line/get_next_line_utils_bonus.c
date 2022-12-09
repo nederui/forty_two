@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 00:32:06 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/09 17:13:24 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:26:51 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,23 @@ char	*ft_strjoin_gnl(char *line, char *buffer)
 	char	*string;
 	int		i;
 	int		i_b;
+	int		len_line;
+	int		len_buf;
 
 	if (!buffer)
 		return (NULL);
-	string = (char *) malloc(ft_strlen_gnl(line) + ft_strlen_gnl(buffer) + 1);
-	if (string)
-	{
-		i = -1;
-		i_b = i;
-		while (++i < ft_strlen_gnl(line))
-			string[i] = line[i];
-		while (++i_b < ft_strlen_gnl(buffer))
-			string[i + i_b] = buffer[i_b];
-		string[i + i_b] = 0;
-	}
+	len_line = ft_strlen_gnl(line);
+	len_buf = ft_strlen_gnl(buffer);
+	string = malloc(sizeof string * len_line + len_buf + 1);
+	if (!string)
+		return (NULL);
+	i = -1;
+	i_b = i;
+	while (++i < len_line)
+		string[i] = line[i];
+	while (++i_b < len_buf)
+		string[i + i_b] = buffer[i_b];
+	string[i + i_b] = 0;
 	free(line);
 	return (string);
 }
