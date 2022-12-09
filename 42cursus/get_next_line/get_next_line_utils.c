@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:22:55 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/04 23:18:38 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:14:10 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 char	*ft_freebuffer(char *buffer)
 {
 	int	i;
-	
+
 	i = 0;
 	while (buffer[i])
 	{
-		buffer[i] = 0;	
+		buffer[i] = 0;
 		i++;
 	}
 	return (NULL);

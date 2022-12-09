@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 00:28:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/07 13:41:10 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:11:35 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 /*
 buffer[BUFFER_SIZE + 1]: uninitialized data (every index = 0);
 
-as third condition, reading will only happen if flag != 0 and the buffer is empty;
-this way we avoid overlapping previously stored content;
+as third condition, reading will only happen if flag != 0 and the buffer is
+empty; this way we avoid overlapping previously stored content;
 */
 char	*get_next_line(int fd)
 {
+	static char	buffer[BUFFER_SIZE + 1];
 	char		*line;
-	char static	buffer[BUFFER_SIZE + 1];
 	int			flag;
 	int			i;
 	int			i_0;
@@ -31,7 +31,7 @@ char	*get_next_line(int fd)
 		return (ft_freebuffer(buffer));
 	line = NULL;
 	flag = 0;
-		while (!flag && (buffer[0] || (read(fd, buffer, BUFFER_SIZE) > 0)))
+	while (!flag && (buffer[0] || (read(fd, buffer, BUFFER_SIZE) > 0)))
 	{
 		i = 0;
 		i_0 = 0;
