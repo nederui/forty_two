@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:02:05 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/15 19:44:23 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:38:11 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static size_t	nbr_of_splits(char const *s, char c)
 {

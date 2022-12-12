@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:18:01 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/08 23:52:16 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:38:20 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t buffer)
 {

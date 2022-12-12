@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:13:33 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/08 22:03:05 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:38:03 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

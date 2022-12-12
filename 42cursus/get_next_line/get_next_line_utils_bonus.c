@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 00:32:06 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/09 18:26:51 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/10 15:35:59 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ char	*ft_freebuffer(char *buffer, int fd)
 
 int	ft_strlen_gnl(const char *string)
 {
-	int	l;
+	int	len;
 
-	l = 0;
+	len = 0;
 	if (!string)
 		return (0);
-	while (string[l] && string[l] != '\n')
-		++l;
-	if (string[l] == '\n')
-		++l;
-	return (l);
+	while (string[len] && string[len] != '\n')
+		++len;
+	if (string[len] == '\n')
+		++len;
+	return (len);
 }
 
 char	*ft_strjoin_gnl(char *line, char *buffer)

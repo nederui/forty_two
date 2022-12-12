@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:12:04 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/10 04:35:06 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:37:44 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {

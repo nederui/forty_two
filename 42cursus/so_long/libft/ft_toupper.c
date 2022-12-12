@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:23:54 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/15 19:46:56 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:38:39 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_toupper(int c)
 {

@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:16:08 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/31 18:51:59 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:38:12 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

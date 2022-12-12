@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 13:47:32 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/12/08 18:51:17 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/12/10 15:58:13 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,13 +93,13 @@ INCLUDE	=	-I includes/
 
 MINILIBX=	minilibx
 
-GFX		=	-Lminilibx -lmlx -framework OpenGL -framework AppKit
+GFX		=	-Lmlx_linux -lmlx_linux -framework OpenGL -framework AppKit
 
 ################################################################################
 # RULES
 
 %.o:		%.c
-			$(CC) $(DEBUG) $(CFLAGS) -Imlx_linux -c $^ -o $@ -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
+			$(CC) $(DEBUG) $(CFLAGS) -Imlx_linux -c $^ -o $@ -L/usr/local/lib -lmlx_linux -framework OpenGL -framework AppKit
 
 # our default goal - it compiles the entire program (except bonus)
 all:		gfx $(NAME)

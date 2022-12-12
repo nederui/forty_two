@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:21:59 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/10 04:40:32 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:38:32 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t buffer)
 {

@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 21:14:46 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/09 06:07:16 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:37:36 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

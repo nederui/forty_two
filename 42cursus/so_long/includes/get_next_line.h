@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 16:57:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/09 18:31:38 by nfilipe-         ###   ########.fr       */
+/*   Created: 2022/12/05 00:34:35 by nfilipe-          #+#    #+#             */
+/*   Updated: 2022/12/11 15:27:37 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 /* ************************************************************************** */
 
 char	*get_next_line(int fd);
-char	*ft_freebuffer(char *buffer);
-char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_freebuffer(char *buffer, int fd);
+char	*ft_strjoin_gnl(char *line, char *buffer);
 int		ft_strlen_gnl(const char *string);
 
 #endif

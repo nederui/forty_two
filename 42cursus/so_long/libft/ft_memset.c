@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:13:14 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/10/31 01:57:17 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:38:01 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 • it returns its first argument (string 'b');
 */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	*ft_memset(void *b, int c, size_t n)
 {

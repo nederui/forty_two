@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:12:29 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/07 05:19:47 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:37:57 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 • it returns a pointer to its first argument, 'dst';
 */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

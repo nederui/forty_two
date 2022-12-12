@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:23:40 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/11/15 19:46:41 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:38:36 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_tolower(int c)
 {
