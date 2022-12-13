@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 19:29:26 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/12 01:00:15 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2022/12/12 23:35:19 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,27 @@ int	ft_checkelements(t_map map)
 {
 	int	i;
 	int	line;
-	int	exit;
-	int	player;
-	int	collectibles;
 
-	line = -1;
-	exit = 0;
-	player = 0;
-	collectibles = 0;
-	while (++line < map.height)
+	line = 0;
+	map.exit = 0;
+	map.player = 0;
+	map.collectibles = 0;
+	while (line < map.height)
 	{
-		i = -1;
-		while (map.matrix[line][++i])
+		i = 0;
+		while (map.matrix[line][i])
 		{
 			if (map.matrix[line][i] == 'P')
-				++player;
+				++map.player;
 			if (map.matrix[line][i] == 'E')
-				++exit;
+				++map.exit;
 			if (map.matrix[line][i] == 'C')
-				++collectibles;
+				++map.collectibles;
+			++i;
 		}
+		++line;
 	}
-	if (player != 1 || exit != 1 || collectibles == 0)
+	if (map.player != 1 || map.exit != 1 || map.collectibles == 0)
 		return (0);
 	return (1);
 }
@@ -52,7 +51,9 @@ int	ft_checkextension(char *argv)
 	char	*extension;
 	int		ext_index;
 
-	ext_index = ft_strlen(argv) - 4;
+	ext_index = (int)ft_strlen(argv) - 4;
+	if (!ft_isalnum(argv[ext_index - 1]))
+		return (0);
 	extension = ".ber";
 	if (ft_strncmp(extension, &argv[ext_index], 4) != 0)
 		return (0);
@@ -97,6 +98,10 @@ character, after sucessfully reaching all 'collectible' characters.
 */
 int	ft_checkpath(t_map map)
 {
+	t_characters	chars;
+
+	chars = ft_charactersposition(map, chars);
+	ft_pathing(map, chars.player);
 	return (1);
 }
 
@@ -108,20 +113,11 @@ int	ft_checkmap(char **argv)
 {
 	t_map	map;
 
-	if (!ft_checkextension(argv[1]))
-	{
-		write(1, "Error\nInvalid map_file extension.\n", 34);
-		return (0);
-	}
 	map = ft_mapping(argv);
-	if (!ft_checkborders(map))
+	if (!ft_checkextension(argv[1])
+		|| !ft_checkborders(map) || !ft_checkelements(map))
 	{
-		write(1, "Error\nInvald map structure.\n", 28);
-		return (0);
-	}
-	if (!ft_checkelements(map))
-	{
-		write(1, "Error\nInvalid number of characters.\n", 36);
+		write(1, "Error\nInvalid map_file.\n", 24);
 		return (0);
 	}
 	if (!ft_checkpath(map))

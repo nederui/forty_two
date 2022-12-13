@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 19:53:58 by nfilipe-          #+#    #+#              #
-#    Updated: 2022/12/07 19:34:04 by nfilipe-         ###   ########.fr        #
+#    Updated: 2022/12/12 18:15:51 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,11 +58,11 @@ INDEX	=	ar -crs
 
 # the complete list of the source files to be used
 SRCS	=	ft_format_identifier.c ft_number_converter.c \
-			ft_ptr_converter.c ft_printf.c ft_putchar_int.c ft_putstr_int.c
+			ft_ptr_converter.c ft_printf.c ft_putchar_pf.c ft_putstr_pf.c
 
 # the complete list of all the objects to be created
 OBJECTS	=	ft_format_identifier.o ft_number_converter.o \
-			ft_ptr_converter.o ft_printf.o ft_putchar_int.o ft_putstr_int.o
+			ft_ptr_converter.o ft_printf.o ft_putchar_pf.o ft_putstr_pf.o
  
 # project's header file
 INCLUDE	=	ft_printf.h
