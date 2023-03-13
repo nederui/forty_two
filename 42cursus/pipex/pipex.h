@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:31:56 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/08 00:41:18 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:53:43 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_pipex
 	int		out_fd;
 	char	**cmd_one;
 	char	**cmd_two;
-	char	*envp;
 	char	**paths;
 
 }	t_pipex;
@@ -35,11 +34,17 @@ typedef struct s_pipex
 /* ************************************************************************** */
 
 t_pipex		*pipex(void);
+
+int			ft_setup(char **argv, char **envp);
 int			ft_loadfiles(char **argv);
 int			ft_loadcmds(char **argv);
-void		ft_load_env_paths(char *path, char **argv, char **envp);
-void		ft_save_paths(void);
+int			ft_load_paths(char **argv, char **envp);
+int			ft_prep_paths(void);
 
+int			ft_attempt_exec(char **paths, char **argv, char **envp);
+
+void		ft_debug_path(void);
+char		*ft_strjoin_pipex(char *original_path, char *dash);
 int			ft_error(char *message);
 void		ft_freewillie(void);
 void		ft_exit(void);

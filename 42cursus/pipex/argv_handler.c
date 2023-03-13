@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/08 00:45:26 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:50:15 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,38 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	ft_save_paths(void)
+int	ft_prep_paths(void)
 {
-	(pipex()->paths) = ft_split(pipex()->envp, ':');
-	while (*pipex()->paths)
+	int	i;
+
+	i = 0;
+	while (pipex()->paths[i])
 	{
-		ft_printf("%s\n", *pipex()->paths);
-		*pipex()->paths++;
+		(pipex()->paths[i]) = ft_strjoin_pipex(pipex()->paths[i], "ls");
+		if (!pipex()->paths[i])
+			return (ft_error("Memory allocation error, \
+		whilst loading the envp paths."));
+		i++;
 	}
+	return (1);
 }
 
-void	ft_load_env_paths(char *path, char **argv, char **envp)
+int	ft_load_paths(char **argv, char **envp)
 {
+	char	*path_string;
+
+	path_string = "PATH=";
 	while (*envp)
 	{
-		if (!ft_strncmp(*envp, "PATH=", 5))
-			pipex()->envp = *envp + 5;
+		if (!ft_strncmp(*envp, path_string, 5))
+		{
+			(pipex()->paths) = ft_split(*envp + 5, ':');
+			if (!pipex()->paths)
+				return (ft_error("Memory allocation error, \
+			whilst loading the envp paths."));
+			else
+				return (1);
+		}
 		envp++;
 	}
 }
@@ -40,7 +56,7 @@ int	ft_loadcmds(char **argv)
 	(pipex()->cmd_two) = ft_split(argv[3], ' ');
 	if (!pipex()->cmd_one || !pipex()->cmd_two)
 		return (ft_error("Memory allocation error, \
-			whilst loading the commands."));
+			whilst saving the commands passed as arguments."));
 	return (1);
 }
 

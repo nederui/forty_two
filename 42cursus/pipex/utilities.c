@@ -6,11 +6,75 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/08 00:15:49 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:44:40 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	ft_debug_path(void)
+{
+	ft_printf("DEBUG_START\n\n");
+	while (*pipex()->paths)
+	{
+		ft_printf("%s\n", *pipex()->paths);
+		*pipex()->paths++;
+	}
+	ft_printf("\nDEBUG_END\n");
+}
+
+/*
+a variation of ft_strjoin(), which makes use of ft_strlen_gnl() to concatenate
+'buffer' to 'line' only up to either the '\0' or the '\n' characters; it returns
+the new 'line' and makes sure the previous form of 'line' is free'd;
+*/
+char	*ft_strjoin_pipex(char *original_path, char *cmd)
+{
+	char	*new_path;
+	int		i;
+	int		i_c;
+	int		len_og;
+	int		len_cmd;
+
+	if (!cmd || !original_path)
+		return (NULL);
+	len_og = ft_strlen(original_path);
+	len_cmd = ft_strlen(cmd);
+	new_path = malloc(sizeof new_path * len_og + len_cmd + 1 + 1);
+	if (!new_path)
+		return (NULL);
+	i = -1;
+	i_c = i;
+	while (++i < len_og)
+		new_path[i] = original_path[i];
+	new_path[i++] = '/';
+	while (++i_c < len_cmd)
+		new_path[i + i_c] = cmd[i_c];
+	new_path[i + i_c] = 0;
+	free(original_path);
+	return (new_path);
+}
+
+// char	*ft_strjoin_pipex(char *original_path, char *dash)
+// {
+// 	char	*new_path;
+// 	int		i;
+// 	int		len;
+
+// 	if (!original_path)
+// 		return (NULL);
+// 	len = ft_strlen(original_path);
+// 	new_path = malloc(sizeof new_path * len + 1 + 1);
+// 	if (!new_path)
+// 		return (NULL);
+// 	i = -1;
+// 	while (++i < len)
+// 		new_path[i] = original_path[i];
+// 	new_path[i++] = '/';
+// 	new_path[i] = 0;
+// 	free(original_path);
+// 	return (new_path);
+// }
 
 /*
 this group of functions keep all the data of its corresponding structure static
