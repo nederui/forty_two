@@ -6,13 +6,13 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/13 00:44:40 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:06:38 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_debug_path(void)
+void	ft_debug_setup(void)
 {
 	ft_printf("DEBUG_START\n\n");
 	while (*pipex()->paths)
