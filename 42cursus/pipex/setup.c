@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   argv_handler.c                                     :+:      :+:    :+:   */
+/*   setup.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/12 23:50:15 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:29:13 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include <fcntl.h>
-#include <stdio.h>
 
 int	ft_prep_paths(void)
 {
@@ -21,8 +20,19 @@ int	ft_prep_paths(void)
 	i = 0;
 	while (pipex()->paths[i])
 	{
-		(pipex()->paths[i]) = ft_strjoin_pipex(pipex()->paths[i], "ls");
+		(pipex()->paths[i]) = \
+			ft_strjoin_pipex(pipex()->paths[i], pipex()->cmd_one[0]);
 		if (!pipex()->paths[i])
+			return (ft_error("Memory allocation error, \
+		whilst loading the envp paths."));
+		i++;
+	}
+	i = 0;
+	while (pipex()->paths2[i])
+	{
+		(pipex()->paths2[i]) = \
+			ft_strjoin_pipex(pipex()->paths2[i], pipex()->cmd_two[0]);
+		if (!pipex()->paths2[i])
 			return (ft_error("Memory allocation error, \
 		whilst loading the envp paths."));
 		i++;
@@ -40,7 +50,8 @@ int	ft_load_paths(char **argv, char **envp)
 		if (!ft_strncmp(*envp, path_string, 5))
 		{
 			(pipex()->paths) = ft_split(*envp + 5, ':');
-			if (!pipex()->paths)
+			(pipex()->paths2) = ft_split(*envp + 5, ':');
+			if (!pipex()->paths || !pipex()->paths2)
 				return (ft_error("Memory allocation error, \
 			whilst loading the envp paths."));
 			else
@@ -50,7 +61,7 @@ int	ft_load_paths(char **argv, char **envp)
 	}
 }
 
-int	ft_loadcmds(char **argv)
+int	ft_load_cmds(char **argv)
 {
 	(pipex()->cmd_one) = ft_split(argv[2], ' ');
 	(pipex()->cmd_two) = ft_split(argv[3], ' ');
@@ -60,7 +71,7 @@ int	ft_loadcmds(char **argv)
 	return (1);
 }
 
-int	ft_loadfiles(char **argv)
+int	ft_load_files(char **argv)
 {
 	pipex()->infile = argv[1];
 	pipex()->outfile = argv[4];
@@ -68,5 +79,14 @@ int	ft_loadfiles(char **argv)
 	(pipex()->out_fd) = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (pipex()->in_fd < 0 || pipex()->out_fd < 0)
 		return (ft_error("Unable to open the file passed as argument."));
+	return (1);
+}
+
+int	ft_setup(char **argv, char **envp)
+{
+	if (!ft_load_files(argv) || !ft_load_cmds(argv) \
+	|| !ft_load_paths(argv, envp) || !ft_prep_paths())
+		return (0);
+	ft_debug_setup();
 	return (1);
 }

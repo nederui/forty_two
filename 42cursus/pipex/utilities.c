@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/13 21:06:38 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:07:27 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ void	ft_debug_setup(void)
 	{
 		ft_printf("%s\n", *pipex()->paths);
 		*pipex()->paths++;
+	}
+	ft_printf("\n");
+	while (*pipex()->paths2)
+	{
+		ft_printf("%s\n", *pipex()->paths2);
+		*pipex()->paths2++;
 	}
 	ft_printf("\nDEBUG_END\n");
 }
