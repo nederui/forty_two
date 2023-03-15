@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/13 23:07:27 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/15 01:16:55 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,24 @@
 
 void	ft_debug_setup(void)
 {
-	ft_printf("DEBUG_START\n\n");
-	while (*pipex()->paths)
+	int	i;
+
+	i = 0;
+	ft_printf("///// DEBUG_START\npaths:\n\n");
+	while (pipex()->paths[i])
 	{
-		ft_printf("%s\n", *pipex()->paths);
-		*pipex()->paths++;
+		ft_printf("%s\n", pipex()->paths[i]);
+		i++;
 	}
 	ft_printf("\n");
-	while (*pipex()->paths2)
+	while (pipex()->paths2[i])
 	{
-		ft_printf("%s\n", *pipex()->paths2);
-		*pipex()->paths2++;
+		ft_printf("%s\n", pipex()->paths2[i]);
+		i++;
 	}
-	ft_printf("\nDEBUG_END\n");
+	ft_printf("\ntrue paths:\ncmd1: %s\ncmd2: %s\n", \
+		pipex()->true_path[0], pipex()->true_path[1]);
+	ft_printf("///// DEBUG_END\n\n");
 }
 
 /*
@@ -34,7 +39,7 @@ a variation of ft_strjoin(), which makes use of ft_strlen_gnl() to concatenate
 'buffer' to 'line' only up to either the '\0' or the '\n' characters; it returns
 the new 'line' and makes sure the previous form of 'line' is free'd;
 */
-char	*ft_strjoin_pipex(char *original_path, char *cmd)
+char	*ft_strjoin_ppx(char *original_path, char *cmd)
 {
 	char	*new_path;
 	int		i;
@@ -60,27 +65,6 @@ char	*ft_strjoin_pipex(char *original_path, char *cmd)
 	free(original_path);
 	return (new_path);
 }
-
-// char	*ft_strjoin_pipex(char *original_path, char *dash)
-// {
-// 	char	*new_path;
-// 	int		i;
-// 	int		len;
-
-// 	if (!original_path)
-// 		return (NULL);
-// 	len = ft_strlen(original_path);
-// 	new_path = malloc(sizeof new_path * len + 1 + 1);
-// 	if (!new_path)
-// 		return (NULL);
-// 	i = -1;
-// 	while (++i < len)
-// 		new_path[i] = original_path[i];
-// 	new_path[i++] = '/';
-// 	new_path[i] = 0;
-// 	free(original_path);
-// 	return (new_path);
-// }
 
 /*
 this group of functions keep all the data of its corresponding structure static
@@ -110,19 +94,19 @@ int	ft_error(char *message)
 }
 
 // frees the data previously allocated for the copy of the map
-// void	ft_freewillie(void)
-// {
-// 	int	y;
+void	ft_freewillie(char **array)
+{
+	int	i;
 
-// 	y = 0;
-// 	while (map()->matrix[y])
-// 	{
-// 		free(map()->matrix[y]);
-// 		++y;
-// 	}
-// 	free(map()->matrix);
-// 	map()->matrix = NULL;
-// }
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		++i;
+	}
+	free(array);
+	array = NULL;
+}
 
 // ensures a clean program exit (including closing the map_file fd)
 // void	ft_exit(void)
@@ -142,23 +126,4 @@ int	ft_error(char *message)
 // 	if (game()->highscore)
 // 		ft_check_final_score();
 // 	exit(0);
-// }
-
-// places one string in between another string, at the given index
-// char	*ft_strsandwich(char *ham, char *bread, int index)
-// {
-// 	char	*sandwich;
-// 	size_t	ham_len;
-// 	size_t	bread_len;
-
-// 	ham_len = ft_strlen(ham);
-// 	bread_len = ft_strlen(bread);
-// 	sandwich = malloc(ham_len + bread_len + 1);
-// 	if (!sandwich)
-// 		return (NULL);
-// 	sandwich[ham_len + bread_len] = '\0';
-// 	ft_memcpy(sandwich, bread, index);
-// 	ft_memcpy(sandwich + index, ham, ham_len);
-// 	ft_memcpy(sandwich + index + ham_len, bread + index, bread_len - index);
-// 	return (sandwich);
 // }

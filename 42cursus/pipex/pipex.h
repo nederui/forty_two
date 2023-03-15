@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:31:56 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/14 00:00:24 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/15 01:49:18 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,40 +21,41 @@
 // STRUCTURES
 typedef struct s_pipex
 {
-	char	*infile;
-	char	*outfile;
-	int		in_fd;
-	int		out_fd;
+	// char	*files[2];
+	int		fds[2];
 	char	**cmd_one;
 	char	**cmd_two;
-	char	**paths;
-	char	**paths2;
+	char	**paths;	//	free'd
+	char	**paths2;	//	free'd
+	char	*true_path[2];
 	int		inlet[2];
-	int		id;
-
+	int		outlet[2];
 }	t_pipex;
 
 /* ************************************************************************** */
 // SETUP
 int			ft_setup(char **argv, char **envp);
-int			ft_load_files(char **argv);
+int			ft_access_files(char **argv);
 int			ft_load_cmds(char **argv);
 int			ft_load_paths(char **argv, char **envp);
 int			ft_prep_paths(void);
+int			ft_find_true_path(void);
 
 // CORE
-int			supermario(char **argv, char **envp);
-int			ft_attempt_exec(char **paths, char **argv, char **envp);
+int			ft_plumbing(char **envp);
+int			ft_papi(char **envp);
+int			ft_firstborn(char **envp);
+int			ft_secondchild(char **envp);
+int			ft_switcheroo(void);
 
 // UTILITIES
 t_pipex		*pipex(void);
 void		ft_debug_setup(void);
-char		*ft_strjoin_pipex(char *original_path, char *dash);
+char		*ft_strjoin_ppx(char *original_path, char *dash);
+void		ft_freewillie(char **array);
 
 // WIP
 int			ft_error(char *message);
-void		ft_freewillie(void);
-void		ft_exit(void);
-char		*ft_strsandwich(char *ham, char *bread, int index);
+//void		ft_exit(void);
 
 #endif
