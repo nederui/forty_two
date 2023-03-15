@@ -6,22 +6,12 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:59:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/15 01:35:01 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/15 02:45:54 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	ft_setup(char **argv, char **envp)
-{
-	if (!ft_access_files(argv) || !ft_load_cmds(argv) \
-	|| !ft_load_paths(argv, envp) || !ft_prep_paths() || !ft_find_true_path())
-		return (0);
-	ft_debug_setup();
-	if (!pipex()->true_path[0] || !pipex()->true_path[1])
-		return (ft_error("Could not find the command passed as argument."));
-	return (1);
-}
 
 int	main(int argc, char **argv, char **envp)
 {

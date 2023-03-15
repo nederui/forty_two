@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:44:02 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/15 01:50:39 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/15 02:50:16 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int	ft_switcheroo(void)
 int	ft_secondchild(char **envp)
 {
 	ft_switcheroo();
-	execve(pipex()->true_path[1], pipex()->cmd_two, envp);
+	execve(pipex()->valid_path[1], pipex()->cmd_two, envp);
 	return (0);
 }
 
 int	ft_firstborn(char **envp)
 {
 	ft_switcheroo();
-	execve(pipex()->true_path[0], pipex()->cmd_one, envp);
+	execve(pipex()->valid_path[0], pipex()->cmd_one, envp);
 	return (0);
 }
 

@@ -6,14 +6,14 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/15 01:35:03 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/15 03:00:29 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include <fcntl.h>
 
-int	ft_find_true_path(void)
+int	ft_validate_paths(void)
 {
 	int	i;
 
@@ -22,8 +22,8 @@ int	ft_find_true_path(void)
 	{
 		if (!access(pipex()->paths[i], F_OK))
 		{
-			pipex()->true_path[0] = ft_strdup(pipex()->paths[i]);
-			if (!pipex()->true_path[0])
+			pipex()->valid_path[0] = ft_strdup(pipex()->paths[i]);
+			if (!pipex()->valid_path[0])
 				return (ft_error("Memory allocation error, \
 		whilst saving the correct path for the first command."));
 			ft_freewillie(pipex()->paths);
@@ -34,8 +34,8 @@ int	ft_find_true_path(void)
 	{
 		if (!access(pipex()->paths2[i], F_OK))
 		{
-			pipex()->true_path[1] = ft_strdup(pipex()->paths2[i]);
-			if (!pipex()->true_path[1])
+			pipex()->valid_path[1] = ft_strdup(pipex()->paths2[i]);
+			if (!pipex()->valid_path[1])
 				return (ft_error("Memory allocation error, \
 		whilst saving the correct path for the first command."));
 			ft_freewillie(pipex()->paths2);
@@ -44,7 +44,7 @@ int	ft_find_true_path(void)
 	return (1);
 }
 
-int	ft_prep_paths(void)
+int	ft_append_cmds(void)
 {
 	int	i;
 
@@ -92,6 +92,7 @@ int	ft_load_paths(char **argv, char **envp)
 		}
 		envp++;
 	}
+	return (ft_error("Unable to find 'PATH=' in the environment pointer."));
 }
 
 int	ft_load_cmds(char **argv)
@@ -108,9 +109,20 @@ int	ft_access_files(char **argv)
 {
 	// pipex()->files[0] = argv[1];
 	// pipex()->files[1] = argv[4];
-	(pipex()->fds[0]) = open(argv[1], O_RDONLY);
-	(pipex()->fds[1]) = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
-	if (pipex()->fds[0] < 0 || pipex()->fds[1] < 0)
+	(pipex()->fd[0]) = open(argv[1], O_RDONLY);
+	(pipex()->fd[1]) = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (pipex()->fd[0] < 0 || pipex()->fd[1] < 0)
 		return (ft_error("Unable to open the file passed as argument."));
+	return (1);
+}
+
+int	ft_setup(char **argv, char **envp)
+{
+	if (!ft_access_files(argv) || !ft_load_cmds(argv) \
+	|| !ft_load_paths(argv, envp) || !ft_append_cmds() || !ft_validate_paths())
+		return (0);
+	ft_debug_setup();
+	if (!pipex()->valid_path[0] || !pipex()->valid_path[1])
+		return (ft_error("Could not find the command passed as argument."));
 	return (1);
 }
