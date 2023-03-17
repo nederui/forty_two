@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/15 03:00:29 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/17 02:10:07 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,11 @@ int	ft_access_files(char **argv)
 	// pipex()->files[0] = argv[1];
 	// pipex()->files[1] = argv[4];
 	(pipex()->fd[0]) = open(argv[1], O_RDONLY);
+	if (pipex()->fd[0] < 0 )
+		return (ft_error("Unable to open the infile."));
 	(pipex()->fd[1]) = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
-	if (pipex()->fd[0] < 0 || pipex()->fd[1] < 0)
-		return (ft_error("Unable to open the file passed as argument."));
+	if (pipex()->fd[1] < 0)
+		return (ft_error("Unable to open/create the outfile file."));
 	return (1);
 }
 

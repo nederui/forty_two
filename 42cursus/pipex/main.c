@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:59:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/15 02:45:54 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/17 03:13:35 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv, char **envp)
 		return (ft_error("Invalid number of arguments."));
 	if (!ft_setup(argv, envp))
 		return (0);
-	// plumbing(argv, envp);
+	ft_plumbing(envp);
 	// free_memory
 	// clean exit
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:31:56 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/15 02:47:06 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/17 02:55:31 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct s_pipex
 	char	**paths;	//	free'd
 	char	**paths2;	//	free'd
 	char	*valid_path[2];
-	int		inlet[2];
-	int		outlet[2];
+	int		p1pe[2];
+	int		pip3[2];
 }	t_pipex;
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:44:02 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/15 02:50:16 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/17 03:19:53 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,22 @@
 #include "unistd.h"
 #include <sys/wait.h>
 
-int	ft_switcheroo(void)
-{
-	return (1);
-}
-
 int	ft_secondchild(char **envp)
 {
-	ft_switcheroo();
+	close(pipex()->p1pe[1]);
+	// close(pipex()->pip3[0]);
+	if (dup2(pipex()->p1pe[0], STDIN_FILENO) == -1)
+		return (0);	//	WIP
+	if (dup2(pipex()->fd[1], STDOUT_FILENO) == -1)
+		return (0);	//	WIP
 	execve(pipex()->valid_path[1], pipex()->cmd_two, envp);
-	return (0);
-}
-
-int	ft_firstborn(char **envp)
-{
-	ft_switcheroo();
-	execve(pipex()->valid_path[0], pipex()->cmd_one, envp);
-	return (0);
+	return (ft_error("Failed to execute the second command."));	//	WIP
 }
 
 int	ft_papi(char **envp)
 {
 	pid_t	id;
 
-	if (pipe(pipex()->outlet) == -1)
-		return (ft_error("Failed to create the second pipe."));
 	id = fork();
 	if (id == -1)
 		return (ft_error("Failed whilst trying to fork again."));
@@ -46,11 +37,23 @@ int	ft_papi(char **envp)
 		ft_secondchild(envp);
 	else
 	{
-		close(pipex()->inlet[0]);
-		close(pipex()->outlet[1]);
-		wait(NULL);
+		// close(pipex()->inlet[0]);
+		// close(pipex()->p1pe[1]);
+		waitpid(id, NULL, 0);
 	}
 	return (0);
+}
+
+int	ft_firstborn(char **envp)
+{
+	close(pipex()->p1pe[0]);
+	// close(pipex()->pip3[0]);
+	if (dup2(pipex()->fd[0], STDIN_FILENO) == -1)
+		return (0);	//	WIP
+	if (dup2(pipex()->p1pe[1], STDOUT_FILENO) == -1)
+		return (0);	//	WIP
+	execve(pipex()->valid_path[0], pipex()->cmd_one, envp);
+	return (ft_error("Failed to execute the first command."));	//	WIP
 }
 
 //  --->	read from [0]
@@ -59,7 +62,7 @@ int	ft_plumbing(char **envp)
 {
 	pid_t	id;
 
-	if (pipe(pipex()->inlet) == -1)
+	if (pipe(pipex()->p1pe) == -1)
 		return (ft_error("Failed to create the first pipe."));
 	id = fork();
 	if (id == -1)
@@ -68,10 +71,10 @@ int	ft_plumbing(char **envp)
 		ft_firstborn(envp);
 	else
 	{
-		close(pipex()->inlet[1]);
-		close(pipex()->outlet[0]);
 		wait(NULL);
 		ft_papi(envp);
+		// close(pipex()->inlet[1]);
+		// close(pipex()->outlet[0]);
 	}
 	return (0);
 }
