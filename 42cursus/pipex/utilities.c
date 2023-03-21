@@ -31,6 +31,15 @@ void	ft_debug_setup(void)
 	}
 	ft_printf("\nvalid cmd paths:\ncmd1: %s\ncmd2: %s\n", \
 		pipex()->valid_path[0], pipex()->valid_path[1]);
+	// i = 0;
+	// ft_printf("\nCOMMANDS:\n");
+	// while (pipex()->cmd_one[i])
+		// ft_printf("cmd_one[%d]: %s\n", i, pipex()->cmd_one[i]);
+	// i = 0;
+	// while (pipex()->cmd_two[i])
+	// 	ft_printf("cmd_two[%d]: %s\n", i, pipex()->cmd_two[i]);
+	ft_printf("CMD UNO: %s\n", pipex()->cmd_one[0]);
+	ft_printf("CMD DOS: %s\n", pipex()->cmd_two[0]);
 	ft_printf("///// DEBUG_END\n\n");
 }
 

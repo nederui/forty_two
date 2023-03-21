@@ -46,7 +46,7 @@ int			ft_plumbing(char **envp);
 int			ft_papi(char **envp);
 int			ft_firstborn(char **envp);
 int			ft_secondchild(char **envp);
-int			ft_switcheroo(void);
+// int			ft_switcheroo(void);
 
 // UTILITIES
 t_pipex		*pipex(void);

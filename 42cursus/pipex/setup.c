@@ -58,7 +58,7 @@ int	ft_append_cmds(void)
 		whilst loading the envp paths."));
 		i++;
 	}
-	ft_freewillie(pipex()->cmd_one);
+	// ft_freewillie(pipex()->cmd_one);
 	i = 0;
 	while (pipex()->paths2[i])
 	{
@@ -69,7 +69,7 @@ int	ft_append_cmds(void)
 		whilst loading the envp paths."));
 		i++;
 	}
-	ft_freewillie(pipex()->cmd_two);
+	// ft_freewillie(pipex()->cmd_two);
 	return (1);
 }
 
@@ -123,7 +123,7 @@ int	ft_setup(char **argv, char **envp)
 	if (!ft_access_files(argv) || !ft_load_cmds(argv) \
 	|| !ft_load_paths(argv, envp) || !ft_append_cmds() || !ft_validate_paths())
 		return (0);
-	ft_debug_setup();
+	// ft_debug_setup();
 	if (!pipex()->valid_path[0] || !pipex()->valid_path[1])
 		return (ft_error("Could not find the command passed as argument."));
 	return (1);

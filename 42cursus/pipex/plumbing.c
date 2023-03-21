@@ -11,18 +11,19 @@
 /* ************************************************************************** */
 
 #include "pipex.h"
-#include "unistd.h"
+#include <unistd.h>
 #include <sys/wait.h>
 
 int	ft_secondchild(char **envp)
 {
 	close(pipex()->p1pe[1]);
-	// close(pipex()->pip3[0]);
 	if (dup2(pipex()->p1pe[0], STDIN_FILENO) == -1)
 		return (0);	//	WIP
+	ft_printf("about to execve cmd2\n");
 	if (dup2(pipex()->fd[1], STDOUT_FILENO) == -1)
 		return (0);	//	WIP
 	execve(pipex()->valid_path[1], pipex()->cmd_two, envp);
+	ft_printf("second child is alive!\n");
 	return (ft_error("Failed to execute the second command."));	//	WIP
 }
 
@@ -37,9 +38,8 @@ int	ft_papi(char **envp)
 		ft_secondchild(envp);
 	else
 	{
-		// close(pipex()->inlet[0]);
-		// close(pipex()->p1pe[1]);
-		waitpid(id, NULL, 0);
+		// waitpid(id, NULL, 0);
+		// wait(NULL);
 	}
 	return (0);
 }
@@ -47,9 +47,9 @@ int	ft_papi(char **envp)
 int	ft_firstborn(char **envp)
 {
 	close(pipex()->p1pe[0]);
-	// close(pipex()->pip3[0]);
 	if (dup2(pipex()->fd[0], STDIN_FILENO) == -1)
 		return (0);	//	WIP
+	ft_printf("about to execve cmd1\n");
 	if (dup2(pipex()->p1pe[1], STDOUT_FILENO) == -1)
 		return (0);	//	WIP
 	execve(pipex()->valid_path[0], pipex()->cmd_one, envp);
@@ -73,8 +73,6 @@ int	ft_plumbing(char **envp)
 	{
 		wait(NULL);
 		ft_papi(envp);
-		// close(pipex()->inlet[1]);
-		// close(pipex()->outlet[0]);
 	}
 	return (0);
 }
