@@ -6,42 +6,33 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/15 02:54:08 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/22 01:25:25 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_debug_setup(void)
-{
-	int	i;
+// void	ft_debug_setup(void)
+// {
+// 	int	i;
 
-	i = 0;
-	ft_printf("///// DEBUG_START\npaths:\n\n");
-	while (pipex()->paths[i])
-	{
-		ft_printf("%s\n", pipex()->paths[i]);
-		i++;
-	}
-	ft_printf("\n");
-	while (pipex()->paths2[i])
-	{
-		ft_printf("%s\n", pipex()->paths2[i]);
-		i++;
-	}
-	ft_printf("\nvalid cmd paths:\ncmd1: %s\ncmd2: %s\n", \
-		pipex()->valid_path[0], pipex()->valid_path[1]);
-	// i = 0;
-	// ft_printf("\nCOMMANDS:\n");
-	// while (pipex()->cmd_one[i])
-		// ft_printf("cmd_one[%d]: %s\n", i, pipex()->cmd_one[i]);
-	// i = 0;
-	// while (pipex()->cmd_two[i])
-	// 	ft_printf("cmd_two[%d]: %s\n", i, pipex()->cmd_two[i]);
-	ft_printf("CMD UNO: %s\n", pipex()->cmd_one[0]);
-	ft_printf("CMD DOS: %s\n", pipex()->cmd_two[0]);
-	ft_printf("///// DEBUG_END\n\n");
-}
+// 	i = 0;
+// 	ft_printf("///// DEBUG_START\npaths:\n\n");
+// 	while (pipex()->paths[i])
+// 	{
+// 		ft_printf("%s\n", pipex()->paths[i]);
+// 		i++;
+// 	}
+// 	ft_printf("\n");
+// 	while (pipex()->paths2[i])
+// 	{
+// 		ft_printf("%s\n", pipex()->paths2[i]);
+// 		i++;
+// 	}
+// 	ft_printf("\nvalid cmd paths:\ncmd1: %s\ncmd2: %s\n", \
+// 		pipex()->valid_path[0], pipex()->valid_path[1]);
+// 	ft_printf("///// DEBUG_END\n\n");
+// }
 
 /*
 a variation of ft_strjoin(), which makes use of ft_strlen_gnl() to concatenate
@@ -98,7 +89,7 @@ int	ft_error(char *message)
 	ft_putstr_fd("Error\n", 1);
 	ft_putstr_fd(message, 1);
 	ft_putchar_fd('\n', 1);
-	// ft_exit();
+	ft_exit();
 	return (0);
 }
 
@@ -118,21 +109,18 @@ void	ft_freewillie(char **array)
 }
 
 // ensures a clean program exit (including closing the map_file fd)
-// void	ft_exit(void)
-// {
-// 	if (img()->img)
-// 		mlx_destroy_image(game()->mlx, img()->img);
-// 	if (game()->win)
-// 		mlx_destroy_window(game()->mlx, game()->win);
-// 	if (game()->mlx)
-// 	{
-// 		mlx_destroy_display(game()->mlx);
-// 		free(game()->mlx);
-// 	}
-// 	if (map()->matrix)
-// 		ft_freewillie();
-// 	// if() checking if the player reached the exit (?)
-// 	if (game()->highscore)
-// 		ft_check_final_score();
-// 	exit(0);
-// }
+void	ft_exit(void)
+{
+	if (pipex()->cmd_one)
+		ft_freewillie(pipex()->cmd_one);
+	if (pipex()->cmd_two)
+		ft_freewillie(pipex()->cmd_two);
+	if (pipex()->paths)
+		ft_freewillie(pipex()->paths);
+	if (pipex()->paths2)
+		ft_freewillie(pipex()->paths2);
+	free(pipex()->valid_path[0]);
+	free(pipex()->valid_path[1]);
+	// ft_freewillie(pipex()->valid_path);
+	exit(0);
+}

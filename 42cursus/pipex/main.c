@@ -6,12 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:59:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/17 03:13:35 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/22 01:30:39 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -20,8 +19,7 @@ int	main(int argc, char **argv, char **envp)
 	if (!ft_setup(argv, envp))
 		return (0);
 	ft_plumbing(envp);
-	// free_memory
-	// clean exit
+	ft_exit();
 	return (0);
 }
 
