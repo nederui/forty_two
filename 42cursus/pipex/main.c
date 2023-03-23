@@ -6,11 +6,24 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:59:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/22 01:30:39 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/23 02:00:23 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+
+int	ft_setup(char **argv, char **envp)
+{
+	if (!ft_access_files(argv) || !ft_load_cmds(argv) \
+	|| !ft_load_paths(envp) || !ft_append_cmds() || !ft_validate_paths())
+		return (0);
+	if (!pipex()->valid_path[0])
+		return (ft_error("1"));
+	if (!pipex()->valid_path[1])
+		return (ft_error("2"));
+	return (1);
+}
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -22,21 +35,3 @@ int	main(int argc, char **argv, char **envp)
 	ft_exit();
 	return (0);
 }
-
-/*
-
-./pipex infile "grep a1" "wc -w" outfile
-
-a) check infile's fd
-b) check(/create) outfile's fd
-c) interpret & save cmd1 & cmd2
-d) handle PATH= (run, save, split)
-e) attach '/<command>' to the possible paths
-f) access() -> find the correct cmd's path
-
-// fork() / pipe() / wait() / dup()
-
-) save the result from cmd1
-) execute cmd2 on cmd1's result
-)
-*/

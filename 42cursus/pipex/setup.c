@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/22 01:32:43 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:16:07 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_append_cmds(void)
 	return (1);
 }
 
-int	ft_load_paths(char **argv, char **envp)
+int	ft_load_paths(char **envp)
 {
 	char	*path_string;
 
@@ -111,16 +111,5 @@ int	ft_access_files(char **argv)
 	(pipex()->fd[1]) = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (pipex()->fd[1] < 0)
 		return (ft_error("Unable to open/create the outfile file."));
-	return (1);
-}
-
-int	ft_setup(char **argv, char **envp)
-{
-	if (!ft_access_files(argv) || !ft_load_cmds(argv) \
-	|| !ft_load_paths(argv, envp) || !ft_append_cmds() || !ft_validate_paths())
-		return (0);
-	// ft_debug_setup();
-	if (!pipex()->valid_path[0] || !pipex()->valid_path[1])
-		return (ft_error("Could not find the command passed as argument."));
 	return (1);
 }

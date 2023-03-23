@@ -6,33 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/22 01:25:25 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/23 02:01:03 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-// void	ft_debug_setup(void)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	ft_printf("///// DEBUG_START\npaths:\n\n");
-// 	while (pipex()->paths[i])
-// 	{
-// 		ft_printf("%s\n", pipex()->paths[i]);
-// 		i++;
-// 	}
-// 	ft_printf("\n");
-// 	while (pipex()->paths2[i])
-// 	{
-// 		ft_printf("%s\n", pipex()->paths2[i]);
-// 		i++;
-// 	}
-// 	ft_printf("\nvalid cmd paths:\ncmd1: %s\ncmd2: %s\n", \
-// 		pipex()->valid_path[0], pipex()->valid_path[1]);
-// 	ft_printf("///// DEBUG_END\n\n");
-// }
 
 /*
 a variation of ft_strjoin(), which makes use of ft_strlen_gnl() to concatenate
@@ -86,9 +64,24 @@ returns 0 to exit 'check_map.c' functions in the event of an error being found
 */
 int	ft_error(char *message)
 {
+	char	*uno;
+	char	*dos;
+
+	uno = "1";
+	dos = "2";
 	ft_putstr_fd("Error\n", 1);
-	ft_putstr_fd(message, 1);
-	ft_putchar_fd('\n', 1);
+	if (!ft_strncmp(message, uno, 1) || !ft_strncmp(message, dos, 1))
+	{
+		if (!pipex()->valid_path[0])
+			ft_printf("%s: Command not found.\n", pipex()->cmd_one[0]);
+		if (!pipex()->valid_path[1] || !ft_strncmp(message, dos, 1))
+			ft_printf("%s: Command not found.\n", pipex()->cmd_two[0]);
+	}
+	else
+	{
+		ft_putstr_fd(message, 1);
+		ft_putchar_fd('\n', 1);
+	}
 	ft_exit();
 	return (0);
 }
@@ -121,6 +114,5 @@ void	ft_exit(void)
 		ft_freewillie(pipex()->paths2);
 	free(pipex()->valid_path[0]);
 	free(pipex()->valid_path[1]);
-	// ft_freewillie(pipex()->valid_path);
 	exit(0);
 }

@@ -8,7 +8,7 @@ SHELL	=	/bin/bash
 
 # to delete the default suffixes & define our suffix list
 .SUFIXES:					   
-.SUFIXES:	.c .h .o
+.SUFIXES:	.a .c .h .o
 
 ################################################################################
 # ARGUMENTS
@@ -38,7 +38,7 @@ REMOVE	=	rm -rf
 SRCS	=	main.c	setup.c	plumbing.c	utilities.c
 
 # the complete list of all the objects to be created
-OBJECTS	=	main.o	setup.o	plumbing.o	utilities.o
+OBJECTS	=	$(SRCS:.c=.o)
 
 LIBFT	=	libft
 # project's header file & libft's header file
@@ -53,15 +53,18 @@ INCLUDE	=	pipex.h -L./libft -lft
 # 'ranlib' to run our libft.a, as it is a static library (.a file)
 all:		$(NAME)
 
+%.o: %.c
+			$(CC) $(CFLAGS) -I$(INCLUDE) -O3 -c $< -o $@
+			
 $(NAME):	$(OBJECTS)
 			@echo compiling \& linking sources
 			@make -C $(LIBFT)
 			@echo building $(LIBFT)
-			@echo copying libft.a to $(NAME)'s main directory
 			@cp libft/libft.a ./$(NAME)
+			@echo copying libft.a to $(NAME) main directory
 			@echo building $(NAME)
-			$(NAME) $(OBJECTS)
-			@ranlib $(NAME)
+			$(CC) $(OBJECTS) -o $(NAME)
+#			@ranlib -lft $(NAME)
 
 
 # tells how to make ‘.o’ files from ‘.c’ files and makes all ‘.o’ files \
