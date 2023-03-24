@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:31:56 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/23 02:06:09 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:46:35 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			ft_validate_paths(void);
 int			ft_plumbing(char **envp);
 int			ft_papi(char **envp);
 int			ft_firstborn(char **envp);
-int			ft_secondchild(char **envp);
+int			ft_leastfavorite(char **envp);
 
 // UTILITIES
 t_pipex		*pipex(void);

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:44:02 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/23 02:45:03 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:03:06 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-int	ft_secondchild(char **envp)
+int	ft_leastfavorite(char **envp)
 {
 	if (dup2(pipex()->p1pe[0], STDIN_FILENO) == -1)
 		return (0);	//	WIP
@@ -36,7 +36,7 @@ int	ft_papi(char **envp)
 	if (id == -1)
 		return (ft_error("Failed whilst trying to fork again."));
 	if (id == 0)
-		ft_secondchild(envp);
+		ft_leastfavorite(envp);
 	close(pipex()->p1pe[0]);
 	close(pipex()->p1pe[1]);
 	waitpid(id, NULL, 0);

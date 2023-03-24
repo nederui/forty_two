@@ -1,4 +1,14 @@
-
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/24 16:02:21 by nfilipe-          #+#    #+#              #
+#    Updated: 2023/03/24 17:45:22 by nfilipe-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 ################################################################################
 # SAFEGUARDS
@@ -40,9 +50,10 @@ SRCS	=	main.c	setup.c	plumbing.c	utilities.c
 # the complete list of all the objects to be created
 OBJECTS	=	$(SRCS:.c=.o)
 
-LIBFT	=	libft
+LIBFT	=	libft/libft.a
+
 # project's header file & libft's header file
-INCLUDE	=	pipex.h -L./libft -lft
+INCLUDE	=	pipex.h
 
 ################################################################################
 # RULES
@@ -54,16 +65,13 @@ INCLUDE	=	pipex.h -L./libft -lft
 all:		$(NAME)
 
 %.o: %.c
-			$(CC) $(CFLAGS) -I$(INCLUDE) -O3 -c $< -o $@
+			$(CC) $(CFLAGS) -I$(INCLUDE) -O2 -c $< -o $@
 			
 $(NAME):	$(OBJECTS)
-			@echo compiling \& linking sources
-			@make -C $(LIBFT)
-			@echo building $(LIBFT)
-			@cp libft/libft.a ./$(NAME)
-			@echo copying libft.a to $(NAME) main directory
+			@make -s -C libft
+			@echo pipex: compiling \& linking sources
 			@echo building $(NAME)
-			$(CC) $(OBJECTS) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
 #			@ranlib -lft $(NAME)
 
 
@@ -71,20 +79,19 @@ $(NAME):	$(OBJECTS)
 using this pattern rule also depend on libft.h
 # '-c' preprocess, compile, and assemble only (i.e., don’t link)
 # '-o' Direct output to the specified file.
-OBJECTS:	$(SRCS) $(INCLUDE)
-			$(CC) $(DEBUG) $(CFLAGS) -c -o $(SRCS)
+# OBJECTS:	$(SRCS) $(INCLUDE)
+# 			$(CC) $(DEBUG) $(CFLAGS) -c -o $(SRCS)
 
 clean:
-			@echo removing all objects
+			@make clean -s -C libft
 			$(REMOVE) $(OBJECTS)
-			@make clean -C $(LIBFT)
+			@echo removing all objects
 
 
 fclean:		clean
-			@echo removing $(NAME)
+			@make fclean -s -C libft
 			$(REMOVE) $(NAME)
-			@make fclean -C $(LIBFT)
-
+			@echo removing $(NAME)
 
 re:			fclean $(NAME)
 

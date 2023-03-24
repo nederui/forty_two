@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/23 02:01:03 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:57:39 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ char	*ft_strjoin_ppx(char *original_path, char *cmd)
 		return (NULL);
 	len_og = ft_strlen(original_path);
 	len_cmd = ft_strlen(cmd);
-	new_path = malloc(sizeof new_path * len_og + len_cmd + 1 + 1);
+	// new_path = malloc(sizeof new_path * len_og + len_cmd + 1 + 1);
+	new_path = ft_calloc(sizeof(char), len_og + len_cmd + 1 + 1);
 	if (!new_path)
 		return (NULL);
 	i = -1;
@@ -39,7 +40,7 @@ char	*ft_strjoin_ppx(char *original_path, char *cmd)
 	new_path[i++] = '/';
 	while (++i_c < len_cmd)
 		new_path[i + i_c] = cmd[i_c];
-	new_path[i + i_c] = 0;
+	// new_path[i + i_c] = 0;
 	free(original_path);
 	return (new_path);
 }

@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 19:53:58 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/03/24 16:30:14 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/03/24 17:25:52 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,14 @@
 # to avoid problems with any 'SHELL'-named variable
 SHELL	=	/bin/bash 
 
-# to delete the default suffixes & define our suffix list			   
+# to delete the default suffixes & define our suffix list					   
 .SUFIXES:	.a .c .h .o
 
 ################################################################################
 # ARGUMENTS
 
 # the name of the executable built by this Makefile
-NAME 	=	libftprintf.a
+NAME 	=	libft.a
 
 # compiler (cc) & flags to be used
 # '-O2' applies almost all of the supported optimization techniques that do \
@@ -33,7 +33,7 @@ generally increases the time needed to compile.
 # 'DEBUG' flags will compile the code with debug symbols (-g) & detect memory \
 access error such as use-after-free and memory leaks (-fsanitize=address)
 CC		=	cc 
-CFLAGS	=	-O2 -Wall -Wextra -Werror -I.
+CFLAGS	=	-O2 -Wall -Werror -Wextra
 DEBUG	=	-g -fsanitize=address
 
 # 'rm -rf' forced file removal (ignores nonexistent files and arguments), \
@@ -56,17 +56,39 @@ INDEX	=	ar -crs
 # SOURCES
 
 # the complete list of the source files to be used
-SRCS	=	ft_format_identifier.c ft_number_converter.c \
-			ft_ptr_converter.c ft_printf.c ft_putchar_pf.c ft_putstr_pf.c
+SRCS	=	ft_printf/ft_format_identifier.c		\
+			ft_printf/ft_number_converter.c		\
+			ft_printf/ft_printf.c					\
+			ft_printf/ft_ptr_converter.c			\
+			ft_printf/ft_putchar_pf.c				\
+			ft_printf/ft_putstr_pf.c				\
+			\
+			get_next_line/get_next_line_utils.c	\
+			get_next_line/get_next_line.c			\
+			\
+			utils/ft_putaddr.c					\
+			\
+			ft_isalnum.c		ft_isalpha.c	ft_isascii.c		\
+			ft_isdigit.c		ft_isprint.c	ft_memchr.c		\
+			ft_memcmp.c		ft_memcpy.c	ft_memmove.c		\
+			ft_memset.c		ft_strchr.c	ft_strlcat.c 		\
+			ft_strlcpy.c		ft_strlen.c	ft_strncmp.c		\
+			ft_strnstr.c		ft_strrchr.c	ft_bzero.c		\
+			ft_atoi.c			ft_itoa.c		ft_tolower.c		\
+			ft_toupper.c		ft_strdup.c	ft_calloc.c		\
+			ft_strtrim.c		ft_substr.c	ft_strjoin.c		\
+			ft_split.c		ft_strmapi.c	ft_striteri.c		\
+			ft_putchar_fd.c	ft_lstlast.c	ft_putendl_fd.c	\
+			ft_putnbr_fd.c	ft_lstnew.c	ft_lstsize.c		\
+			ft_lstclear.c		ft_lstmap.c	ft_lstiter.c		\
+			ft_lstadd_front.c	ft_putstr_fd.c						\
+			ft_lstadd_back.c	ft_lstdelone.c
 
 # the complete list of all the objects to be created
-OBJECTS	=	ft_format_identifier.o ft_number_converter.o \
-			ft_ptr_converter.o ft_printf.o ft_putchar_pf.o ft_putstr_pf.o
-
-LIBFT	=	libft/libft.a
-
+OBJECTS	=	$(SRCS:.c=.o)
+ 
 # project's header file
-INCLUDE	=	ft_printf.h
+INCLUDE	=	includes/*.h
 
 ################################################################################
 # RULES
@@ -76,11 +98,9 @@ all:		$(NAME)
 
 %.o: %.c
 			$(CC) $(CFLAGS) -I$(INCLUDE) -O2 -c $< -o $@
-
+			
 $(NAME):	$(OBJECTS)
-			@echo compiling \& linking sources
-			@make -s -C libft
-			@echo building $(LIBFT)
+			@echo libft: compiling \& linking sources
 			@echo building $(NAME)
 			$(INDEX) $(NAME) $(OBJECTS) $(LIBFT)
 
@@ -90,16 +110,12 @@ using this pattern rule also depend on libft.h
 # '-o' Direct output to the specified file.
 OBJECTS:	$(SRCS) $(INCLUDE)
 			$(CC) $(DEBUG) $(CFLAGS) -c -o $(SRCS)
-
 clean:
-			@echo removing all objects
 			$(REMOVE) $(OBJECTS)
-			@make clean -s -C libft
 
 fclean:		clean
-			@echo removing $(NAME)
 			$(REMOVE) $(NAME)
-			@make fclean -s -C libft
+			@echo removing $(NAME)
 
 re:			fclean $(NAME)
 
@@ -107,14 +123,11 @@ re:			fclean $(NAME)
 # SPECIAL RULES
 
 info:	
-			@echo Makefile for \'libftprintf.a\' v2.0.24032023 by nfilipe-
+			@echo Makefile for \'libft\' v2.0.24032023 by nfilipe-
 
 acknowledgments:	
-			@echo my deepest gratitude to my coleagues @ 42 Lisboa: amak, \
-			drobert-, fmouronh, matde-je, oharoon, rteles-f for their \
-			insight, tips and enthusiasm
-			@echo \>\> special shout-out to oharoon, who pointed me in the \
-			right direction on this project	
+			@echo my deepest gratitude to my coleagues @ 42 Lisboa \
+			for their insight, tips and enthusiasm
 
 # A phony target is one that is not really the name of a file; rather it \
 is just a name for a recipe to be executed when you make an explicit \
