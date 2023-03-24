@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:59:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/23 02:00:23 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:04:06 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	ft_setup(char **argv, char **envp)
 {
 	if (!ft_access_files(argv) || !ft_load_cmds(argv) \
 	|| !ft_load_paths(envp) || !ft_append_cmds() || !ft_validate_paths())
-		return (0);
+		return (FAILURE);
 	if (!pipex()->valid_path[0])
 		return (ft_error("1"));
 	if (!pipex()->valid_path[1])
 		return (ft_error("2"));
-	return (1);
+	return (SUCCESS);
 }
 
 int	main(int argc, char **argv, char **envp)

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:44:02 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/24 17:03:06 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:05:52 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 int	ft_leastfavorite(char **envp)
 {
 	if (dup2(pipex()->p1pe[0], STDIN_FILENO) == -1)
-		return (0);	//	WIP
+		return (FAILURE);	//	WIP
 	close(pipex()->p1pe[1]);
 	close(pipex()->p1pe[0]);
 	if (dup2(pipex()->fd[1], STDOUT_FILENO) == -1)
-		return (0);	//	WIP
+		return (FAILURE);	//	WIP
 	close(pipex()->fd[0]);
 	close(pipex()->fd[1]);
 	execve(pipex()->valid_path[1], pipex()->cmd_two, envp);
@@ -40,17 +40,17 @@ int	ft_papi(char **envp)
 	close(pipex()->p1pe[0]);
 	close(pipex()->p1pe[1]);
 	waitpid(id, NULL, 0);
-	return (0);
+	return (SUCCESS);
 }
 
 int	ft_firstborn(char **envp)
 {
 	if (dup2(pipex()->fd[0], STDIN_FILENO) == -1)
-		return (0);	//	WIP
+		return (FAILURE);	//	WIP
 	close(pipex()->fd[1]);
 	close(pipex()->fd[0]);
 	if (dup2(pipex()->p1pe[1], STDOUT_FILENO) == -1)
-		return (0);	//	WIP
+		return (FAILURE);	//	WIP
 	close(pipex()->p1pe[0]);
 	close(pipex()->p1pe[1]);
 	execve(pipex()->valid_path[0], pipex()->cmd_one, envp);
@@ -72,5 +72,5 @@ int	ft_plumbing(char **envp)
 		ft_firstborn(envp);
 	waitpid(id, NULL, 0);
 	ft_papi(envp);
-	return (0);
+	return (SUCCESS);
 }

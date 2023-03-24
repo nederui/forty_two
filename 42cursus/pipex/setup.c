@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/24 17:02:24 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:06:48 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_validate_paths(void)
 			break ;
 		}
 	}
-	return (1);
+	return (SUCCESS);
 }
 
 int	ft_append_cmds(void)
@@ -68,7 +68,7 @@ int	ft_append_cmds(void)
 		whilst loading the envp paths."));
 		i++;
 	}
-	return (1);
+	return (SUCCESS);
 }
 
 int	ft_load_paths(char **envp)
@@ -86,7 +86,7 @@ int	ft_load_paths(char **envp)
 				return (ft_error("Memory allocation error, \
 			whilst loading the envp paths."));
 			else
-				return (1);
+				return (SUCCESS);
 		}
 		envp++;
 	}
@@ -100,7 +100,7 @@ int	ft_load_cmds(char **argv)
 	if (!pipex()->cmd_one || !pipex()->cmd_two)
 		return (ft_error("Memory allocation error, \
 			whilst saving the commands passed as arguments."));
-	return (1);
+	return (SUCCESS);
 }
 
 int	ft_access_files(char **argv)
@@ -111,5 +111,5 @@ int	ft_access_files(char **argv)
 	(pipex()->fd[1]) = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (pipex()->fd[1] < 0)
 		return (ft_error("Unable to open/create the outfile file."));
-	return (1);
+	return (SUCCESS);
 }

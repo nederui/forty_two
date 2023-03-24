@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/24 16:57:39 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:07:35 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_error(char *message)
 		ft_putchar_fd('\n', 1);
 	}
 	ft_exit();
-	return (0);
+	return (FAILURE);
 }
 
 // frees the data previously allocated for the copy of the map
