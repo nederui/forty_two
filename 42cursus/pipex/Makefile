@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 16:02:21 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/03/24 17:45:22 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/03/27 19:37:26 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ NAME 	=	pipex
 # '-O2' applies almost all of the supported optimization techniques that do \
 not involve a tradeoff between program size and execution speed. This option \
 generally increases the time needed to compile.
-# '-I<dir>' adds the current directory to include search path for 'libft.h'
+# '-I<dir>' adds the current directory to include search path for 'pipex.h'
 # 'DEBUG' flags will compile the code with debug symbols (-g) & detect memory \
 access error such as use-after-free and memory leaks (-fsanitize=address)
 CC		=	cc 
@@ -50,46 +50,45 @@ SRCS	=	main.c	setup.c	plumbing.c	utilities.c
 # the complete list of all the objects to be created
 OBJECTS	=	$(SRCS:.c=.o)
 
+# libft's path
 LIBFT	=	libft/libft.a
 
-# project's header file & libft's header file
+# project's header file
 INCLUDE	=	pipex.h
 
 ################################################################################
 # RULES
 
 # our default goal - it compiles the entire program
-# 'make -C' executes libft's Makefile
-# 'cp ./$(NAME)' to copy the libft.a to this program's main directory
-# 'ranlib' to run our libft.a, as it is a static library (.a file)
 all:		$(NAME)
-
-%.o: %.c
-			$(CC) $(CFLAGS) -I$(INCLUDE) -O2 -c $< -o $@
-			
-$(NAME):	$(OBJECTS)
-			@make -s -C libft
-			@echo pipex: compiling \& linking sources
-			@echo building $(NAME)
-			$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
-#			@ranlib -lft $(NAME)
-
 
 # tells how to make ‘.o’ files from ‘.c’ files and makes all ‘.o’ files \
 using this pattern rule also depend on libft.h
 # '-c' preprocess, compile, and assemble only (i.e., don’t link)
 # '-o' Direct output to the specified file.
+%.o: %.c
+			$(CC) $(CFLAGS) -I$(INCLUDE) -O2 -c $< -o $@
+			
+# 'make -C' executes libft's Makefile
+# 'ranlib' to run our libft.a, as it is a static library (.a file)
+$(NAME):	$(OBJECTS)
+			@make -C libft
+			@echo pipex: compiling \& linking sources
+			@echo building $(NAME)
+			$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
+#			@ranlib -lft $(NAME)
+
 # OBJECTS:	$(SRCS) $(INCLUDE)
 # 			$(CC) $(DEBUG) $(CFLAGS) -c -o $(SRCS)
 
 clean:
-			@make clean -s -C libft
+			@make clean -C libft
 			$(REMOVE) $(OBJECTS)
 			@echo removing all objects
 
 
 fclean:		clean
-			@make fclean -s -C libft
+			@make fclean -C libft
 			$(REMOVE) $(NAME)
 			@echo removing $(NAME)
 
@@ -99,7 +98,7 @@ re:			fclean $(NAME)
 # SPECIAL RULES
 
 info:	
-			@echo Makefile for \'pipex\' v0.8.22032023 by nfilipe-
+			@echo Makefile for \'pipex\' v0.3.27032023 by nfilipe-
 
 acknowledgments:	
 			@echo my deepest gratitude to my coleagues @ 42 Lisboa for their \

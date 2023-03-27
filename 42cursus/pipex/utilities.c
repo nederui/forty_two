@@ -6,16 +6,16 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/24 18:07:35 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:17:19 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
 /*
-a variation of ft_strjoin(), which makes use of ft_strlen_gnl() to concatenate
-'buffer' to 'line' only up to either the '\0' or the '\n' characters; it returns
-the new 'line' and makes sure the previous form of 'line' is free'd;
+a variation of ft_strjoin(), which concatenates '/' and the given command to
+given path; returns a 'new path' to be subsequentely validated and makes sure
+the original path (obtained through the 'envp' matrix) is free'd
 */
 char	*ft_strjoin_ppx(char *original_path, char *cmd)
 {
@@ -29,7 +29,6 @@ char	*ft_strjoin_ppx(char *original_path, char *cmd)
 		return (NULL);
 	len_og = ft_strlen(original_path);
 	len_cmd = ft_strlen(cmd);
-	// new_path = malloc(sizeof new_path * len_og + len_cmd + 1 + 1);
 	new_path = ft_calloc(sizeof(char), len_og + len_cmd + 1 + 1);
 	if (!new_path)
 		return (NULL);
@@ -40,18 +39,16 @@ char	*ft_strjoin_ppx(char *original_path, char *cmd)
 	new_path[i++] = '/';
 	while (++i_c < len_cmd)
 		new_path[i + i_c] = cmd[i_c];
-	// new_path[i + i_c] = 0;
 	free(original_path);
 	return (new_path);
 }
 
 /*
-this group of functions keep all the data of its corresponding structure static
-during the runtime of the program; it allows the access of these structs' data
-to all the functions that need to read from / modify them, by a simple call of:
-example_struct(), as they return the address of the struct they are assigned to
+this function keep all the data of its corresponding structure static during 
+the runtime of the program; it allows the access of this structs' data to
+all the functions that need to read from / modify them, by a simple call of
+"pipex()", as it returns the address of the struct it s assigned to (t_pipex)
 */
-
 t_pipex	*pipex(void)
 {
 	static t_pipex	pipex;
@@ -61,7 +58,7 @@ t_pipex	*pipex(void)
 
 /*
 displays a custom error message and runs ft_exit() for a clean program exit;
-returns 0 to exit 'check_map.c' functions in the event of an error being found
+returns 0 to exit any function in the event of an error being found
 */
 int	ft_error(char *message)
 {
@@ -87,7 +84,7 @@ int	ft_error(char *message)
 	return (FAILURE);
 }
 
-// frees the data previously allocated for the copy of the map
+// frees the data previously allocated for any of the program's matrix
 void	ft_freewillie(char **array)
 {
 	int	i;
@@ -102,7 +99,7 @@ void	ft_freewillie(char **array)
 	array = NULL;
 }
 
-// ensures a clean program exit (including closing the map_file fd)
+// ensures a clean program exit (including closing any open fd)
 void	ft_exit(void)
 {
 	if (pipex()->cmd_one)

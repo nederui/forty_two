@@ -6,13 +6,17 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/24 18:06:48 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:13:30 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include <fcntl.h>
 
+/*
+goes through the list of possible paths to find the first valid path to each
+command passed as argument, saving each one on success
+*/
 int	ft_validate_paths(void)
 {
 	int	i;
@@ -44,6 +48,10 @@ int	ft_validate_paths(void)
 	return (SUCCESS);
 }
 
+/*
+makes use of the modified version of 'ft_strjoin' to attach each command
+passed as argument to every possible 'envp' path
+*/
 int	ft_append_cmds(void)
 {
 	int	i;
@@ -71,6 +79,7 @@ int	ft_append_cmds(void)
 	return (SUCCESS);
 }
 
+// parses all paths found in the 'envp' matrix
 int	ft_load_paths(char **envp)
 {
 	char	*path_string;
@@ -93,6 +102,7 @@ int	ft_load_paths(char **envp)
 	return (ft_error("Unable to find 'PATH=' in the environment pointer."));
 }
 
+// parses both commands passed as arguments
 int	ft_load_cmds(char **argv)
 {
 	(pipex()->cmd_one) = ft_split(argv[2], ' ');
@@ -103,6 +113,7 @@ int	ft_load_cmds(char **argv)
 	return (SUCCESS);
 }
 
+// opens both files passed as arguments (infile & outfile)
 int	ft_access_files(char **argv)
 {
 	(pipex()->fd[0]) = open(argv[1], O_RDONLY);
