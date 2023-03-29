@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/27 20:17:19 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/29 01:14:16 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_error(char *message)
 
 	uno = "1";
 	dos = "2";
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error\n", 2);
 	if (!ft_strncmp(message, uno, 1) || !ft_strncmp(message, dos, 1))
 	{
 		if (!pipex()->valid_path[0])
@@ -77,8 +77,8 @@ int	ft_error(char *message)
 	}
 	else
 	{
-		ft_putstr_fd(message, 1);
-		ft_putchar_fd('\n', 1);
+		ft_putstr_fd(message, 2);
+		ft_putchar_fd('\n', 2);
 	}
 	ft_exit();
 	return (FAILURE);

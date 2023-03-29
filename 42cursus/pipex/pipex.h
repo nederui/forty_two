@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:31:56 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/27 19:43:24 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/29 01:11:30 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,11 @@ int			ft_setup(char **argv, char **envp);
 int			ft_access_files(char **argv);
 int			ft_load_cmds(char **argv);
 int			ft_load_paths(char **envp);
-int			ft_append_cmds(void);
-int			ft_validate_paths(void);
+
+int			ft_check_args(void);
+
+int			ft_append_cmds(char **paths, char **command);
+int			ft_validate_paths(char **paths, char **valid_path);
 
 // CORE
 int			ft_plumbing(char **envp);

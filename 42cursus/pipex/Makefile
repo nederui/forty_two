@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 16:02:21 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/03/27 19:37:26 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/03/28 23:45:32 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ REMOVE	=	rm -rf
 # SOURCES
 
 # the complete list of the source files to be used
-SRCS	=	main.c	setup.c	plumbing.c	utilities.c
+SRCS	=	main.c	setup.c	setup_ii.c	plumbing.c	utilities.c
 
 # the complete list of all the objects to be created
 OBJECTS	=	$(SRCS:.c=.o)
@@ -98,7 +98,7 @@ re:			fclean $(NAME)
 # SPECIAL RULES
 
 info:	
-			@echo Makefile for \'pipex\' v0.3.27032023 by nfilipe-
+			@echo Makefile for \'pipex\' v0.8.28032023 by nfilipe-
 
 acknowledgments:	
 			@echo my deepest gratitude to my coleagues @ 42 Lisboa for their \

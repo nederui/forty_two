@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:44:02 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/27 20:37:07 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/29 01:18:59 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_leastfavorite(char **envp)
 	close(pipex()->fd[0]);
 	close(pipex()->fd[1]);
 	execve(pipex()->valid_path[1], pipex()->cmd_two, envp);
-	return (ft_error("Failed to execute the second command."));
+	return (ft_error("execve() failed on the second command."));
 }
 
 int	ft_papi(char **envp)
@@ -68,9 +68,8 @@ int	ft_firstborn(char **envp)
 	close(pipex()->p1pe[0]);
 	close(pipex()->p1pe[1]);
 	execve(pipex()->valid_path[0], pipex()->cmd_one, envp);
-	return (ft_error("Failed to execute the first command."));
+	return (ft_error("execve() failed on the first command."));
 }
-
 
 /*
 the main function of pipex; creates the pipe that will be used to communicate
