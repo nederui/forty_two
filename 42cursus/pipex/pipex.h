@@ -15,7 +15,7 @@
 
 /* ************************************************************************** */
 
-# include "../libft/libft.h"
+# include "libft/includes/libft.h"
 
 /* ************************************************************************** */
 // DEFINES
@@ -42,27 +42,27 @@ typedef struct s_pipex
 
 /* ************************************************************************** */
 // SETUP
-int			ft_setup(char **argv, char **envp);
-int			ft_access_files(char **argv);
-int			ft_load_cmds(char **argv);
-int			ft_load_paths(char **envp);
-
-int			ft_check_args(void);
-
-int			ft_append_cmds(char **paths, char **command);
-int			ft_validate_paths(char **paths, char **valid_path);
+int			setup(char **argv, char **envp);
+int			access_files(char **argv);
+int			load_cmds(char **argv);
+int			load_paths(char **envp);
+int			check_args_access(void);
+int			check_append_validate(void);
+int			append_cmds(char **paths, char **command);
+int			validate_paths(char **paths, char **valid_path);
+int			check_null_cmds(void);
 
 // CORE
-int			ft_plumbing(char **envp);
-int			ft_papi(char **envp);
-int			ft_firstborn(char **envp);
-int			ft_leastfavorite(char **envp);
+int			plumbing(char **envp);
+int			papi(char **envp);
+int			firstborn(char **envp);
+int			leastfavorite(char **envp);
 
 // UTILITIES
 t_pipex		*pipex(void);
-char		*ft_strjoin_ppx(char *original_path, char *dash);
-void		ft_freewillie(char **array);
-int			ft_error(char *message);
-void		ft_exit(void);
+char		*strjoin_ppx(char *original_path, char *dash);
+void		freewillie(char **array);
+int			error_(char *message);
+void		exit_(void);
 
 #endif

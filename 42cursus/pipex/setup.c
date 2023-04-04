@@ -6,28 +6,35 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/29 01:21:21 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:12:18 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include <fcntl.h>
 
-int	ft_check_args(void)
+//	check if the given commands are already valid paths
+int	check_args_access(void)
 {
 	if (!access(pipex()->cmd_one[0], F_OK))
-		pipex()->valid_path[0] = pipex()->cmd_one[0];
-	else if (!ft_append_cmds(pipex()->paths, pipex()->cmd_one))
-		return (FAILURE);
+	{
+		pipex()->valid_path[0] = ft_strdup(pipex()->cmd_one[0]);
+		if (!pipex()->valid_path[0])
+			return (error_("Memory allocation error, \
+whilst saving the valid path for the first command."));
+	}
 	if (!access(pipex()->cmd_two[0], F_OK))
-		pipex()->valid_path[1] = pipex()->cmd_two[0];
-	else if (!ft_append_cmds(pipex()->paths2, pipex()->cmd_two))
-		return (FAILURE);
+	{
+		pipex()->valid_path[1] = ft_strdup(pipex()->cmd_two[0]);
+		if (!pipex()->valid_path[1])
+			return (error_("Memory allocation error, \
+whilst saving the valid path for the second command."));
+	}
 	return (SUCCESS);
 }
 
 // parses all paths found in the 'envp' matrix
-int	ft_load_paths(char **envp)
+int	load_paths(char **envp)
 {
 	char	*path_string;
 
@@ -38,39 +45,39 @@ int	ft_load_paths(char **envp)
 		{
 			(pipex()->paths) = ft_split(*envp + 5, ':');
 			if (!pipex()->paths)
-				return (ft_error("Memory allocation error, \
-				whilst loading the envp paths."));
+				return (error_("Memory allocation error, \
+whilst loading the envp paths."));
 			(pipex()->paths2) = ft_split(*envp + 5, ':');
 			if (!pipex()->paths2)
-				return (ft_error("Memory allocation error, \
-				whilst loading the envp paths."));
+				return (error_("Memory allocation error, \
+whilst loading the envp paths."));
 			return (SUCCESS);
 		}
 		envp++;
 	}
-	return (ft_error("Unable to find 'PATH=' in the environment pointer."));
+	return (error_("Unable to find 'PATH=' in the environment pointer."));
 }
 
 // parses both commands passed as arguments
-int	ft_load_cmds(char **argv)
+int	load_cmds(char **argv)
 {
 	(pipex()->cmd_one) = ft_split(argv[2], ' ');
 	(pipex()->cmd_two) = ft_split(argv[3], ' ');
 	if (!pipex()->cmd_one || !pipex()->cmd_two)
-		return (ft_error("Memory allocation error, \
-		whilst saving the commands passed as arguments."));
+		return (error_("Memory allocation error, \
+whilst saving the commands passed as arguments."));
 	return (SUCCESS);
 }
 
 // opens both files passed as arguments (infile & outfile)
-int	ft_access_files(char **argv)
+int	access_files(char **argv)
 {
 	(pipex()->fd[0]) = open(argv[1], O_RDONLY);
 	if (pipex()->fd[0] < 0)
-		return (ft_error("Unable to open the infile."));
+		return (error_("Unable to open the infile."));
 	(pipex()->fd[1]) = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (pipex()->fd[1] < 0)
-		return (ft_error("Unable to open/create the outfile file."));
+		return (error_("Unable to open/create the outfile file."));
 	return (SUCCESS);
 }
 
@@ -79,20 +86,10 @@ validates each argument passed on launch, by parsing to the pipex() structure
 through distinct functions;
 returns '0' and a custom message when an error occurs and '1' on success
 */
-int	ft_setup(char **argv, char **envp)
+int	setup(char **argv, char **envp)
 {
-	if (!ft_access_files(argv) || !ft_load_cmds(argv) || \
-							!ft_load_paths(envp) || !ft_check_args())
+	if (!access_files(argv) || !load_cmds(argv) || \
+		!load_paths(envp) || !check_args_access() || !check_append_validate())
 		return (FAILURE);
-	if (!pipex()->valid_path[0])
-		if (!ft_validate_paths(pipex()->paths, &pipex()->valid_path[0]))
-			return (FAILURE);
-	if (!pipex()->valid_path[1])
-		if (!ft_validate_paths(pipex()->paths2, &pipex()->valid_path[1]))
-			return (FAILURE);
-	if (!pipex()->valid_path[0])
-		return (ft_error("1"));
-	if (!pipex()->valid_path[1])
-		return (ft_error("2"));
 	return (SUCCESS);
 }

@@ -17,7 +17,7 @@ a variation of ft_strjoin(), which concatenates '/' and the given command to
 given path; returns a 'new path' to be subsequentely validated and makes sure
 the original path (obtained through the 'envp' matrix) is free'd
 */
-char	*ft_strjoin_ppx(char *original_path, char *cmd)
+char	*strjoin_ppx(char *original_path, char *cmd)
 {
 	char	*new_path;
 	int		i;
@@ -57,10 +57,10 @@ t_pipex	*pipex(void)
 }
 
 /*
-displays a custom error message and runs ft_exit() for a clean program exit;
+displays a custom error message and runs exit_() for a clean program exit;
 returns 0 to exit any function in the event of an error being found
 */
-int	ft_error(char *message)
+int	error_(char *message)
 {
 	char	*uno;
 	char	*dos;
@@ -80,12 +80,12 @@ int	ft_error(char *message)
 		ft_putstr_fd(message, 2);
 		ft_putchar_fd('\n', 2);
 	}
-	ft_exit();
+	exit_();
 	return (FAILURE);
 }
 
 // frees the data previously allocated for any of the program's matrix
-void	ft_freewillie(char **array)
+void	freewillie(char **array)
 {
 	int	i;
 
@@ -100,16 +100,16 @@ void	ft_freewillie(char **array)
 }
 
 // ensures a clean program exit (including closing any open fd)
-void	ft_exit(void)
+void	exit_(void)
 {
 	if (pipex()->cmd_one)
-		ft_freewillie(pipex()->cmd_one);
+		freewillie(pipex()->cmd_one);
 	if (pipex()->cmd_two)
-		ft_freewillie(pipex()->cmd_two);
+		freewillie(pipex()->cmd_two);
 	if (pipex()->paths)
-		ft_freewillie(pipex()->paths);
+		freewillie(pipex()->paths);
 	if (pipex()->paths2)
-		ft_freewillie(pipex()->paths2);
+		freewillie(pipex()->paths2);
 	free(pipex()->valid_path[0]);
 	free(pipex()->valid_path[1]);
 	exit(0);

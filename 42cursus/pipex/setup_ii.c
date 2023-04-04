@@ -16,7 +16,7 @@
 goes through the list of possible paths to find the first valid path to each
 command passed as argument, saving each one on success
 */
-int	ft_validate_paths(char **paths, char **valid_path)
+int	validate_paths(char **paths, char **valid_path)
 {
 	int	i;
 
@@ -27,8 +27,8 @@ int	ft_validate_paths(char **paths, char **valid_path)
 		{
 			*valid_path = ft_strdup(paths[i]);
 			if (!valid_path)
-				return (ft_error("Memory allocation error, \
-		whilst saving the correct path for the first command."));
+				return (error_("Memory allocation error, \
+whilst saving the correct path for the first command."));
 			break ;
 		}
 		i++;
@@ -40,18 +40,35 @@ int	ft_validate_paths(char **paths, char **valid_path)
 makes use of the modified version of 'ft_strjoin' to attach each command
 passed as argument to every possible 'envp' path
 */
-int	ft_append_cmds(char **paths, char **command)
+int	append_cmds(char **paths, char **command)
 {
 	int	i;
 
-	i = -1;
-	while (paths[++i])
+	i = 0;
+	while (paths[i])
 	{
-		(paths[i]) = \
-			ft_strjoin_ppx(paths[i], command[0]);
+		(paths[i]) = strjoin_ppx(paths[i], command[0]);
 		if (!paths[i])
-			return (ft_error("Memory allocation error, \
-			whilst loading the envp paths."));
+			return (error_("Memory allocation error, \
+whilst loading the envp paths."));
+		i++;
 	}
+	return (SUCCESS);
+}
+
+/*
+checks if a valid path to the given command has already been found;
+if not, appends the given commands to each env path and validates it;
+*/
+int	check_append_validate(void)
+{
+	if (!pipex()->valid_path[0] && pipex()->cmd_one[0])
+		if (!append_cmds(pipex()->paths, pipex()->cmd_one) || \
+		!validate_paths(pipex()->paths, &pipex()->valid_path[0]))
+			return (FAILURE);
+	if (!pipex()->valid_path[1] && pipex()->cmd_two[0])
+		if (!append_cmds(pipex()->paths2, pipex()->cmd_two) || \
+		!validate_paths(pipex()->paths2, &pipex()->valid_path[1]))
+			return (FAILURE);
 	return (SUCCESS);
 }
