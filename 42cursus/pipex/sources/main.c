@@ -6,14 +6,14 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:59:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/04/25 15:51:33 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:08:44 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
 // checks if any of the commands passed as argument is invalid
-int check_null_cmds(void)
+int	check_null_cmds(void)
 {
 	if (!pipex()->cmd_one[0] || !pipex()->cmd_two[0])
 		return (error_("zsh: permission denied:"));
@@ -40,7 +40,7 @@ int	main(int argc, char **argv, char **envp)
 		return (FAILURE);
 	plumbing(envp);
 	if (!check_null_cmds())
-		return(FAILURE);
+		return (FAILURE);
 	exit_();
 	return (0);
 }

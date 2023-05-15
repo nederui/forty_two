@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/04/25 15:51:39 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:38:31 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*strjoin_ppx(char *original_path, char *cmd)
 this function keep all the data of its corresponding structure static during 
 the runtime of the program; it allows the access of this structs' data to
 all the functions that need to read from / modify them, by a simple call of
-"pipex()", as it returns the address of the struct it s assigned to (t_pipex)
+"pipex()", as it returns the address of the struct it is assigned to (t_pipex)
 */
 t_pipex	*pipex(void)
 {

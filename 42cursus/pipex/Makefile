@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 16:02:21 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/04/25 15:54:45 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/05/15 21:00:49 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,7 @@ re:			fclean $(NAME)
 # SPECIAL RULES
 
 info:	
-			@echo Makefile for \'pipex\' v0.8.28032023 by nfilipe-
+			@echo Makefile for \'pipex\' v1.0.15052023 by nfilipe-
 
 acknowledgments:	
 			@echo my deepest gratitude to my coleagues @ 42 Lisboa for their \

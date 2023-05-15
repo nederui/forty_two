@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 20:43:48 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/04/25 15:56:53 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/05/15 23:42:23 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,7 @@ REMOVE	=	rm -rf
 # SOURCES
 
 # the complete list of the source files to be used
-SRCS	=	sources/main.c			sources/setup.c		sources/setup_ii.c		\
-			sources/utilities.c
+SRCS	=	sources/main.c			sources/setup.c		sources/utilities.c
 
 # the complete list of all the objects to be created
 OBJECTS	=	$(SRCS:.c=.o)
@@ -68,7 +67,7 @@ using this pattern rule also depend on libft.h
 # '-c' preprocess, compile, and assemble only (i.e., don’t link)
 # '-o' Direct output to the specified file.
 %.o: %.c
-			$(CC) $(CFLAGS) -I$(INCLUDE) -O2 -c $< -o $@
+			$(CC) $(CFLAGS) $(DEBUG) -I$(INCLUDE) -O2 -c $< -o $@
 			
 # 'make -C' executes libft's Makefile
 # 'ranlib' to run our libft.a, as it is a static library (.a file)
@@ -76,7 +75,7 @@ $(NAME):	$(OBJECTS)
 			@make -C libft
 			@echo push_swap: compiling \& linking sources
 			@echo building $(NAME)
-			$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
+			$(CC) $(CFLAGS) $(DEBUG) $(OBJECTS) $(LIBFT) -o $(NAME)
 #			@ranlib -lft $(NAME)
 
 # OBJECTS:	$(SRCS) $(INCLUDE)
@@ -99,7 +98,7 @@ re:			fclean $(NAME)
 # SPECIAL RULES
 
 info:	
-			@echo Makefile for \'push_swap\' v0.0.24042023 by nfilipe-
+			@echo Makefile for \'push_swap\' v0.0.15052023 by nfilipe-
 
 acknowledgments:	
 			@echo my deepest gratitude to my coleagues @ 42 Lisboa for their \

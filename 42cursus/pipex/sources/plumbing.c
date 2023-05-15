@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:44:02 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/04/25 15:51:23 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:25:43 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,15 @@ int	leastfavorite(char **envp)
 	return (error_("execve() failed on the second command."));
 }
 
+/*
+the other half of the main ('parent') process; makes use of fork() to create
+the second child process and waits for it to finish before returning 0
+*/
 int	papi(char **envp)
 {
 	pid_t	id;
 
-	if(pipex()->valid_path[1])
+	if (pipex()->valid_path[1])
 	{
 		id = fork();
 		if (id == -1)
@@ -89,7 +93,7 @@ int	plumbing(char **envp)
 
 	if (pipe(pipex()->p1pe) == -1)
 		return (error_("Failed to create the first pipe."));
-	if(pipex()->valid_path[0])
+	if (pipex()->valid_path[0])
 	{
 		id = fork();
 		if (id == -1)
