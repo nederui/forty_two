@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/24 16:02:21 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/04/25 15:54:45 by nfilipe-         ###   ########.fr        #
+#    Created: 2023/04/24 20:43:48 by nfilipe-          #+#    #+#              #
+#    Updated: 2023/04/25 15:56:53 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,13 @@ SHELL	=	/bin/bash
 # ARGUMENTS
 
 # the name of the executable built by this Makefile
-NAME 	=	pipex
+NAME 	=	push_swap
 
 # compiler (cc) & flags to be used
 # '-O2' applies almost all of the supported optimization techniques that do \
 not involve a tradeoff between program size and execution speed. This option \
 generally increases the time needed to compile.
-# '-I<dir>' adds the current directory to include search path for 'pipex.h'
+# '-I<dir>' adds the current directory to include search path for 'push_swap.h'
 # 'DEBUG' flags will compile the code with debug symbols (-g) & detect memory \
 access error such as use-after-free and memory leaks (-fsanitize=address)
 CC		=	cc 
@@ -45,8 +45,8 @@ REMOVE	=	rm -rf
 # SOURCES
 
 # the complete list of the source files to be used
-SRCS	=	sources/main.c			sources/setup.c			sources/setup_ii.c	\
-			sources/plumbing.c		sources/utilities.c
+SRCS	=	sources/main.c			sources/setup.c		sources/setup_ii.c		\
+			sources/utilities.c
 
 # the complete list of all the objects to be created
 OBJECTS	=	$(SRCS:.c=.o)
@@ -55,7 +55,7 @@ OBJECTS	=	$(SRCS:.c=.o)
 LIBFT	=	libft/libft.a
 
 # project's header file
-INCLUDE	=	pipex.h
+INCLUDE	=	push_swap.h
 
 ################################################################################
 # RULES
@@ -74,7 +74,7 @@ using this pattern rule also depend on libft.h
 # 'ranlib' to run our libft.a, as it is a static library (.a file)
 $(NAME):	$(OBJECTS)
 			@make -C libft
-			@echo pipex: compiling \& linking sources
+			@echo push_swap: compiling \& linking sources
 			@echo building $(NAME)
 			$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
 #			@ranlib -lft $(NAME)
@@ -99,12 +99,12 @@ re:			fclean $(NAME)
 # SPECIAL RULES
 
 info:	
-			@echo Makefile for \'pipex\' v0.8.28032023 by nfilipe-
+			@echo Makefile for \'push_swap\' v0.0.24042023 by nfilipe-
 
 acknowledgments:	
 			@echo my deepest gratitude to my coleagues @ 42 Lisboa for their \
 			insight, tips and enthusiasm
-			@echo \>\> special shout-out to amak, who pointed me in the \
+			@echo \>\> special shout-out to ___, who pointed me in the \
 			right direction on this project	
 
 # A phony target is one that is not really the name of a file; rather it \

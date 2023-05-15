@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/29 01:14:16 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:51:39 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 /*
 a variation of ft_strjoin(), which concatenates '/' and the given command to
@@ -62,17 +62,17 @@ returns 0 to exit any function in the event of an error being found
 */
 int	error_(char *message)
 {
-	char	*uno;
-	char	*dos;
+	char	*inv_one;
+	char	*inv_two;
 
-	uno = "1";
-	dos = "2";
+	inv_one = "invalid_cmd_one";
+	inv_two = "invalid_cmd_two";
 	ft_putstr_fd("Error\n", 2);
-	if (!ft_strncmp(message, uno, 1) || !ft_strncmp(message, dos, 1))
+	if (!ft_strncmp(message, inv_one, 1) || !ft_strncmp(message, inv_two, 1))
 	{
 		if (!pipex()->valid_path[0])
 			ft_printf("%s: Command not found.\n", pipex()->cmd_one[0]);
-		if (!pipex()->valid_path[1] || !ft_strncmp(message, dos, 1))
+		if (!pipex()->valid_path[1] || !ft_strncmp(message, inv_two, 1))
 			ft_printf("%s: Command not found.\n", pipex()->cmd_two[0]);
 	}
 	else

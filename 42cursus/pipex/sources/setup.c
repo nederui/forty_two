@@ -6,14 +6,14 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/29 18:12:18 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:51:36 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 #include <fcntl.h>
 
-//	check if the given commands are already valid paths
+//	checks if the given commands are already valid paths
 int	check_args_access(void)
 {
 	if (!access(pipex()->cmd_one[0], F_OK))

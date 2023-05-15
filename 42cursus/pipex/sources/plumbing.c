@@ -6,11 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:44:02 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/03/29 01:18:59 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:51:23 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 #include <unistd.h>
 #include <sys/wait.h>
 
