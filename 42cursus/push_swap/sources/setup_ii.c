@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   setup_ii.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 20:43:27 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:59:01 by nfilipe-         ###   ########.fr       */
+/*   Created: 2023/05/22 18:42:28 by nfilipe-          #+#    #+#             */
+/*   Updated: 2023/05/22 18:58:19 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* W I P */
-int	main(int argc, char **argv)
+int	stack_it(int number)
 {
-	if (argc == 1)
-		exit_();
-	validate_arguments(argv + 1);
-	ft_printf("stack lenght: %d.\n", swap()->stack_len);
-	print_stack(swap()->head_a);
-	// push_it();
-	exit_();
-	return (0);
+	ft_lstadd_back(&swap()->head_a, ft_lstnew((void *)(intptr_t)number));
+	swap()->stack_len++;
+	return (SUCCESS);
 }
 
-/*
-work the stack for 5 numbers
-work the stack for 'n' numbers
-*/
+/*   */
+int	save_arg_array(char	*argument)
+{
+	swap()->arguments = ft_split(argument, ' ');
+	if (!swap()->arguments)
+		return (error_());
+	validate_arguments(swap()->arguments);
+	freewillie(swap()->arguments);
+	return (SUCCESS);
+}

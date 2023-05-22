@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setup.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:10 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/18 18:09:42 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:59:15 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,44 +20,24 @@ W I P
 (int)(intptr_t)
 
 */
-int	stack_it(int number)
-{
-	// t_list	new_node;
 
-	// new_node = *ft_lstnew(number);
-	ft_lstadd_back(&swap()->int_lst, ft_lstnew((void *)(intptr_t)number));
-	swap()->stack_len++;
-	return (SUCCESS);
-}
 
 /* W I P */
 int	check_duplicate(int number)
 {
-	t_list	*int_lst;
+	t_list	*ptr_lst;
 
-	int_lst = swap()->int_lst;
-	if (!int_lst)
-		return (FAILURE);
-	while (int_lst)
+	ptr_lst = swap()->head_a;
+	// if (!ptr_lst)
+	// {
+	// 	write(1, "HERE.\n", 6);
+	// 	return (FAILURE);
+	// }
+	while (ptr_lst)
 	{
-		if ((t_ptr)int_lst->content == number)
+		if ((t_ptr)ptr_lst->content == number)
 			return (FAILURE);
-		int_lst = int_lst->next;
-	}
-	return (SUCCESS);
-}
-
-/*   */
-int	check_digits(char *argument)
-{
-	int		i;
-
-	i = 0;
-	while (argument[i])
-	{
-		if (!ft_isdigit(argument[i]))
-			return (FAILURE);
-		i++;
+		ptr_lst = ptr_lst->next;
 	}
 	return (SUCCESS);
 }
@@ -70,39 +50,60 @@ int	check_integer(long number)
 	return (SUCCESS);
 }
 
-/* W I P */
-int	setup(char **argv)
+/*   */
+int	check_spaces(char *argument)
+{
+	int		i;
+
+	i = 0;
+	while (argument[i])
+	{
+		if (ft_isspace(argument[i]))
+			return (SUCCESS);
+		i++;
+	}
+	return (FAILURE);
+}
+
+/*   */
+int	check_digits(char *argument)
+{
+	int		i;
+
+	i = 0;
+	while (argument[i])
+	{
+		if (!ft_isdigit(argument[i]) && !ft_isspace(argument[i]) \
+		&& !ft_issign(argument[i]))
+			return (FAILURE);
+		i++;
+	}
+	return (SUCCESS);
+}
+
+int	validate_arguments(char **argv)
 {
 	int		i;
 	long	number;
 
 	i = 0;
-	swap()->status = SUCCESS;		//
-	while (argv[++i])
+	number = 0;
+	while (argv[i])
 	{
 		if (!check_digits(argv[i]))
-			error_(argv[i], "Invalid argument - Only numbers allowed.");
+			return(error_());
+		if (check_spaces(argv[i]))
+			save_arg_array(argv[i]);
 		else
 		{
 			number = atoi_pswap(argv[i]);
 			if (!check_integer(number))
-				error_(argv[i], "Invalid argument - Only integers allowed.");
-			else
-			{
-				stack_it(number);
-				if (!check_duplicate(number))
-					error_(argv[i], "Invalid argument - No duplicates allowed.");
-			}
+				return(error_());
+			if (!check_duplicate(number))
+				return(error_());
+			stack_it(number);
 		}
+		i++;
 	}
-	if (!swap()->status)
-		exit_();
 	return (SUCCESS);
 }
-
-/*
-put them in stack a
-check if any argv is a duplicate
-work the stack for 5 numbers
-work the stack for 'n' numbers
-*/

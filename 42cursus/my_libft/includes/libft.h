@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:13:23 by nfilipe-          #+#    #+#             */
-/*   Updated: 2022/12/09 18:33:22 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:35:43 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 int		ft_printf(const char *format_string, ...);
-void	ft_putaddr(void *ptr);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
@@ -74,5 +73,10 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t buffer);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+
+int		ft_isspace(int c);
+int		ft_issign(int c);
+void	ft_putaddr(void *ptr);
+void	print_char_matrix(char **matrix);
 
 #endif

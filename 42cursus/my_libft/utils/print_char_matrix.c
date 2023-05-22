@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_char_matrix.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 20:43:27 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:59:01 by nfilipe-         ###   ########.fr       */
+/*   Created: 2023/05/22 18:03:21 by nfilipe-          #+#    #+#             */
+/*   Updated: 2023/05/22 18:15:35 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include <unistd.h>
 
-/* W I P */
-int	main(int argc, char **argv)
+void	print_char_matrix(char **matrix)
 {
-	if (argc == 1)
-		exit_();
-	validate_arguments(argv + 1);
-	ft_printf("stack lenght: %d.\n", swap()->stack_len);
-	print_stack(swap()->head_a);
-	// push_it();
-	exit_();
-	return (0);
-}
+	int	x;
+	int	y;
 
-/*
-work the stack for 5 numbers
-work the stack for 'n' numbers
-*/
+	x = 0;
+	y = 0;
+	while (matrix[y])
+	{
+		x = 0;
+		while (matrix[y][x])
+		{
+			write(1, &matrix[y][x], 1);
+			++x;
+		}
+		++y;
+		if (matrix[y])
+			write(1, " ", 1);
+	}
+	write(1, "\n", 1);
+}
