@@ -1,31 +1,77 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setup_ii.c                                         :+:      :+:    :+:   */
+/*   setup.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 18:42:28 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:58:19 by nfilipe-         ###   ########.fr       */
+/*   Created: 2023/04/25 15:50:10 by nfilipe-          #+#    #+#             */
+/*   Updated: 2023/05/29 21:07:26 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <limits.h>
+#include <stdint.h>
 
-int	stack_it(int number)
+/* 
+W I P 
+(void *)(intptr_t)
+(int)(intptr_t)
+
+*/
+
+/* W I P */
+int	check_duplicate(int number)
 {
-	ft_lstadd_back(&swap()->head_a, ft_lstnew((void *)(intptr_t)number));
-	swap()->stack_len++;
+	t_list	*ptr_lst;
+
+	ptr_lst = swap()->head_a;
+	while (ptr_lst)
+	{
+		if ((t_ptr)ptr_lst->content == number)
+			return (FAILURE);
+		ptr_lst = ptr_lst->next;
+	}
 	return (SUCCESS);
 }
 
 /*   */
-int	save_arg_array(char	*argument)
+int	check_integer(long number)
 {
-	swap()->arguments = ft_split(argument, ' ');
-	if (!swap()->arguments)
-		return (error_());
-	validate_arguments(swap()->arguments);
-	freewillie(swap()->arguments);
+	if (number < INT_MIN || number > INT_MAX)
+		return (FAILURE);
 	return (SUCCESS);
 }
+
+/*   */
+int	check_spaces(char *argument)
+{
+	int		i;
+
+	i = 0;
+	while (argument[i])
+	{
+		if (ft_isspace(argument[i]))
+			return (SUCCESS);
+		i++;
+	}
+	return (FAILURE);
+}
+
+/*   */
+int	check_digits(char *argument)
+{
+	int		i;
+
+	i = 0;
+	while (argument[i])
+	{
+		if (!ft_isdigit(argument[i]) && !ft_isspace(argument[i]) \
+		&& !ft_issign(argument[i]))
+			return (FAILURE);
+		i++;
+	}
+	return (SUCCESS);
+}
+

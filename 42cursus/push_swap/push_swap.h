@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:56:52 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/29 22:42:05 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define SUCCESS 1
 # define FAILURE 0
 
-typedef int long t_ptr;
+typedef int long	t_ptr;
 
 /* ************************************************************************** */
 // DEBUG
@@ -57,9 +57,15 @@ int			check_integer(long number);
 int			check_duplicate(int number);
 
 int			stack_it(int number);
+void		init_stack_b(int n);
 
 // CORE
 t_swap		*swap(void);
+void		push_it(void);
+// MOVES
+void		push(t_list *origin, t_list *destination);
+void		pa(void);
+void		pb(void);
 
 // UTILITIES
 long		atoi_pswap(char *str);

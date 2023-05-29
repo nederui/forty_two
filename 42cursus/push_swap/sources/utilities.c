@@ -6,24 +6,11 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:42:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:37:51 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/29 21:09:53 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-/*
-this function keep all the data of its corresponding structure static during 
-the runtime of the program; it allows the access of this structs' data to
-all the functions that need to read from / modify them, by a simple call of
-"swap()", as it returns the address of the struct it is assigned to (t_swap)
-*/
-t_swap	*swap(void)
-{
-	static t_swap	swap;
-
-	return (&swap);
-}
 
 long	atoi_pswap(char *str)
 {
@@ -52,34 +39,6 @@ long	atoi_pswap(char *str)
 	return ((long)integer * sign);
 }
 
-/*
-displays a custom error message to the stderr and runs exit_() for a clean
-program exit; returns 0 to exit any function in the event of an error being found
-*/
-int	error_(void)
-{
-	// swap()->status = FAILURE;
-	ft_putstr_fd("Error\n", 2);
-	exit_();
-	return (FAILURE);
-}
-
-
-// frees the data previously allocated for any of the program's matrix
-void	freewillie(char **array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		++i;
-	}
-	free(array);
-	array = NULL;
-}
-
 // ensures a clean program exit (including closing any open fd)
 void	exit_(void)
 {
@@ -93,6 +52,18 @@ void	exit_(void)
 	// free(swap()->);
 	// free(swap()->);
 	exit(0);
+}
+
+/*
+displays a custom error message to the stderr and runs exit_() for a clean
+program exit; returns 0 to exit any function in the event of an error being found
+*/
+int	error_(void)
+{
+	// swap()->status = FAILURE;
+	ft_putstr_fd("Error\n", 2);
+	exit_();
+	return (FAILURE);
 }
 
 void	print_stack(t_list *stack)
