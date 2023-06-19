@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:42:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/29 21:09:53 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:55:26 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ long	atoi_pswap(char *str)
 void	exit_(void)
 {
 	clear_stack(swap()->head_a);
+	clear_stack(swap()->head_b);
 	// if (swap()->)
 	// 	freewillie(swap()->);
 	// if (swap()->)

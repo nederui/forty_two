@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 00:18:05 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/04/25 15:51:29 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:18:21 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,22 @@ whilst loading the envp paths."));
 
 /*
 checks if a valid path to the given command has already been found;
-if not, appends the given commands to each env path and validates it;
+if not, it appends the given commands to each 'envp' path and validates it;
+returns the current value of 'status', which will be '1' or '0', depending on
+wether or not it finds a valid path for both of the given commands
 */
 int	check_append_validate(void)
 {
+	int	status;
+
+	status = SUCCESS;
 	if (!pipex()->valid_path[0] && pipex()->cmd_one[0])
 		if (!append_cmds(pipex()->paths, pipex()->cmd_one) || \
 		!validate_paths(pipex()->paths, &pipex()->valid_path[0]))
-			return (FAILURE);
+			status = FAILURE;
 	if (!pipex()->valid_path[1] && pipex()->cmd_two[0])
 		if (!append_cmds(pipex()->paths2, pipex()->cmd_two) || \
 		!validate_paths(pipex()->paths2, &pipex()->valid_path[1]))
-			return (FAILURE);
-	return (SUCCESS);
+			status = FAILURE;
+	return (status);
 }

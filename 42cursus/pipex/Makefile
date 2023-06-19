@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 16:02:21 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/05/15 21:00:49 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/06/19 18:29:29 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ generally increases the time needed to compile.
 access error such as use-after-free and memory leaks (-fsanitize=address)
 CC		=	cc 
 CFLAGS	=	-O2 -Wall -Wextra -Werror -I.
-DEBUG	=	-g -fsanitize=address
+#DEBUG	=	-g -fsanitize=address
 
 # 'rm -rf' forced file removal (ignores nonexistent files and arguments), \
 including directories and their contents, recursively (-r)
@@ -77,10 +77,6 @@ $(NAME):	$(OBJECTS)
 			@echo pipex: compiling \& linking sources
 			@echo building $(NAME)
 			$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
-#			@ranlib -lft $(NAME)
-
-# OBJECTS:	$(SRCS) $(INCLUDE)
-# 			$(CC) $(DEBUG) $(CFLAGS) -c -o $(SRCS)
 
 clean:
 			@make clean -C libft
@@ -99,7 +95,7 @@ re:			fclean $(NAME)
 # SPECIAL RULES
 
 info:	
-			@echo Makefile for \'pipex\' v1.0.15052023 by nfilipe-
+			@echo Makefile for \'pipex\' v1.0.20062023 by nfilipe-
 
 acknowledgments:	
 			@echo my deepest gratitude to my coleagues @ 42 Lisboa for their \

@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 20:43:48 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/05/29 22:43:28 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/06/19 19:47:56 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ generally increases the time needed to compile.
 access error such as use-after-free and memory leaks (-fsanitize=address)
 CC		=	cc 
 CFLAGS	=	-O2 -Wall -Wextra -Werror -I.
-DEBUG	=	-g -fsanitize=address
+#DEBUG	=	-g -fsanitize=address
 
 # 'rm -rf' forced file removal (ignores nonexistent files and arguments), \
 including directories and their contents, recursively (-r)

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:20:25 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/04/25 15:51:36 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:22:27 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 //	checks if the given commands are already valid paths
 int	check_args_access(void)
 {
-	if (!access(pipex()->cmd_one[0], F_OK))
+	if (pipex()->cmd_one[0] && !access(pipex()->cmd_one[0], F_OK))
 	{
 		pipex()->valid_path[0] = ft_strdup(pipex()->cmd_one[0]);
 		if (!pipex()->valid_path[0])
 			return (error_("Memory allocation error, \
 whilst saving the valid path for the first command."));
 	}
-	if (!access(pipex()->cmd_two[0], F_OK))
+	if (pipex()->cmd_two[0] && !access(pipex()->cmd_two[0], F_OK))
 	{
 		pipex()->valid_path[1] = ft_strdup(pipex()->cmd_two[0]);
 		if (!pipex()->valid_path[1])

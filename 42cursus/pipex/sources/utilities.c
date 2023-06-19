@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:10:17 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/15 19:38:31 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:09:27 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	error_(char *message)
 	{
 		if (!pipex()->valid_path[0])
 			ft_printf("%s: Command not found.\n", pipex()->cmd_one[0]);
-		if (!pipex()->valid_path[1] || !ft_strncmp(message, inv_two, 1))
+		if (!pipex()->valid_path[1])
 			ft_printf("%s: Command not found.\n", pipex()->cmd_two[0]);
 	}
 	else
