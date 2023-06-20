@@ -6,21 +6,21 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:42:28 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/30 00:26:50 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:21:30 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	init_stack_b(int n)
-{
-	n = swap()->stack_len;
-	while (n > 0)
-	{
-		ft_lstadd_back(&swap()->head_b, ft_lstnew(NULL));
-		n--;
-	}
-}
+// void	init_stack_b(int n)
+// {
+// 	n = swap()->stack_len;
+// 	while (n > 0)
+// 	{
+// 		ft_lstadd_back(&swap()->head_b, ft_lstnew(NULL));
+// 		n--;
+// 	}
+// }
 
 int	stack_it(int number)
 {

@@ -3,33 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 10:49:26 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/30 00:31:05 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:39:19 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	push(t_list *origin, t_list *destination)
+// void	push(t_list *origin, t_list *destination)
+// {
+// 	t_list	*temp;
+
+// 	if (!origin)
+// 		return ;
+// 	temp = destination;
+// 	destination = origin;
+// 	origin = origin->next;
+// 	destination->next = temp;
+// }
+
+void	pb(void)
 {
-	if (!origin->content)
+	t_list	*temp;
+
+	if (!swap()->head_a)
 		return ;
-	destination->content = origin->content;
-	origin->content = NULL;
+	temp = swap()->head_b;
+	swap()->head_b = swap()->head_a;
+	swap()->head_a = swap()->head_a->next;
+	swap()->head_b->next = temp;
+	write(1, "pb\n", 3);
 }
 
 void	pa(void)
 {
-	push(swap()->head_b, swap()->head_a);
-	ft_printf("pa\n");
-}
+	t_list	*temp;
 
-void	pb(void)
-{
-	push(swap()->head_a, swap()->head_b);
-	ft_printf("pb\n");
+	if (!swap()->head_b)
+		return ;
+	temp = swap()->head_a;
+	swap()->head_a = swap()->head_b;
+	swap()->head_b = swap()->head_b->next;
+	swap()->head_a->next = temp;
+	write(1, "pa\n", 3);
 }
-
-// 2 1 3 6 5 8

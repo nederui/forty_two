@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: nfilipe- <nfilipe-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 20:43:48 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/06/19 19:47:56 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/06/20 20:43:42 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 SHELL	=	/bin/bash 
 
 # to delete the default suffixes & define our suffix list
-.SUFIXES:					   
+.SUFIXES:
 .SUFIXES:	.a .c .h .o
 
 ################################################################################
@@ -45,8 +45,10 @@ REMOVE	=	rm -rf
 # SOURCES
 
 # the complete list of the source files to be used
-SRCS	=	sources/main.c			sources/setup.c		sources/setup_ii.c	\
-			sources/utilities.c		sources/push_it.c	sources/moves/push.c					\
+SRCS	=	sources/main.c			sources/setup.c		sources/setup_ii.c		\
+			sources/utilities.c		sources/push_it.c	sources/moves/push.c	\
+			sources/moves/swap.c	sources/moves/reverse.c						\
+			sources/moves/rotate.c
 
 # the complete list of all the objects to be created
 OBJECTS	=	$(SRCS:.c=.o)
@@ -102,8 +104,8 @@ info:
 			@echo Makefile for \'push_swap\' v0.0.15052023 by nfilipe-
 
 acknowledgments:	
-			@echo my deepest gratitude to my coleagues @ 42 Lisboa for their \
-			insight, tips and enthusiasm
+			@echo my deepest gratitude to my coleagues @ 42 Lisboa: fmouronh, \
+			gpardini and plopes-c for their insight, tips and enthusiasm
 			@echo \>\> special shout-out to ___, who pointed me in the \
 			right direction on this project	
 
