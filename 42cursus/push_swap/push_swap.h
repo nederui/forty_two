@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/20 20:49:21 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:59:24 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ int			check_integer(long number);
 int			check_duplicate(int number);
 
 int			stack_it(int number);
-void		init_stack_b(int n);
+// void		init_stack_b(int n);
 
 // CORE
 t_swap		*swap(void);
 void		push_it(void);
+
 // MOVES
 // void		push(t_list *origin, t_list *destination);
 void		pa(void);
@@ -76,7 +77,6 @@ void		rrb(void);
 
 // UTILITIES
 long		atoi_pswap(char *str);
-
 
 void		print_stack(t_list *stack);
 void		clear_stack(t_list *stack);

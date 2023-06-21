@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nfilipe- <nfilipe-@student.42.fr>          +#+  +:+       +#+         #
+#    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 20:43:48 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/06/20 20:43:42 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/06/21 18:23:17 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,11 @@ REMOVE	=	rm -rf
 # SOURCES
 
 # the complete list of the source files to be used
-SRCS	=	sources/main.c			sources/setup.c		sources/setup_ii.c		\
-			sources/utilities.c		sources/push_it.c	sources/moves/push.c	\
-			sources/moves/swap.c	sources/moves/reverse.c						\
-			sources/moves/rotate.c
+SRCS	=	sources/main.c			sources/setup.c			sources/setup_ii.c	\
+			sources/utilities.c		sources/utilities_ii.c	sources/push_it.c	\
+			sources/moves/push.c	sources/moves/swap.c						\
+			sources/moves/rotate.c	sources/moves/reverse.c
+			
 
 # the complete list of all the objects to be created
 OBJECTS	=	$(SRCS:.c=.o)

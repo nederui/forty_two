@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:13:23 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:35:43 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/21 19:01:26 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		ft_toupper(int c);
 int		ft_isspace(int c);
 int		ft_issign(int c);
 void	ft_putaddr(void *ptr);
+t_list	*lst_secondtolast(t_list *lst);
 void	print_char_matrix(char **matrix);
 
 #endif

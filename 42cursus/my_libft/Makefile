@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 19:53:58 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/05/29 21:12:41 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/06/21 17:50:17 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,8 @@ SRCS	=	ft_printf/ft_format_identifier.c		\
 			get_next_line/get_next_line.c			\
 			\
 			utils/freewillie.c	utils/ft_issign.c	utils/ft_isspace.c	\
-			utils/ft_putaddr.c	utils/print_char_matrix.c				\
+			utils/ft_putaddr.c	utils/lst_secondtolast.c				\
+			utils/print_char_matrix.c									\
 			\
 			ft_isalnum.c		ft_isalpha.c	ft_isascii.c			\
 			ft_isdigit.c		ft_isprint.c	ft_memchr.c				\

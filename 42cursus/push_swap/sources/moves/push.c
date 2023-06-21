@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfilipe- <nfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 10:49:26 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/20 20:39:19 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:25:27 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
-// void	push(t_list *origin, t_list *destination)
-// {
-// 	t_list	*temp;
-
-// 	if (!origin)
-// 		return ;
-// 	temp = destination;
-// 	destination = origin;
-// 	origin = origin->next;
-// 	destination->next = temp;
-// }
 
 void	pb(void)
 {
