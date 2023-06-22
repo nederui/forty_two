@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:42:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 03:11:10 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:58:29 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ long	atoi_pswap(char *str)
 		integer = integer * 10 + (str[i] - '0');
 		i++;
 	}
-	return ((long)integer * sign);
+	return (integer * sign);
 }

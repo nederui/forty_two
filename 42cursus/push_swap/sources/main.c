@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:27 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 04:36:28 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:38:13 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,11 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit_();
 	validate_arguments(argv + 1);
-
-	ft_printf("\nstack lenght: %d.\n\nBEFORE:\n", swap()->stack_len);
-	print_stacks();
-	
 	push_it();
-	
-	ft_printf("\n\nAFTER:\n", swap()->stack_len);
-	print_stacks();
-
+//////////////////////////////////////////////////////
+	ft_printf("\n\nAFTER:\n", swap()->stack_len);	//
+	print_stacks(); 								//
+//////////////////////////////////////////////////////												//
 	exit_();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 21:14:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 04:34:50 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 17:14:20 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		is_it_sorted(void)
 	ptr = swap()->head_a;
 	while (ptr->next)
 	{
-		if (ptr->content > ptr->next->content)
+		if ((t_ptr)ptr->content > (t_ptr)ptr->next->content)
 			return (0);
 		ptr = ptr->next;
 	}
@@ -41,4 +41,7 @@ void	push_it(void)
 		else
 			sir_sort_a_lot();
 	}
+	else	//////////////////////////////////
+		ft_printf("\nalready sorted.\n");	//
+			//////////////////////////////////
 }

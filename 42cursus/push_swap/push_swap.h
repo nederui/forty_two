@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 04:38:27 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:56:20 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		sort_four_five(void);
 void		sir_sort_a_lot(void);
 
 // MOVES
-// void		push(t_list *origin, t_list *destination);
+// void		push(t_list **origin, t_list **destination);
 void		pa(void);
 void		pb(void);
 void		sa(void);
