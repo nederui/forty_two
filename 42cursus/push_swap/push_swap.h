@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/21 18:59:24 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 04:38:27 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ int			check_spaces(char *argument);
 int			save_arg_array(char	*argument);
 int			check_integer(long number);
 int			check_duplicate(int number);
-
 int			stack_it(int number);
-// void		init_stack_b(int n);
 
-// CORE
-t_swap		*swap(void);
+// SORTING
 void		push_it(void);
+void		sort_three(void);
+void		sort_four_five(void);
+void		sir_sort_a_lot(void);
 
 // MOVES
 // void		push(t_list *origin, t_list *destination);
@@ -76,11 +76,10 @@ void		rrb(void);
 
 
 // UTILITIES
+t_swap		*swap(void);
 long		atoi_pswap(char *str);
-
-void		print_stack(t_list *stack);
+void		print_stacks(void);
 void		clear_stack(t_list *stack);
-
 void		freewillie(char **array);
 int			error_(void);
 void		exit_(void);

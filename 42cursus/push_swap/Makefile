@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 20:43:48 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/06/21 18:23:17 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/06/22 04:02:53 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,15 @@ REMOVE	=	rm -rf
 # SOURCES
 
 # the complete list of the source files to be used
-SRCS	=	sources/main.c			sources/setup.c			sources/setup_ii.c	\
-			sources/utilities.c		sources/utilities_ii.c	sources/push_it.c	\
-			sources/moves/push.c	sources/moves/swap.c						\
-			sources/moves/rotate.c	sources/moves/reverse.c
+SRCS	=	sources/main.c					sources/push_it.c					\
+			sources/setup.c					sources/setup_ii.c					\
+			sources/utilities.c				sources/utilities_ii.c				\
+			\
+			sources/moves/push.c			sources/moves/swap.c				\
+			sources/moves/rotate.c			sources/moves/reverse.c				\
+			\
+			sources/sorting/sort_three.c	sources/sorting/sort_four_five.c	\
+			sources/sorting/sir_sort_a_lot.c
 			
 
 # the complete list of all the objects to be created

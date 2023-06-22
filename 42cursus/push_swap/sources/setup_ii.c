@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setup.c                                            :+:      :+:    :+:   */
+/*   setup_ii.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:10 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/05/29 21:07:26 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 04:47:38 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	check_duplicate(int number)
 	ptr_lst = swap()->head_a;
 	while (ptr_lst)
 	{
+		// if ((intptr_t)ptr_lst->content == number)
 		if ((t_ptr)ptr_lst->content == number)
 			return (FAILURE);
 		ptr_lst = ptr_lst->next;

@@ -6,11 +6,24 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:42:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/21 18:56:01 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 03:11:10 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+/*
+this function keep all the data of its corresponding structure static during 
+the runtime of the program; it allows the access of this structs' data to
+all the functions that need to read from / modify them, by a simple call of
+"swap()", as it returns the address of the struct it is assigned to (t_swap)
+*/
+t_swap	*swap(void)
+{
+	static t_swap	swap;
+
+	return (&swap);
+}
 
 long	atoi_pswap(char *str)
 {

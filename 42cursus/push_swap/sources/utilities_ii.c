@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 17:38:24 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/21 18:19:09 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 04:35:17 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,30 @@ int	error_(void)
 	return (FAILURE);
 }
 
-void	print_stack(t_list *stack)
+void	print_stacks(void)
 {
-	t_list	*ptr_lst;
+	t_list	*ptr_lst_a;
+	t_list	*ptr_lst_b;
 
-	ptr_lst = stack;
-	ft_printf("STACK:\n");
-	while (ptr_lst)
+	ptr_lst_a = swap()->head_a;
+	ptr_lst_b = swap()->head_b;
+	ft_printf("a       b\n");
+	while (ptr_lst_a || ptr_lst_b)
 	{
-		ft_printf("%d\n", ptr_lst->content);
-		ptr_lst = ptr_lst->next;
+		if (ptr_lst_a)
+		{
+			ft_printf("%d       ", ptr_lst_a->content);
+			ptr_lst_a = ptr_lst_a->next;
+		}
+		else
+			ft_printf("       ");
+		if (ptr_lst_b)
+		{
+			ft_printf("%d\n", ptr_lst_b->content);
+			ptr_lst_b = ptr_lst_b->next;
+		}
+		else
+			ft_printf("\n");
 	}
 }
 
