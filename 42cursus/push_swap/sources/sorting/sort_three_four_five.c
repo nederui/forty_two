@@ -1,28 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_four_five.c                                   :+:      :+:    :+:   */
+/*   sort_three_four_five.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 03:53:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 17:22:13 by nfilipe-         ###   ########.fr       */
+/*   Created: 2023/06/22 03:53:42 by nfilipe-          #+#    #+#             */
+/*   Updated: 2023/06/23 17:07:16 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void    sort_four_five(void)
+void	sort_three(void)
 {
 	t_list  *first;
 	t_list  *second;
 	t_list  *third;
-	t_list  *fourth;
-	t_list  *fifth;
 	
-	first = swap()->head_a;
+	first = p_s()->head_a;
 	second = first->next;
 	third = second->next;
-	fourth = third->next;
-	fifth = fourth->next;
+	if ((t_ptr)third->content > (t_ptr)second->content)
+	{
+		if ((t_ptr)third->content > (t_ptr)first->content)
+			sa();
+		else
+			ra();
+	}
+	else
+	{
+		if ((t_ptr)first->content > (t_ptr)second->content)
+			sa();
+		rra();
+		if ((t_ptr)third->content > (t_ptr)first->content)
+			sa();
+	}
+}
+
+void    sort_four_five(void)
+{
+	push_lowest_to_b();
+	if (p_s()->stack_len == 5)
+		push_lowest_to_b();
+	sort_three();
+	pa();
+	pa();
 }

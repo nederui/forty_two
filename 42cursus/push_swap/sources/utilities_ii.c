@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 17:38:24 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 04:35:17 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:40:39 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 // ensures a clean program exit (including closing any open fd)
 void	exit_(void)
 {
-	clear_stack(swap()->head_a);
-	clear_stack(swap()->head_b);
+	clear_stack(p_s()->head_a);
+	clear_stack(p_s()->head_b);
 	// if (swap()->)
 	// 	freewillie(swap()->);
 	// if (swap()->)
@@ -45,8 +45,8 @@ void	print_stacks(void)
 	t_list	*ptr_lst_a;
 	t_list	*ptr_lst_b;
 
-	ptr_lst_a = swap()->head_a;
-	ptr_lst_b = swap()->head_b;
+	ptr_lst_a = p_s()->head_a;
+	ptr_lst_b = p_s()->head_b;
 	ft_printf("a       b\n");
 	while (ptr_lst_a || ptr_lst_b)
 	{

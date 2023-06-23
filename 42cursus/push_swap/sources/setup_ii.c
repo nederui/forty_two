@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:10 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 16:04:38 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/23 17:14:38 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ int	check_duplicate(int number)
 {
 	t_list	*ptr_lst;
 
-	ptr_lst = swap()->head_a;
+	ptr_lst = p_s()->head_a;
 	while (ptr_lst)
 	{
-		// if ((intptr_t)ptr_lst->content == number)
 		if ((t_ptr)ptr_lst->content == number)
 			return (FAILURE);
 		ptr_lst = ptr_lst->next;

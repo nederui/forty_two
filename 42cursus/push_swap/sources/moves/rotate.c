@@ -6,38 +6,34 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 20:53:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/21 17:22:07 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/23 17:30:36 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	rb(void)
+void	rotate(t_list **stack)
 {
 	t_list	*temp;
 	t_list	*last_node;
 
-	if (!swap()->head_b)
+	if (!*stack)
 		return ;
-	temp = swap()->head_b->next;
-	last_node = ft_lstlast(swap()->head_b);
-	last_node->next = swap()->head_b;
-	swap()->head_b->next = NULL;
-	swap()->head_b = temp;
-	write(1, "ra\n", 3);
+	temp = (*stack)->next;
+	last_node = ft_lstlast(*stack);
+	last_node->next = *stack;
+	(*stack)->next = NULL;
+	*stack = temp;
 }
 
 void	ra(void)
 {
-	t_list	*temp;
-	t_list	*last_node;
-
-	if (!swap()->head_a)
-		return ;
-	temp = swap()->head_a->next;
-	last_node = ft_lstlast(swap()->head_a);
-	last_node->next = swap()->head_a;
-	swap()->head_a->next = NULL;
-	swap()->head_a = temp;
+	rotate(&p_s()->head_a);
 	write(1, "ra\n", 3);
+}
+
+void	rb(void)
+{
+	rotate(&p_s()->head_b);
+	write(1, "rb\n", 3);
 }

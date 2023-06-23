@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   sort_it.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 03:53:42 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 17:16:01 by nfilipe-         ###   ########.fr       */
+/*   Created: 2023/05/29 21:14:52 by nfilipe-          #+#    #+#             */
+/*   Updated: 2023/06/23 17:29:01 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void		sort_three(void)
+void	sort_it(void)
 {
-	t_list  *first;
-	t_list  *second;
-	t_list  *third;
-	
-	first = swap()->head_a;
-	second = first->next;
-	third = second->next;
-	if ((t_ptr)third->content > (t_ptr)second->content)
+	if (!is_it_sorted())
 	{
-		if ((t_ptr)third->content > (t_ptr)first->content)
+		if (p_s()->stack_len == 2)
 			sa();
+		else if (p_s()->stack_len == 3)
+			sort_three();
+		else if (p_s()->stack_len <= 5)
+			sort_four_five();
 		else
-			ra();
+			sir_sort_a_lot();
 	}
-	else
-	{
-		if ((t_ptr)first->content > (t_ptr)second->content)
-			sa();
-		rra();
-		if ((t_ptr)third->content > (t_ptr)first->content)
-			sa();
-	}
+	else	//////////////////////////////////
+		ft_printf("\nalready sorted.\n");	//
+			//////////////////////////////////
 }
