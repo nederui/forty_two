@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 17:38:24 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/25 03:01:33 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:55:53 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	exit_(void)
 {
 	clear_stack(p_s()->stack_a);
 	clear_stack(p_s()->stack_b);
+	clear_stack(p_s()->clone_a);
 	// if (swap()->)
 	// 	freewillie(swap()->);
 	// if (swap()->)

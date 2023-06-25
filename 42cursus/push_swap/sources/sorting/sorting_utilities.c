@@ -6,64 +6,77 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:05:49 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/25 02:59:17 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/25 19:09:49 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	place_lowest_on_top(int position)
+int	get_proximity(int index)
 {
-	if (position > 3)
+	if (index > ft_lstsize(p_s()->stack_a) / 2)
+		return (REVERSE);
+	else
+		return (ROTATE);
+}
+
+void	make_it_to_the_top(int index)
+{
+	if (get_proximity(index))
 	{
-		while (position <= ft_lstsize(p_s()->stack_a))
+		while (index != ft_lstsize(p_s()->stack_a))
 		{
 			rra();
-			position++;
+			index++;
 		}
 	}
 	else
-		while (position != 1)
+	{
+		while (index)
 		{
 			ra();
-			position--;
+			index--;
 		}
+	}
 }
 
-int	find_lowest_pos(t_list *lst)
+int	find_lowest_number(t_list *lst)
 {
-	int	position;
+	int	i;
+	int	lowest_index;
+	int	lowest_nbr;
 
 	if (!lst)
 		return (FAILURE);
-	position = 1;
+	i = 0;
+	lowest_index = 0;
+	lowest_nbr = (t_ptr)lst->content;
 	while (lst)
 	{
-		if ((t_ptr)lst->content == p_s()->lowest_value)
-			return (position);
+		if (lowest_nbr > (t_ptr)lst->content)
+			lowest_index = i;
 		lst = lst->next;
-		position++;
+		i++;
 	}
-	return (SUCCESS);
+	return (lowest_index);
 }
 
-void	find_lowest_value(void *value)
-{
-	if ((t_ptr)value < p_s()->lowest_value)
-		p_s()->lowest_value = (t_ptr)value;
-}
+// void	find_lowest_value(void *value)
+// {
+// 	if ((t_ptr)value < p_s()->lowest_value)
+// 		p_s()->lowest_value = (t_ptr)value;
+// }
 
-void	push_lowest_to_b(void)
-{
-	p_s()->lowest_value = (t_ptr)p_s()->stack_a->content;
-	ft_lstiter(p_s()->stack_a, find_lowest_value);
-	place_lowest_on_top(find_lowest_pos(p_s()->stack_a));
-	pb();
-}
+// void	push_lowest_to_b(void)
+// {
+	// p_s()->lowest_value = (t_ptr)p_s()->stack_a->content;
+	// ft_lstiter(p_s()->stack_a, find_lowest_value);
+// 	make_it_to_the_top(find_lowest_index(p_s()->stack_a));
+// 	pb();
+// }
 
 int	is_it_sorted(t_list *stack)
 {
-
 	if (!stack)
 		return (0);
 	while (stack->next)
@@ -72,5 +85,5 @@ int	is_it_sorted(t_list *stack)
 			return (0);
 		stack = stack->next;
 	}
-	return (1);	
+	return (1);
 }
