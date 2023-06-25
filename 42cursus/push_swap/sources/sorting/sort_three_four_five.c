@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 03:53:42 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/23 17:07:16 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/25 03:02:06 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_three(void)
 	t_list  *second;
 	t_list  *third;
 	
-	first = p_s()->head_a;
+	first = p_s()->stack_a;
 	second = first->next;
 	third = second->next;
 	if ((t_ptr)third->content > (t_ptr)second->content)

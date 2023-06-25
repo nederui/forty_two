@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 21:14:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/23 17:29:01 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/25 02:58:50 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort_it(void)
 {
-	if (!is_it_sorted())
+	if (!is_it_sorted(p_s()->stack_a))
 	{
 		if (p_s()->stack_len == 2)
 			sa();

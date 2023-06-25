@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/23 17:28:50 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/25 03:09:22 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,13 @@ typedef struct s_ps
 	char			**arguments;
 	int				stack_len;
 	int				status;
-	struct s_list	*head_a;
-	struct s_list	*head_b;
+	struct s_list	*stack_a;
+	struct s_list	*stack_b;
 	int				lowest_value;
 	int				lowest_pos;
+	struct s_list	*stack_alpha;
+	struct s_list	*stack_beta;
+	int				chunk_size;
 }					t_ps;
 
 /* ************************************************************************** */
@@ -66,7 +69,7 @@ void	sort_four_five(void);
 void	sir_sort_a_lot(void);
 
 // SORTING UTILITIES
-int		is_it_sorted(void);
+int		is_it_sorted(t_list *stack);
 void	push_lowest_to_b(void);
 void	find_lowest_value(void *value);
 int		find_lowest_pos(t_list *lst);

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 20:53:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/23 17:30:36 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/25 03:00:19 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	rotate(t_list **stack)
 
 void	ra(void)
 {
-	rotate(&p_s()->head_a);
+	rotate(&p_s()->stack_a);
 	write(1, "ra\n", 3);
 }
 
 void	rb(void)
 {
-	rotate(&p_s()->head_b);
+	rotate(&p_s()->stack_b);
 	write(1, "rb\n", 3);
 }

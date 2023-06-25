@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 20:53:36 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/23 17:30:09 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/25 03:00:28 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	reverse(t_list **stack)
 
 void	rra(void)
 {
-	reverse(&p_s()->head_a);
+	reverse(&p_s()->stack_a);
 	write(1, "rra\n", 4);
 }
 
 void	rrb(void)
 {
-	reverse(&p_s()->head_b);
+	reverse(&p_s()->stack_b);
 	write(1, "rrb\n", 4);
 }

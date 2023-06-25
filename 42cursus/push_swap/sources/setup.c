@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:42:28 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/23 17:14:14 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/25 03:01:46 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	stack_it(int number)
 {
-	ft_lstadd_back(&p_s()->head_a, ft_lstnew((void *)(intptr_t)number));
+	ft_lstadd_back(&p_s()->stack_a, ft_lstnew((void *)(intptr_t)number));
 	p_s()->stack_len++;
 	return (SUCCESS);
 }
