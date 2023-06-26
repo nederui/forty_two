@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 03:53:42 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/25 19:17:25 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/25 23:16:38 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	sort_three(void)
 
 void	sort_four_five(void)
 {
-	make_it_to_the_top(find_lowest_number(p_s()->stack_a));
+	to_the_top(find_lowest_number(p_s()->stack_a));
 	pb();
 	if (p_s()->stack_len == 5)
 	{
-		make_it_to_the_top(find_lowest_number(p_s()->stack_a));
+		to_the_top(find_lowest_number(p_s()->stack_a));
 		pb();
 	}
 	if (!is_it_sorted(p_s()->stack_a))

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/25 19:22:50 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/26 00:28:11 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,9 @@ typedef struct s_ps
 {
 	char			**arguments;
 	int				stack_len;
-	// int				status;
 	struct s_list	*stack_a;
 	struct s_list	*stack_b;
 	struct s_list	*clone_a;
-	struct s_list	*clone_b;
-	int				lowest_value;
-	int				lowest_index;
-	int				chunks;
 	int				chunk_size;
 }					t_ps;
 
@@ -71,19 +66,17 @@ void	sort_three(void);
 void	sort_four_five(void);
 void	sir_sort_a_lot(void);
 void	sort_clone(t_list *stack);
-// void	sort_large_stack(void);
 
 // SORTING UTILITIES
 int		is_it_sorted(t_list *stack);
-// void	push_lowest_to_b(void);
-// void	find_lowest_value(void *value);
 int		find_lowest_number(t_list *lst);
-void	make_it_to_the_top(int index);
-void	set_chunk_size(void);
-int		find_key_nbr(t_list **stack);
+int		find_highest_number(t_list *lst);
+void	to_the_top(int index);
+int		get_proximity(int index);
+int		set_chunks(int chunks);
+int		find_ref_nbr(t_list **stack);
 void	push_lowest_chunk(t_list **stack, int key_nbr);
 void	push_highest_chunk(void);
-void	push_all_back_to_a(void);
 
 // MOVES
 void	push(t_list **origin, t_list **desstination);

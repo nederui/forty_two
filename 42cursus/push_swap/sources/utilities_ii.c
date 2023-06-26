@@ -6,11 +6,26 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 17:38:24 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/25 16:55:53 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/26 00:26:08 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+// frees the data previously allocated for any of the program's matrix
+void	freewillie(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		++i;
+	}
+	free(array);
+	array = NULL;
+}
 
 // ensures a clean program exit (including closing any open fd)
 void	exit_(void)
@@ -18,14 +33,6 @@ void	exit_(void)
 	clear_stack(p_s()->stack_a);
 	clear_stack(p_s()->stack_b);
 	clear_stack(p_s()->clone_a);
-	// if (swap()->)
-	// 	freewillie(swap()->);
-	// if (swap()->)
-	// 	freewillie(swap()->);
-	// if (swap()->)
-	// 	freewillie(swap()->);
-	// free(swap()->);
-	// free(swap()->);
 	exit(0);
 }
 
@@ -35,7 +42,6 @@ program exit; returns 0 to exit any function in the event of an error being foun
 */
 int	error_(void)
 {
-	// swap()->status = FAILURE;
 	ft_putstr_fd("Error\n", 2);
 	exit_();
 	return (FAILURE);

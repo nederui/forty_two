@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:05:49 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/25 19:09:49 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/26 00:42:18 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	get_proximity(int index)
 		return (ROTATE);
 }
 
-void	make_it_to_the_top(int index)
+void	to_the_top(int index)
 {
 	if (get_proximity(index))
 	{
@@ -38,6 +38,27 @@ void	make_it_to_the_top(int index)
 			index--;
 		}
 	}
+}
+
+int	find_highest_number(t_list *lst)
+{
+	int	i;
+	int	highest_index;
+	int	highest_nbr;
+
+	if (!lst)
+		return (FAILURE);
+	i = 0;
+	highest_index = 0;
+	highest_nbr = (t_ptr)lst->content;
+	while (lst && i <= p_s()->chunk_size)
+	{
+		if (highest_nbr < (t_ptr)lst->content)
+			highest_index = i;
+		lst = lst->next;
+		i++;
+	}
+	return (highest_index);
 }
 
 int	find_lowest_number(t_list *lst)
@@ -60,20 +81,6 @@ int	find_lowest_number(t_list *lst)
 	}
 	return (lowest_index);
 }
-
-// void	find_lowest_value(void *value)
-// {
-// 	if ((t_ptr)value < p_s()->lowest_value)
-// 		p_s()->lowest_value = (t_ptr)value;
-// }
-
-// void	push_lowest_to_b(void)
-// {
-	// p_s()->lowest_value = (t_ptr)p_s()->stack_a->content;
-	// ft_lstiter(p_s()->stack_a, find_lowest_value);
-// 	make_it_to_the_top(find_lowest_index(p_s()->stack_a));
-// 	pb();
-// }
 
 int	is_it_sorted(t_list *stack)
 {
