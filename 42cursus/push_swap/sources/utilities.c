@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:42:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/23 16:58:55 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:17:28 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ long	atoi_pswap(char *str)
 		i++;
 	}
 	if (ft_issign(str[i]))
-		return ((long)error_);
+		error_();
 	while (str[i] && !ft_isspace(str[i]))
 	{
 		integer = integer * 10 + (str[i] - '0');

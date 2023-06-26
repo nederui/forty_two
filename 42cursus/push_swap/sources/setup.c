@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:42:28 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/25 16:11:05 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/26 21:07:32 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	validate_arguments(int argc, char **argv)
 	int		i;
 	long	number;
 
+	ft_printf("validating arguments.\n");			/////////////////////////////
 	i = 0;
 	number = 0;
 	while (argv[i])
@@ -54,5 +55,8 @@ int	validate_arguments(int argc, char **argv)
 		}
 		i++;
 	}
+	ft_printf("arguments validated.\n");			/////////////////////////////
+	if (argc > 6)
+		ft_printf("6 args detected.\ncloning.\n");			/////////////////////////////
 	return (SUCCESS);
 }

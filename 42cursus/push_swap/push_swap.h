@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/26 00:28:11 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 00:20:19 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 # define SUCCESS 1
 # define FAILURE 0
-# define ROTATE 1
-# define REVERSE 0
+# define GO_UP 1
+# define GO_DOWN 0
 
 typedef int long	t_ptr;
 
@@ -46,6 +46,7 @@ typedef struct s_ps
 	struct s_list	*stack_a;
 	struct s_list	*stack_b;
 	struct s_list	*clone_a;
+	struct s_list	*clone_b;
 	int				chunk_size;
 }					t_ps;
 
@@ -72,10 +73,11 @@ int		is_it_sorted(t_list *stack);
 int		find_lowest_number(t_list *lst);
 int		find_highest_number(t_list *lst);
 void	to_the_top(int index);
+void	to_the_top_of_b(int index);
 int		get_proximity(int index);
 int		set_chunks(int chunks);
-int		find_ref_nbr(t_list **stack);
-void	push_lowest_chunk(t_list **stack, int key_nbr);
+int		find_ref_nbr(t_list *stack);
+int		push_lowest_chunk(t_list *stack, int ref_nbr);
 void	push_highest_chunk(void);
 
 // MOVES
@@ -96,6 +98,7 @@ void	rrb(void);
 t_ps	*p_s(void);
 long	atoi_pswap(char *str);
 void	print_stacks(void);
+void	print_clone(void);
 void	clear_stack(t_list *stack);
 void	freewillie(char **array);
 int		error_(void);
