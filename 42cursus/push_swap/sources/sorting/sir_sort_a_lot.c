@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 03:53:35 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 00:38:43 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 01:36:48 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,13 @@ void	print_clone(void)
 		else
 			ft_printf("\n");
 	}
-	ft_printf("\n");
 }
 
 void	sort_clone(t_list *stack)
 {
 	int	temp;
 
-	ft_printf("sorting clone.\n");
+	// ft_printf("sorting clone.\n");
 	if (!stack)
 		return ;
 	while (stack->next)
@@ -67,13 +66,14 @@ void	sir_sort_a_lot(void)
 
 	chunks = set_chunks(0);
 	ref_chunks = chunks;
-	p_s()->chunk_size = p_s()->stack_len / chunks;
-	print_clone();
+	// p_s()->chunk_size = p_s()->stack_len / chunks;
+	// print_clone();
 	while (!is_it_sorted(p_s()->clone_a))
 		sort_clone(p_s()->clone_a);
-	ft_printf("clone sorted. <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	ft_printf("\n>>>>>>>>>>>>>>>>>>>> clone sorted. <<<<<<<<<<<<<<<<<<<<\n");
 	print_clone();
-	ft_printf("chunks: %d\nlen: %d\nsize: %d\n", chunks, p_s()->stack_len, p_s()->chunk_size);
+	ft_printf(">>>>>>>>>>>>>>>>>>>> clone sorted. <<<<<<<<<<<<<<<<<<<<\n\n");
+	ft_printf(">>>>>>>>>>>>>>>>>>>> . <<<<<<<<<<<<<<<<<<<<\nchunks: %d\nstack_len: %d\nchunk_size: %d\n>>>>>>>>>>>>>>>>>>>> . <<<<<<<<<<<<<<<<<<<<\n", chunks, p_s()->stack_len, p_s()->chunk_size);
 	ref_nbr = find_ref_nbr(p_s()->clone_a);
 	while (chunks != 1 && !is_it_sorted(p_s()->stack_a))
 	{
@@ -81,17 +81,17 @@ void	sir_sort_a_lot(void)
 		{
 			ref_nbr = find_ref_nbr(p_s()->clone_a);
 			chunks--;
-			ft_printf("chunks: %d of %d\n", chunks, ref_chunks);
+			ft_printf(">>>>>>>>>>>>>>>>>>>> . <<<<<<<<<<<<<<<<<<<<\nchunks: %d of %d\n>>>>>>>>>>>>>>>>>>>> . <<<<<<<<<<<<<<<<<<<<\n", chunks, ref_chunks);
 		}
 	}
 	if (!is_it_sorted(p_s()->stack_a))
 		push_highest_chunk();
-	print_stacks();
-	ft_printf("<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	// print_stacks();
+	// ft_printf("<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>\n");
 	while (p_s()->stack_b)
 	{
 		to_the_top_of_b(find_highest_number(p_s()->stack_b));
 		pa();
-		print_stacks();
+		// print_stacks();
 	}
 }

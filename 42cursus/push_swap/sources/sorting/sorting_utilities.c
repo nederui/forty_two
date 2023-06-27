@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:05:49 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 00:37:59 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 01:15:03 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,37 @@
 
 int	get_proximity_of_b(int index)
 {
-	ft_printf("calculating proximity.\n");			/////////////////////////////
+	// ft_printf("calculating proximity.\n");			/////////////////////////////
 	if (index > ft_lstsize(p_s()->stack_b) / 2)
 	{
-		ft_printf("done. go down.\n");			/////////////////////////////
+		// ft_printf("done. go down.\n");			/////////////////////////////
 		return (GO_DOWN);
 	}
 	else
 	{
-		ft_printf("done. go up.\n");			/////////////////////////////
+		// ft_printf("done. go up.\n");			/////////////////////////////
 		return (GO_UP);
 	}
 }
 
 int	get_proximity(int index)
 {
-	ft_printf("calculating proximity.\n");			/////////////////////////////
+	// ft_printf("calculating proximity.\n");			/////////////////////////////
 	if (index > ft_lstsize(p_s()->stack_a) / 2)
 	{
-		ft_printf("done. go down.\n");			/////////////////////////////
+		// ft_printf("done. go down.\n");			/////////////////////////////
 		return (GO_DOWN);
 	}
 	else
 	{
-		ft_printf("done. go up.\n");			/////////////////////////////
+		// ft_printf("done. go up.\n");			/////////////////////////////
 		return (GO_UP);
 	}
 }
 
 void	to_the_top_of_b(int index)
 {
-	ft_printf("getting it to the top.\n");			/////////////////////////////
+	// ft_printf("getting it to the top.\n");			/////////////////////////////
 	if (get_proximity_of_b(index) == GO_DOWN)
 	{
 		while (index != ft_lstsize(p_s()->stack_b))
@@ -61,12 +61,12 @@ void	to_the_top_of_b(int index)
 			index--;
 		}
 	}
-	ft_printf("done.\nfinal index: %d\n", index);			/////////////////////////////
+	// ft_printf("done.\nfinal index: %d\n", index);			/////////////////////////////
 }
 
 void	to_the_top(int index)
 {
-	ft_printf("getting it to the top.\n");			/////////////////////////////
+	// ft_printf("getting it to the top.\n");			/////////////////////////////
 	if (get_proximity(index) == GO_DOWN)
 	{
 		while (index != ft_lstsize(p_s()->stack_a))
@@ -83,7 +83,7 @@ void	to_the_top(int index)
 			index--;
 		}
 	}
-	ft_printf("done.\nfinal index: %d\n", index);			/////////////////////////////
+	// ft_printf("done.\nfinal index: %d\n", index);			/////////////////////////////
 }
 
 int	find_highest_number(t_list *lst)
@@ -92,7 +92,7 @@ int	find_highest_number(t_list *lst)
 	int	highest_index;
 	int	highest_nbr;
 
-	ft_printf("finding highest number.\n");			/////////////////////////////
+	// ft_printf("finding highest number.\n");			/////////////////////////////
 	if (!lst)
 		return (FAILURE);
 	i = 0;
@@ -108,7 +108,7 @@ int	find_highest_number(t_list *lst)
 		lst = lst->next;
 		i++;
 	}
-	ft_printf("found.\nhighest number:%d\nindex:%d\n", highest_nbr, highest_index);			/////////////////////////////
+	// ft_printf("found.\nhighest number:%d\nindex:%d\n", highest_nbr, highest_index);			/////////////////////////////
 	return (highest_index);
 }
 
@@ -118,7 +118,7 @@ int	find_lowest_number(t_list *lst)
 	int	lowest_index;
 	int	lowest_nbr;
 
-	ft_printf("finding lowest number.\n");			/////////////////////////////
+	// ft_printf("finding lowest number.\n");			/////////////////////////////
 	if (!lst)
 		return (FAILURE);
 	i = 0;
@@ -126,7 +126,7 @@ int	find_lowest_number(t_list *lst)
 	lowest_nbr = (t_ptr)lst->content;
 	while (lst)
 	{
-		ft_printf("%d %d<<<<<<<<<\n", lowest_nbr, (t_ptr)lst->content);
+		// ft_printf("%d %d<<<<<<<<<\n", lowest_nbr, (t_ptr)lst->content);
 		if (lowest_nbr > (t_ptr)lst->content)
 		{
 			lowest_nbr = (t_ptr)lst->content;
@@ -135,7 +135,7 @@ int	find_lowest_number(t_list *lst)
 		lst = lst->next;
 		i++;
 	}
-	ft_printf("found.\nlowest number:%d\nindex:%d\n", lowest_nbr, lowest_index);			/////////////////////////////
+	// ft_printf("found.\nlowest number:%d\nindex:%d\n", lowest_nbr, lowest_index);			/////////////////////////////
 	return (lowest_index);
 }
 
@@ -143,16 +143,16 @@ int	is_it_sorted(t_list *stack)
 {
 	if (!stack)
 		return (0);
-	ft_printf("checking if already sorted.\n");			/////////////////////////////
+	// ft_printf("checking if already sorted.\n");			/////////////////////////////
 	while (stack->next)
 	{
 		if ((t_ptr)stack->content > (t_ptr)stack->next->content)
 		{
-			ft_printf("no.\nsorting.\n");			/////////////////////////////
+			// ft_printf("no.\nsorting.\n");			/////////////////////////////
 			return (0);
 		}
 		stack = stack->next;
 	}
-	ft_printf("yes.\n");			/////////////////////////////
+	// ft_printf("yes.\n");			/////////////////////////////
 	return (1);
 }
