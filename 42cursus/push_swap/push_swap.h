@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 00:20:19 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:35:36 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,6 @@
 
 typedef int long	t_ptr;
 
-/* ************************************************************************** */
-// DEBUG
-
-// # define malloc(x) NULL
-# define HERE write(1, "HERE.\n", 6)
-# define THERE write(1, "THERE.\n", 7)
-
-/* ************************************************************************** */
-// STRUCTURES
-
 typedef struct s_ps
 {
 	char			**arguments;
@@ -48,7 +38,15 @@ typedef struct s_ps
 	struct s_list	*clone_a;
 	struct s_list	*clone_b;
 	int				chunk_size;
+	int				moves;
 }					t_ps;
+
+/* ************************************************************************** */
+// DEBUG
+
+// # define malloc(x) NULL
+// # define HERE write(1, "HERE.\n", 6)
+// # define THERE write(1, "THERE.\n", 7)
 
 /* ************************************************************************** */
 // SETUP
@@ -97,11 +95,14 @@ void	rrb(void);
 // UTILITIES
 t_ps	*p_s(void);
 long	atoi_pswap(char *str);
-void	print_stacks(void);
-void	print_clone(void);
 void	clear_stack(t_list *stack);
 void	freewillie(char **array);
 int		error_(void);
 void	exit_(void);
+
+// DEBUG
+void	print_stacks(void);
+void	print_clone(void);
+
 
 #endif

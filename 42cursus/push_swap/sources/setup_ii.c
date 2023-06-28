@@ -6,20 +6,12 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:10 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/25 15:11:00 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:33:25 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <limits.h>
-#include <stdint.h>
-
-/* 
-W I P 
-(void *)(intptr_t)
-(int)(intptr_t)
-
-*/
 
 /* W I P */
 int	check_duplicate(int number)

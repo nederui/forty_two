@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:42:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/26 20:17:28 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:47:13 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,58 @@ long	atoi_pswap(char *str)
 		i++;
 	}
 	return (integer * sign);
+}
+
+void	print_stacks(void)
+{
+	t_list	*ptr_lst_a;
+	t_list	*ptr_lst_b;
+
+	ptr_lst_a = p_s()->stack_a;
+	ptr_lst_b = p_s()->stack_b;
+	ft_printf("a       b\n");
+	while (ptr_lst_a || ptr_lst_b)
+	{
+		if (ptr_lst_a)
+		{
+			ft_printf("%d       ", ptr_lst_a->content);
+			ptr_lst_a = ptr_lst_a->next;
+		}
+		else
+			ft_printf("       ");
+		if (ptr_lst_b)
+		{
+			ft_printf("%d\n", ptr_lst_b->content);
+			ptr_lst_b = ptr_lst_b->next;
+		}
+		else
+			ft_printf("\n");
+	}
+}
+
+void	print_clone(void)
+{	
+	t_list	*clone;
+	t_list	*clone_b;
+
+	clone = p_s()->clone_a;
+	clone_b = p_s()->clone_b;
+	ft_printf("clone a       clone b\n");
+	while (clone || clone_b)
+	{
+		if (clone)
+		{
+			ft_printf("%d       ", clone->content);
+			clone = clone->next;
+		}
+		else
+			ft_printf("       ");
+		if (clone_b)
+		{
+			ft_printf("%d\n", clone_b->content);
+			clone_b = clone_b->next;
+		}
+		else
+			ft_printf("\n");
+	}
 }

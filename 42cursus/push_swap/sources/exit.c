@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities_ii.c                                     :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 17:38:24 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/26 20:16:35 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:39:24 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ void	freewillie(char **array)
 	array = NULL;
 }
 
+void	clear_stack(t_list *lst)
+{
+	t_list	*ptr_lst;
+
+	while (lst)
+	{
+		ptr_lst = lst->next;
+		free(lst);
+		lst = ptr_lst;
+	}
+}
+
 // ensures a clean program exit (including closing any open fd)
 void	exit_(void)
 {
@@ -45,43 +57,4 @@ int	error_(void)
 	ft_putstr_fd("Error\n", 2);
 	exit_();
 	return (FAILURE);
-}
-
-void	print_stacks(void)
-{
-	t_list	*ptr_lst_a;
-	t_list	*ptr_lst_b;
-
-	ptr_lst_a = p_s()->stack_a;
-	ptr_lst_b = p_s()->stack_b;
-	ft_printf("a       b\n");
-	while (ptr_lst_a || ptr_lst_b)
-	{
-		if (ptr_lst_a)
-		{
-			ft_printf("%d       ", ptr_lst_a->content);
-			ptr_lst_a = ptr_lst_a->next;
-		}
-		else
-			ft_printf("       ");
-		if (ptr_lst_b)
-		{
-			ft_printf("%d\n", ptr_lst_b->content);
-			ptr_lst_b = ptr_lst_b->next;
-		}
-		else
-			ft_printf("\n");
-	}
-}
-
-void	clear_stack(t_list *lst)
-{
-	t_list	*ptr_lst;
-
-	while (lst)
-	{
-		ptr_lst = lst->next;
-		free(lst);
-		lst = ptr_lst;
-	}
 }

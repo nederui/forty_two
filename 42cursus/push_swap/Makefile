@@ -6,7 +6,7 @@
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 20:43:48 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/06/26 00:21:53 by nfilipe-         ###   ########.fr        #
+#    Updated: 2023/06/27 15:56:20 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,18 +45,17 @@ REMOVE	=	rm -rf
 # SOURCES
 
 # the complete list of the source files to be used
-SRCS	=	sources/main.c													\
+SRCS	=	sources/main.c				sources/exit.c						\
 			sources/setup.c				sources/setup_ii.c					\
-			sources/utilities.c			sources/utilities_ii.c				\
+			sources/utilities.c												\
 			\
 			sources/moves/push.c		sources/moves/swap.c				\
 			sources/moves/rotate.c		sources/moves/reverse.c				\
 			\
 			sources/sorting/sort_it.c										\
-			sources/sorting/sort_three_four_five.c							\
-			sources/sorting/sir_sort_a_lot.c								\
 			sources/sorting/sorting_utilities.c								\
-			sources/sorting/sorting_utilities_ii.c
+			sources/sorting/sorting_utilities_ii.c							\
+			sources/sorting/chunks.c
 			
 # the complete list of all the objects to be created
 OBJECTS	=	$(SRCS:.c=.o)

@@ -5,90 +5,75 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/25 18:54:59 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 01:44:41 by nfilipe-         ###   ########.fr       */
+/*   Created: 2023/06/27 15:40:30 by nfilipe-          #+#    #+#             */
+/*   Updated: 2023/06/27 15:54:13 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	push_highest_chunk(void)
+void	sort_clone(t_list *stack)
 {
-	// ft_printf(">>>>>>>>>>>>> pushing HIGHEST chunk. <<<<<<<<<<<<\n");			/////////////////////////////
-	while (!is_it_sorted(p_s()->stack_a) && ft_lstsize(p_s()->stack_a) > 5)
-	{
-		to_the_top(find_lowest_number(p_s()->stack_a));
-		pb();
-	}
-	if (!is_it_sorted(p_s()->stack_a))
-	{
-		if (ft_lstsize(p_s()->stack_a) == 2)
-			sa();
-		else if (ft_lstsize(p_s()->stack_a) == 3)
-			sort_three();
-		else
-			sort_four_five();
-	}
-	// ft_printf("\n\ndonzo.\n\n");
-}
+	int	temp;
 
-int	push_lowest_chunk(t_list *stack, int key_nbr)
-{
-	int	index;
-
-	// print_stacks();
-	// ft_printf(">>>>>>>>>>>>> pushing lowest chunk.\n");			/////////////////////////////
 	if (!stack)
-		return (0);
-	index = 0;
-	while (stack)
+		return ;
+	while (stack->next)
 	{
-		// ft_printf("index: %d	conteudo: %d	key_nbr: %d\n", index, (t_ptr)stack->content,key_nbr);
-		if ((t_ptr)stack->content <= key_nbr)
+		if ((t_ptr)stack->content > (t_ptr)stack->next->content)
 		{
-			to_the_top(index);
-			pb();
-			push(&p_s()->clone_a, &p_s()->clone_b);
-			// print_clone();
-			// print_stacks();
-			return (1);
+			temp = (t_ptr)stack->content;
+			stack->content = stack->next->content;
+			stack->next->content = (void *)(intptr_t)temp;
 		}
-		index++;
 		stack = stack->next;
 	}
-	// ft_printf("DONE\n");
-	// print_stacks();
-	return (0);
 }
 
-int	find_ref_nbr(t_list *stack)
+int	find_highest_number(t_list *lst)
 {
-	int		index;
+	int	i;
+	int	highest_index;
+	int	highest_nbr;
 
-	// ft_printf("finding ref number.\n");			/////////////////////////////
-	index = 0;
-	while (stack->next && index != p_s()->chunk_size - 1)
+	if (!lst)
+		return (FAILURE);
+	i = 0;
+	highest_index = 0;
+	highest_nbr = (t_ptr)lst->content;
+	while (lst)
 	{
-		stack = stack->next;
-		index++;
+		if (highest_nbr < (t_ptr)lst->content)
+		{
+			highest_nbr = (t_ptr)lst->content;
+			highest_index = i;
+		}
+		lst = lst->next;
+		i++;
 	}
-	// ft_printf("found.\nref number:%d\n", (t_ptr)stack->content);			/////////////////////////////
-	return ((t_ptr)stack->content);
+	return (highest_index);
 }
 
-int	set_chunks(int chunks)
+int	find_lowest_number(t_list *lst)
 {
-	if (p_s()->stack_len < 100)
-		chunks = 4;
-	else if (p_s()->stack_len < 200)
-		chunks = 8;
-	else
-		chunks = p_s()->stack_len / 25;
-	// if (p_s()->stack_len % chunks != 0)
-	// 	chunks++;
-	p_s()->chunk_size = p_s()->stack_len / chunks;		//	WIP
-	if (p_s()->chunk_size * chunks < p_s()->stack_len)	//	WIP
-		chunks++;						//	WIP
-	// 	chunks = p_s()->stack_len;						//	WIP
-	return (chunks);
+	int	i;
+	int	lowest_index;
+	int	lowest_nbr;
+
+	if (!lst)
+		return (FAILURE);
+	i = 0;
+	lowest_index = 0;
+	lowest_nbr = (t_ptr)lst->content;
+	while (lst)
+	{
+		if (lowest_nbr > (t_ptr)lst->content)
+		{
+			lowest_nbr = (t_ptr)lst->content;
+			lowest_index = i;
+		}
+		lst = lst->next;
+		i++;
+	}
+	return (lowest_index);
 }
