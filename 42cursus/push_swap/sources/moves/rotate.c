@@ -6,12 +6,16 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 20:53:38 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 03:22:28 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:22:21 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
+/*
+shifts up all elements of the given stack by 1.
+the first element becomes the last one.
+*/
 void	rotate(t_list **stack)
 {
 	t_list	*temp;

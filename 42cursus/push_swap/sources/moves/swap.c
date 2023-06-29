@@ -6,12 +6,16 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 20:53:40 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 03:22:25 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:22:33 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
+/*
+swaps the order of the first 2 elements at the top the given stack.
+does nothing if there is only one or no elements.
+*/
 void	swap(t_list **stack)
 {
 	t_list	*temp;

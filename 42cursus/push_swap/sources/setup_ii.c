@@ -6,14 +6,14 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:10 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 15:33:25 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:21:45 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <limits.h>
 
-/* W I P */
+// goes through the stack, checking if we have already stacked the given number
 int	check_duplicate(int number)
 {
 	t_list	*ptr_lst;
@@ -28,7 +28,7 @@ int	check_duplicate(int number)
 	return (SUCCESS);
 }
 
-/*   */
+// compares the given number to a integer's limits
 int	check_integer(long number)
 {
 	if (number < INT_MIN || number > INT_MAX)
@@ -36,7 +36,7 @@ int	check_integer(long number)
 	return (SUCCESS);
 }
 
-/*   */
+// looks for space chars in the given string
 int	check_spaces(char *argument)
 {
 	int		i;
@@ -51,7 +51,10 @@ int	check_spaces(char *argument)
 	return (FAILURE);
 }
 
-/*   */
+/*
+looks for any char that isn't a space, a digit or a sign; if any is found
+in the given string, it returns 0 (for FAILURE)
+*/
 int	check_digits(char *argument)
 {
 	int		i;

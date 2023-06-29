@@ -6,12 +6,16 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 10:49:26 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 03:22:39 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:21:08 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
+/*
+takes the first element at the top of one stack (origin) and puts it at the top
+of the other (destination). does nothing if the stack of origin is empty.
+*/
 void	push(t_list **origin, t_list **destination)
 {
 	t_list	*temp;

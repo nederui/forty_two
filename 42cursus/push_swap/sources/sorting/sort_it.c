@@ -6,12 +6,19 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 21:14:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 15:51:39 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:57:54 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
+/*
+'divides' stack_a into smaller chunks, and sorts clone_a; by having clone_a (now
+sorted) as a reference, it checks each chunk's index and it pushes every number
+found in stack_a within that chunk's limits; this process is repeated, until
+stack_a is left with the highest numbers, which we will then sort; in the end
+we push, in descending order, every number in stack_b back to stack_a
+*/
 void	sir_sort_a_lot(void)
 {
 	int	chunks;
@@ -22,13 +29,14 @@ void	sir_sort_a_lot(void)
 		sort_clone(p_s()->clone_a);
 	ref_nbr = find_ref_nbr(p_s()->clone_a);
 	while (chunks != 1 && !is_it_sorted(p_s()->stack_a))
+	{
 		if (!push_lowest_chunk(p_s()->stack_a, ref_nbr))
 		{
 			ref_nbr = find_ref_nbr(p_s()->clone_a);
 			chunks--;
 		}
-	if (!is_it_sorted(p_s()->stack_a))
-		push_highest_chunk();
+	}
+	push_highest_chunk();
 	while (p_s()->stack_b)
 	{
 		to_the_top_of_b(find_highest_number(p_s()->stack_b));
@@ -36,6 +44,10 @@ void	sir_sort_a_lot(void)
 	}
 }
 
+/*
+sorts four or five numbers, by pushing the lowest number(s) to stack b,
+and sorting the other 3 with sort_three()
+*/
 void	sort_four_five(void)
 {
 	int	stack_size;
@@ -54,6 +66,7 @@ void	sort_four_five(void)
 	pa();
 }
 
+// sorts 3 numbers by direct comparission
 void	sort_three(void)
 {
 	t_list	*first;
@@ -80,19 +93,18 @@ void	sort_three(void)
 	}
 }
 
+/*
+selects which method to use to sort, as it uses a different one depending on
+how many numbers it was given
+*/
 void	sort_it(void)
 {
-	if (!is_it_sorted(p_s()->stack_a))
-	{
-		if (p_s()->stack_len == 2)
-			sa();
-		else if (p_s()->stack_len == 3)
-			sort_three();
-		else if (p_s()->stack_len <= 5)
-			sort_four_five();
-		else
-			sir_sort_a_lot();
-	}
+	if (p_s()->stack_len == 2)
+		sa();
+	else if (p_s()->stack_len == 3)
+		sort_three();
+	else if (p_s()->stack_len <= 5)
+		sort_four_five();
 	else
-		return ;
+		sir_sort_a_lot();
 }

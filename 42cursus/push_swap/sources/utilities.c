@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:42:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 15:47:13 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/29 18:21:57 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ t_ps	*p_s(void)
 	return (&push_swap);
 }
 
+/*
+a variation of ft_atoi(), that returns a long int and does not tolerate numbers
+with more than one sign
+*/
 long	atoi_pswap(char *str)
 {
 	int		i;
@@ -52,6 +56,7 @@ long	atoi_pswap(char *str)
 	return (integer * sign);
 }
 
+// a debug function that prints out the content of both stacks to the STDOUT
 void	print_stacks(void)
 {
 	t_list	*ptr_lst_a;
@@ -79,6 +84,7 @@ void	print_stacks(void)
 	}
 }
 
+// a debug function that prints out the content of cloned stacks to the STDOUT
 void	print_clone(void)
 {	
 	t_list	*clone;

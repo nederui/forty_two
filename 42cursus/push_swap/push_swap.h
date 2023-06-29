@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 15:35:36 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/29 18:25:07 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,12 @@ typedef int long	t_ptr;
 
 typedef struct s_ps
 {
-	char			**arguments;
 	int				stack_len;
 	struct s_list	*stack_a;
 	struct s_list	*stack_b;
 	struct s_list	*clone_a;
 	struct s_list	*clone_b;
 	int				chunk_size;
-	int				moves;
 }					t_ps;
 
 /* ************************************************************************** */
@@ -54,7 +52,7 @@ typedef struct s_ps
 int		validate_arguments(int argc, char **argv);
 int		check_digits(char *argument);
 int		check_spaces(char *argument);
-int		save_arg_array(int argc, char *argument);
+int		validate_arg_array(int argc, char *argument);
 int		check_integer(long number);
 int		check_duplicate(int number);
 int		stack_it(int argc, int number);
@@ -77,6 +75,8 @@ int		set_chunks(int chunks);
 int		find_ref_nbr(t_list *stack);
 int		push_lowest_chunk(t_list *stack, int ref_nbr);
 void	push_highest_chunk(void);
+int		validate_last_chunk(void);
+int		get_number(t_list *lst, int index);
 
 // MOVES
 void	push(t_list **origin, t_list **desstination);
@@ -103,6 +103,5 @@ void	exit_(void);
 // DEBUG
 void	print_stacks(void);
 void	print_clone(void);
-
 
 #endif

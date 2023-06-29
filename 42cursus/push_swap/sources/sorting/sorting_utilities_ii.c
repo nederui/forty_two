@@ -6,12 +6,13 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:40:30 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 15:54:13 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:35:18 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
+// sorts the cloned stack with a simple 'bubble sort' algorith
 void	sort_clone(t_list *stack)
 {
 	int	temp;
@@ -30,6 +31,10 @@ void	sort_clone(t_list *stack)
 	}
 }
 
+/*
+through direct comparisson, finds the highest value in the given stack
+and returns its corresponding index
+ */
 int	find_highest_number(t_list *lst)
 {
 	int	i;
@@ -54,6 +59,10 @@ int	find_highest_number(t_list *lst)
 	return (highest_index);
 }
 
+/*
+through direct comparisson, finds the lowest value in the given stack
+and returns its corresponding index
+ */
 int	find_lowest_number(t_list *lst)
 {
 	int	i;
@@ -76,4 +85,20 @@ int	find_lowest_number(t_list *lst)
 		i++;
 	}
 	return (lowest_index);
+}
+
+// gets the value found in the given index of the given stack
+int	get_number(t_list *lst, int index)
+{
+	int	i;
+
+	i = 0;
+	if (!lst)
+		return (0);
+	while (lst && i != index)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return ((t_ptr)lst->content);
 }

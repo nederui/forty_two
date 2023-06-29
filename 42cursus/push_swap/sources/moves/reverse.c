@@ -6,12 +6,16 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 20:53:36 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 03:22:33 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:23:20 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
+/*
+shifts down all elements of the given stack a by 1.
+the last element becomes the first one.
+*/
 void	reverse(t_list **stack)
 {
 	t_list	*last_node;
