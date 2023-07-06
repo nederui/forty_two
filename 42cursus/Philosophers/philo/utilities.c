@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   utilities.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 14:18:55 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/07/04 17:20:34 by nfilipe-         ###   ########.fr       */
+/*   Created: 2023/07/06 18:33:56 by nfilipe-          #+#    #+#             */
+/*   Updated: 2023/07/06 18:36:11 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "philosophers.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+t_philo	*philo(void)
 {
-	int		i;
-	char	*string;
+	static t_philo	philo;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	string = (char *) malloc(ft_strlen(s) + 1);
-	if (string)
-	{
-		if (s && f)
-		{
-			while (s[i])
-			{
-				string[i] = f(i, s[i]);
-				i++;
-			}
-			string[i] = '\0';
-		}
-	}
-	return (string);
+	return (&philo);
 }

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/24 20:43:48 by nfilipe-          #+#    #+#              #
-#    Updated: 2023/07/06 19:13:31 by nfilipe-         ###   ########.fr        #
+#    Created: 2023/07/06 18:31:15 by nfilipe-          #+#    #+#              #
+#    Updated: 2023/07/06 18:37:26 by nfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,13 @@ SHELL	=	/bin/bash
 # ARGUMENTS
 
 # the name of the executable built by this Makefile
-NAME 	=	push_swap
+NAME 	=	philo
 
 # compiler (cc) & flags to be used
 # '-O2' applies almost all of the supported optimization techniques that do \
 not involve a tradeoff between program size and execution speed. This option \
 generally increases the time needed to compile.
-# '-I<dir>' adds the current directory to include search path for 'push_swap.h'
+# '-I<dir>' adds the current directory to include search path for 'philo.h'
 # 'DEBUG' flags will compile the code with debug symbols (-g) & detect memory \
 access error such as use-after-free and memory leaks (-fsanitize=address)
 CC		=	cc 
@@ -46,25 +46,12 @@ REMOVE	=	rm -rf
 
 # the complete list of the source files to be used
 SRCS	=	sources/main.c				sources/exit.c						\
-			sources/setup.c				sources/setup_ii.c					\
-			sources/utilities.c												\
-			\
-			sources/moves/push.c		sources/moves/swap.c				\
-			sources/moves/rotate.c		sources/moves/reverse.c				\
-			\
-			sources/sorting/sort_it.c										\
-			sources/sorting/sorting_utilities.c								\
-			sources/sorting/sorting_utilities_ii.c							\
-			sources/sorting/chunks.c
 			
 # the complete list of all the objects to be created
 OBJECTS	=	$(SRCS:.c=.o)
 
-# libft's path
-LIBFT	=	libft/libft.a
-
 # project's header file
-INCLUDE	=	push_swap.h
+INCLUDE	=	philo.h
 
 ################################################################################
 # RULES
@@ -82,23 +69,19 @@ using this pattern rule also depend on libft.h
 # 'make -C' executes libft's Makefile
 # 'ranlib' to run our libft.a, as it is a static library (.a file)
 $(NAME):	$(OBJECTS)
-			@make -C libft
-			@echo push_swap: compiling \& linking sources
+			@echo philo: compiling \& linking sources
 			@echo building $(NAME)
-			$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
-#			@ranlib -lft $(NAME)
+			$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
 # OBJECTS:	$(SRCS) $(INCLUDE)
 # 			$(CC) $(DEBUG) $(CFLAGS) -c -o $(SRCS)
 
 clean:
-			@make clean -C libft
 			$(REMOVE) $(OBJECTS)
 			@echo removing all objects
 
 
 fclean:		clean
-			@make fclean -C libft
 			$(REMOVE) $(NAME)
 			@echo removing $(NAME)
 
@@ -108,11 +91,11 @@ re:			fclean $(NAME)
 # SPECIAL RULES
 
 info:	
-			@echo Makefile for \'push_swap\' v1.0.04072023 by nfilipe-
+			@echo Makefile for \'Philosophers\' v0.0.06072023 by nfilipe-
 
 acknowledgments:	
-			@echo my deepest gratitude to my coleagues @ 42 Lisboa: fmouronh, \
-			gpardini, plopes-c & rteles-f for their insight, tips and enthusiasm
+			@echo my deepest gratitude to my coleagues @ 42 Lisboa \
+			for their insight, tips and enthusiasm
 
 # A phony target is one that is not really the name of a file; rather it \
 is just a name for a recipe to be executed when you make an explicit \

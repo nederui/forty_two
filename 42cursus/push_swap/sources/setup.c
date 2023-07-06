@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:42:28 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/29 17:16:10 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:10:48 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	validate_arguments(int argc, char **argv)
 			validate_arg_array(argc, argv[i]);
 		else
 		{
+			if (!check_arg_len(argv[i]))
+				return (error_());
 			number = atoi_pswap(argv[i]);
 			if (!check_integer(number) || !check_duplicate(number))
 				return (error_());

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:43:44 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/29 18:25:07 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:09:59 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		validate_arguments(int argc, char **argv);
 int		check_digits(char *argument);
 int		check_spaces(char *argument);
 int		validate_arg_array(int argc, char *argument);
+int		check_arg_len(char *arg);
 int		check_integer(long number);
 int		check_duplicate(int number);
 int		stack_it(int argc, int number);

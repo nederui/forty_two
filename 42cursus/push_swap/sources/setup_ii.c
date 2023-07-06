@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:10 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/29 17:21:45 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:09:38 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ int	check_duplicate(int number)
 int	check_integer(long number)
 {
 	if (number < INT_MIN || number > INT_MAX)
+		return (FAILURE);
+	return (SUCCESS);
+}
+
+int	check_arg_len(char *arg)
+{
+	if (ft_strlen(arg) > 11 || (ft_strlen(arg) > 10 && arg[0] != '-'))
 		return (FAILURE);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: nfilipe- <nfilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:42:52 by nfilipe-          #+#    #+#             */
-/*   Updated: 2023/06/29 18:21:57 by nfilipe-         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:20:57 by nfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	print_stacks(void)
 
 // a debug function that prints out the content of cloned stacks to the STDOUT
 void	print_clone(void)
-{	
+{
 	t_list	*clone;
 	t_list	*clone_b;
 
